@@ -1,18 +1,18 @@
-// ItemThiTruong.js
+// NewsItem.js
 import React from 'react';
-import tonghop from './csstonghop.css';
+import './csstonghop.css';
 
-const NewsItem = ({ category, title, description, image }) => {
+const NewsArticle = ({ category, title, description, image }) => {
     return (
-        <div className={tonghop.newsItem}>
-            <img src={image} alt={title} className={tonghop.newsItemImage} />
-            <div className={tonghop.newsItemContent}>
-                <p className={tonghop.newsItemCategory}>{category}</p>
-                <h4 className={tonghop.newsItemTitle}>{title}</h4>
-                <p className={tonghop.newsItemDescription}>{description}</p>
+        <div className="news-article">
+            <img src={image} alt={title} className="news-article-image" />
+            <div className="news-article-content">
+                <p className="news-article-category">{category}</p>
+                <h4 className="news-article-title">{title}</h4>
+                <p className="news-article-description">{description}</p>
             </div>
         </div>
     );
 };
 
-export default NewsItem;
+export default NewsArticle;

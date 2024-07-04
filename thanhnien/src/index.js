@@ -9,8 +9,8 @@ import ListTongHop from "./Components/tintonghop/ListTongHop";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ListThiTruong/>
-      {/*<ListTongHop/>*/}
+    {/*<ListThiTruong/>*/}
+      <ListTongHop/>
   </React.StrictMode>
 );
 
