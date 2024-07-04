@@ -1,7 +1,7 @@
-// NewsList.js
+// ListThiTruong.js
 import React from 'react';
-import NewsItem from './NewsItem';
-import './News.css';
+import ItemThiTruong from './ItemThiTruong';
+import thitruong from './cssthitruong.css';
 
 const newsData = [
     {
@@ -31,13 +31,13 @@ const newsData = [
     // Add more news items here
 ];
 
-const NewsList = () => {
+const ListThiTruong = () => {
     return (
         <div className="news-list">
             <h2>Tin thị trường</h2>
             <div className="news-grid">
                 {newsData.map((news, index) => (
-                    <NewsItem
+                    <ItemThiTruong
                         key={index}
                         category={news.category}
                         title={news.title}
@@ -50,4 +50,4 @@ const NewsList = () => {
     );
 };
 
-export default NewsList;
+export default ListThiTruong;
