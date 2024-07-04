@@ -1,0 +1,52 @@
+/* NewsItem.css */
+.news-item {
+    width: 23%;
+    margin: 1%;
+    padding: 10px;
+}
+
+.news-item-image {
+    width: 100%;
+    height: auto;
+}
+
+.news-item-content {
+    padding: 10px 0;
+}
+
+.news-item-category {
+    font-weight: bold;
+    color: #666;
+    margin: 5px 0;
+}
+
+.news-item-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-family: Merriweather, serif;
+}
+
+.news-item-description {
+    color: #333;
+}
+/* NewsList.css */
+.news-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.news-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.news-grid {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các item xuống dòng mới khi cần */
+    justify-content: flex-start;
+}
+
+.news-grid > * { /* Áp dụng cho tất cả các phần tử con trực tiếp của .news-grid */
+    flex: 0 0 23%; /* Không co giãn, không thu nhỏ, chiếm 25% chiều rộng của container */
+    box-sizing: border-box; /* Bao gồm padding và border vào tính toán chiều rộng */
+}
