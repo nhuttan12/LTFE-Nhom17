@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
+import Header from './Components/Header/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/*<ListThiTruong/>*/}
-      <ListTongHop/>
+      {/* <ListTongHop/> */}
+      <Header/>
   </React.StrictMode>
 );
 
