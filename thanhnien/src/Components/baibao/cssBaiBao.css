@@ -68,23 +68,29 @@
         display: flex;
         align-items: center;
         position: relative;
-        p{
+        a{
+            text-decoration: none;
             border-right:1px solid #8b8b8b;
             margin-right: 10px;
             padding-right: 10px;
 
         }
-        .ItemTitle{
-            background-color: #007bff;
-            position: absolute;
-            p{
-                z-index: 2;
-                border: none;
-                padding:0 10px;
-                margin: 8px;
-                display: none;
-            }
-        }
+
+    }
+}
+.ItemTitle{
+    background-color: white;
+    position: absolute;
+    width: auto;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    right: 0;
+    a{
+        text-decoration: none;
+        z-index: 2;
+        border: none!important;
+        padding:0 10px;
+        margin: 8px;
+        display: none;
     }
 }
 .ds-noi-dung {
@@ -107,7 +113,12 @@
 }
 a{
     text-decoration: none;
+    color: black;
 }
 a:hover{
     color: #00a5e0;
+    cursor: pointer ;
+}
+.iconMenu:hover .ItemTitle a{
+    display: block;
 }

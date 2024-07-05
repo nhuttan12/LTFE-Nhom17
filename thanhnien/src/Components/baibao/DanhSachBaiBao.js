@@ -30,7 +30,6 @@ const duLieuTinTuc = [
         hinhAnh: "https://images2.thanhnien.vn/zoom/325_203/528068263637045248/2024/7/5/2024-07-04t224716z1430989369rc2mo8al9ba9rtrmadp3usa-biden-1720138163365241914805-0-0-1539-2463-crop-17201381924301412591537.jpg"
     }
 ];
-const [isOpen, setIsOpen] = useState(false);
 
 const DanhSachBaiBao = () => {
     return (
@@ -38,29 +37,19 @@ const DanhSachBaiBao = () => {
             <div className="ds-tieu-de">
                 <h2>Thế giới</h2>
                 <div className="menuRight">
-                    <p>Chính trị</p>
-                    <p>Pháp luật</p>
-                    <p>Dân sinh</p>
-                    <div className="dropdown"
-                        onMouseEnter={() => setIsOpen(true)}
-                        onMouseLeave={() => setIsOpen(false)}>
-                        <button className="dropdown-toggle">Menu</button>
-                        {isOpen && (
-                            <ul className="dropdown-menu">
-                                <li>Item 1</li>
-                                <li>Item 2</li>
-                                <li>Item 3</li>
-                            </ul>
-                        )}
-                    </div>
+                    <a href="#">Chính trị</a>
+                    <a href="#">Pháp luật</a>
+                    <a href="#">Dân sinh</a>
+                    <div className="iconMenu">
                     <FontAwesomeIcon icon={faAngleDown}/>
-                    <div className="ItemTitle">
-                        <p>Lao động - Việc làm</p>
-                        <p>Quyền được biết</p>
-                        <p>Phóng sự / Điều tra</p>
-                        <p>Quốc phòng</p>
-                        <p>Chống tin giả</p>
-                        <p>Thời luận</p>
+                        <div className="ItemTitle">
+                            <a href="#">Lao động - Việc làm</a>
+                            <a href="#">Quyền được biết</a>
+                            <a href="#">Phóng sự / Điều tra</a>
+                            <a href="#">Quốc phòng</a>
+                            <a href="#">Chống tin giả</a>
+                            <a href="#">Thời luận</a>
+                        </div>
                     </div>
                 </div>
             </div>
