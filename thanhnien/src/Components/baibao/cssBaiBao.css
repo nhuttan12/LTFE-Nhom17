@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Merriweather;
+    src: url("https://static.thanhnien.com.vn/fonts/Merriweather-Bold.woff2");
+}
+/* BaiBao.css */
+.bai-bao {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.bai-bao-hinh-anh {
+    width: 325px;
+    height: 205px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.bai-bao-noi-dung {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bai-bao-chu-de {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.bai-bao-tieu-de {
+    font-size: 17px;
+    margin: 10px 0;
+    font-family: Merriweather;
+}
+
+.bai-bao-mo-ta {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Inter, sans-serif;
+}
+/* DanhSachBaiBao.css */
+.danh-sach-bai-bao {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.danh-sach-bai-bao h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.danh-sach-bai-bao-noi-dung {
+    display: flex;
+    gap: 20px;
+}
+
+.bai-bao {
+    width: 48%;
+}
