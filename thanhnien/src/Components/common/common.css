@@ -1,0 +1,132 @@
+
+body {
+    background-color: #f6f6f6;
+    font-family: Merriweather;
+    font-size: 14px;
+}
+
+/* Footer.css */
+.footer {
+    background-color: #f6f6f6;
+    color: #333;
+    font-family: Arial, sans-serif;
+    width: 1150px !important;
+    margin: auto auto;
+}
+
+.footer-top {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    font-size: 15px;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-sections h4 {
+    margin: 10px 0 16px;
+    font-weight: 500;
+    color: #454545;
+}
+
+
+.footer-contact img {
+    height: 40px;
+    margin-right: 240px;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-contact a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-middle {
+    background-color: #f6f6f6;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.footer-middle nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footer-middle nav ul li {
+    margin: 0 10px;
+}
+
+.footer-middle nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.footer-middle .social-media {
+    margin-top: 10px;
+}
+
+.footer-middle .social-media a {
+    color: #333;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #f6f6f6;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-middle .textblur a {
+    color: #8b8b8b;
+    padding-left: 20px;
+    border-left: solid 1px #8b8b8b;
+    font-weight: 500;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-bottom .container div {
+    width: 400px;
+    text-align: left;
+    color: #8b8b8b;
+}
+
+.footer-bottom .container .btomleft {
+    width: 160px;
+
+    a {
+        color: #0098d1;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+    }
+}

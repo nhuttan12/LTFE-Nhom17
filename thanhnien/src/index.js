@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
+import Footer from "./Components/common/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     {/*<ListThiTruong/>*/}
     {/*  <ListTongHop/>*/}
       <DanhSachBaiBao/>
+      <Footer/>
   </React.StrictMode>
 );
 
