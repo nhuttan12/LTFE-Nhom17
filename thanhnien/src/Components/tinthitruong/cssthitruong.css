@@ -1,8 +1,13 @@
+@font-face {
+    font-family: Merriweather;
+    src: url("https://static.thanhnien.com.vn/fonts/Merriweather-Bold.woff2");
+}
 /* ItemThiTruong.css */
 .news-item {
     width: 23%;
     margin: 1%;
     padding: 10px;
+    font-family: Merriweather;
 }
 
 .news-item-image {
@@ -15,13 +20,14 @@
 }
 
 .news-item-category {
-    font-weight: bold;
     color: #8b8b8b;
     margin: 5px 0;
+    font-family: Arial, serif;
+    font-weight: bold;
 }
 
 .news-item-title {
-    font-size: 1em;
+    font-size: 14px;
     margin: 10px 0;
 }
 
@@ -33,7 +39,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
-    font-family: Merriweather, serif;
 }
 
 .news-list h2 {
