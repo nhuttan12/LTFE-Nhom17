@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './csstonghop.css';
 import ItemMore from './ItemMore';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 const moreData = [
     {
@@ -28,7 +30,7 @@ const NewsArticle = ({ category, title, description, image }) => {
             <div className="news-article-content">
                 <p className="news-article-category">{category}</p>
                 <h4 className="news-article-title">{title}</h4>
-                <p className="news-article-description"><i className="fa-regular fa-circle"></i>{description}</p>
+                <p className="news-article-description"><FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }}/>{description}</p>
                 {showMoreItems && (
                     <div className="more-items">
                         {moreData.map((news, index) => (
