@@ -8,7 +8,7 @@ const newsData = [
         category: "Pháp luật",
         title: "Sự thật về người phụ nữ nước ngoài xin tiền giữa đường vì 'bị bỏ lại'",
         description: "Trục xuất 3 người Pakistan chiếm đoạt tài sản các cửa hàng ở Đà Nẵng",
-        image: "https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/7/4/a-17200590718341607077244-19-0-694-1080-crop-17200591070231276018696.jpg"
+        image: "https://images2.thanhnien.vn/zoom/320_427/528068263637045248/2024/7/4/tay-tang-17200671803771825746926-0-420-826-1040-crop-17200762417642021561101.png"
     },
     {
         category: "Dân sinh",
