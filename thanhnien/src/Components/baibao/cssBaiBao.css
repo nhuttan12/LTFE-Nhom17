@@ -7,8 +7,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
+    padding:0 0 20px 16px;
+    border-left: 1px solid #ebebeb;
 }
 
 .bai-bao-hinh-anh {
@@ -33,32 +33,81 @@
     margin: 10px 0;
     font-family: Merriweather;
 }
+.tieude1 {
+    font-size: 17px;
+    margin: 10px 0;
+    font-family: Merriweather;
+}
 
 .bai-bao-mo-ta {
     color: #333;
     font-size: 16px;
-    font-weight: 500;
-    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-family:  serif;
+    padding: 15px 0 10px;
+    height: 40px;
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
 }
 /* DanhSachBaiBao.css */
-.danh-sach-bai-bao {
-    max-width: 1000px;
+.ds-bai-bao {
     margin: 0 auto;
     padding: 20px 0;
+    width: 1150px!important;
 }
-
-.danh-sach-bai-bao h2 {
+.ds-bai-bao h2 {
     text-align: left;
     margin-bottom: 20px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #00a5e0;
     padding-bottom: 10px;
 }
+.ds-tieu-de{
+    display: flex;
+    justify-content: space-between;
+    .menuRight{
+        display: flex;
+        align-items: center;
+        position: relative;
+        p{
+            border-right:1px solid #8b8b8b;
+            margin-right: 10px;
+            padding-right: 10px;
 
-.danh-sach-bai-bao-noi-dung {
+        }
+        .ItemTitle{
+            background-color: #007bff;
+            position: absolute;
+            p{
+                z-index: 2;
+                border: none;
+                padding:0 10px;
+                margin: 8px;
+                display: none;
+            }
+        }
+    }
+}
+.ds-noi-dung {
     display: flex;
     gap: 20px;
 }
-
 .bai-bao {
     width: 48%;
+}
+.mota1{
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #454545;
+    padding-left: 18px;
+    display: block;
+    position: relative;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #00a5e0;
 }

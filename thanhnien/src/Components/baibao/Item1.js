@@ -1,6 +1,8 @@
 // BaiBao.js
 import React from 'react';
 import './cssBaiBao.css';
+import {faCircle} from "@fortawesome/free-regular-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Item1 = ({image,detail, title, category }) => {
     return (
@@ -9,7 +11,7 @@ const Item1 = ({image,detail, title, category }) => {
             <div className="noidung1">
                 <h4 className="tieude1">{detail}</h4>
                 <p className="chitiet1">{category}</p>
-                <p className="mota1">{title}</p>
+                <a href="#" className="mota1"><FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }}/>{title}</a>
             </div>
         </div>
     );
