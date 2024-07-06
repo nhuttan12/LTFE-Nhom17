@@ -1,18 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
-import Header from './Components/Header/Header';
+import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
+import Footer from "./Components/common/Footer";
+import Header from "./Components/Header/Header";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/*<ListThiTruong/>*/}
-      {/* <ListTongHop/> */}
-      <Header/>
+    {/* <ListTongHop/> */}
+    <Header />
+    {/*  <ListTongHop/>*/}
+    {/* <DanhSachBaiBao/>
+      <Footer/> */}
   </React.StrictMode>
 );
 
