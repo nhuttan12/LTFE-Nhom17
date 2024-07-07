@@ -14,7 +14,8 @@ root.render(
     {/*<ListThiTruong/>*/}
     {/*  <ListTongHop/>*/}
       <DanhSachBaiBao/>
-      <Footer/>
+    {/*  <Footer/>*/}
+    {/*  <App/>*/}
   </React.StrictMode>
 );
 

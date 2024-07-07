@@ -1,10 +1,12 @@
 // DanhSachBaiBao.js
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import BaiBao from './BaiBao';
 import './cssBaiBao.css';
 import Item1 from "./Item1";
 import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import thoisuData from '../../Json/thoisu.json'; // Import dữ liệu từ file JSON
+
 const ItemData = [
     {
         image:
@@ -32,6 +34,41 @@ const duLieuTinTuc = [
 ];
 
 const DanhSachBaiBao = () => {
+    const [data, setData] = useState(null);
+    const [randomArticles, setRandomArticles] = useState([]);
+
+    useEffect(() => {
+        setData(thoisuData);
+    }, []);
+
+    const getRandomElements = (arr) => {
+        let shuffled = arr.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 3);
+    };
+
+    useEffect(() => {
+        if (data) {
+            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
+            const currentTime = Date.now();
+
+            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 2 minutes
+                const newRandomArticles = getRandomElements(data.items);
+                setRandomArticles(newRandomArticles);
+                localStorage.setItem('lastShuffleTime', currentTime);
+                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
+            } else {
+                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
+                setRandomArticles(shuffledArticles);
+            }
+        }
+    }, [data]);
+    const firstArticle = randomArticles[0];
+    const otherArticles = randomArticles.slice(1);
+    const decodeHtmlEntities = (str) => {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = str;
+        return txt.value;
+    };
     return (
         <div className="ds-bai-bao">
             <div className="ds-tieu-de">
@@ -54,23 +91,28 @@ const DanhSachBaiBao = () => {
                 </div>
             </div>
             <div className="ds-noi-dung">
-                {ItemData.map((news, index) => (
-                    <Item1 key={index} title={news.title} image={news.image} detail={news.detail}
-                           category={news.category}/>
-                ))}
-                {duLieuTinTuc.map((baiBao, index) => (
+                {firstArticle && (
+                    <Item1
+                        title={decodeHtmlEntities(firstArticle.title)}
+                        image={firstArticle.content_html.match(/<img src="([^"]*)"/)[1]}
+                        detail={decodeHtmlEntities(firstArticle.summary)}
+                        category={decodeHtmlEntities(firstArticle.description)}
+                        description={decodeHtmlEntities(firstArticle.content_html)}
+                    />
+                )}
+                {otherArticles.map((item, index) => (
                     <BaiBao
                         key={index}
-                        chuDe={baiBao.chuDe}
-                        tieuDe={baiBao.tieuDe}
-                        moTa={baiBao.moTa}
-                        moTaPhu={baiBao.moTaPhu}
-                        hinhAnh={baiBao.hinhAnh}
+                        chuDe={decodeHtmlEntities(item.title)}
+                        tieuDe={decodeHtmlEntities(item.title)}
+                        moTa={decodeHtmlEntities(item.summary)}
+                        moTaPhu={decodeHtmlEntities(item.description)}
+                        hinhAnh={item.content_html.match(/<img src="([^"]*)"/)[1]}
                     />
                 ))}
-            </div>
-        </div>
-    );
-};
+                </div>
+                    </div>
+                    );
+                };
 
-export default DanhSachBaiBao;
+                export default DanhSachBaiBao;
