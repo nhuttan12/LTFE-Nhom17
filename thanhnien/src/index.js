@@ -16,6 +16,9 @@ root.render(
     {/* <ListTongHop/> */}
     <Header />
     {/*  <ListTongHop/>*/}
+      <DanhSachBaiBao/>
+    {/*  <Footer/>*/}
+    {/*  <App/>*/}
     {/* <DanhSachBaiBao/>
       <Footer/> */}
   </React.StrictMode>
