@@ -8,6 +8,7 @@ import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/common/Footer";
 import ListGioiTreVaDoiSong from './Components/tingioitrevadoisong/ListGioiTreVaDoiSong';
+import List24h from './Components/tin24h/List24h';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,8 +17,9 @@ root.render(
     {/*  <ListTongHop/>*/}
     {/* Đang bị bug */}
     <ListGioiTreVaDoiSong/>
-      <DanhSachBaiBao/>
-      <Footer/>
+    {/* <List24h/> */}
+    {/* <DanhSachBaiBao/> */}
+    {/* <Footer/> */}
   </React.StrictMode>
 );
 
