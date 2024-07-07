@@ -43,7 +43,7 @@ const DanhSachBaiBao = () => {
 
     const getRandomElements = (arr) => {
         let shuffled = arr.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, 3);
+        return shuffled.slice(0, 7);
     };
 
     useEffect(() => {
@@ -63,11 +63,25 @@ const DanhSachBaiBao = () => {
         }
     }, [data]);
     const firstArticle = randomArticles[0];
-    const otherArticles = randomArticles.slice(1);
+    const nextTwoArticles = randomArticles.slice(1, 3);
+    const nextFourArticles = randomArticles.slice(3, 7);
+
     const decodeHtmlEntities = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
         return txt.value;
+    };
+    const extractContentAfterLinks = (htmlString) => {
+        const contentHtml = htmlString;
+        const regex = /<\/a>(.*)/; // Tìm kiếm mọi thứ sau thẻ </a>
+        const match = contentHtml.match(regex);
+
+        if (match) {
+            const textContent = match[1].trim(); // Lấy phần tử thứ 2 (nội dung) và loại bỏ khoảng trắng thừa
+            console.log(textContent); // In ra nội dung
+            return textContent;
+        }
+        return ' ';
     };
     return (
         <div className="ds-bai-bao">
@@ -97,16 +111,17 @@ const DanhSachBaiBao = () => {
                         image={firstArticle.content_html.match(/<img src="([^"]*)"/)[1]}
                         detail={decodeHtmlEntities(firstArticle.summary)}
                         category={decodeHtmlEntities(firstArticle.description)}
-                        description={decodeHtmlEntities(firstArticle.content_html)}
+                        url={firstArticle.url}
+                        description={decodeHtmlEntities(extractContentAfterLinks(firstArticle.content_html))}
                     />
                 )}
-                {otherArticles.map((item, index) => (
+                {nextTwoArticles.map((item, index) => (
                     <BaiBao
                         key={index}
                         chuDe={decodeHtmlEntities(item.title)}
                         tieuDe={decodeHtmlEntities(item.title)}
-                        moTa={decodeHtmlEntities(item.summary)}
-                        moTaPhu={decodeHtmlEntities(item.description)}
+                        moTa={decodeHtmlEntities(extractContentAfterLinks(firstArticle.content_html))}
+                        moTaPhu={decodeHtmlEntities(extractContentAfterLinks(firstArticle.content_html))}
                         hinhAnh={item.content_html.match(/<img src="([^"]*)"/)[1]}
                     />
                 ))}
@@ -115,4 +130,4 @@ const DanhSachBaiBao = () => {
                     );
                 };
 
-                export default DanhSachBaiBao;
+export default DanhSachBaiBao;
