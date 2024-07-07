@@ -59,6 +59,7 @@ const ListGioiTreVaDoiSong = () => {
                             image={young.image}
                             title={young.title}
                             description={young.description}
+                            className={index===0 ? 'firstImage' : ''}
                         />
                     ))}
                 </div>
@@ -72,6 +73,7 @@ const ListGioiTreVaDoiSong = () => {
                             image={life.image}
                             title={life.title}
                             description={life.description}
+                            className={index===0 ? 'firstImage' : ''}
                         />
                     ))}
                 </div>
