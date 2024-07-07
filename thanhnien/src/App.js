@@ -1,21 +1,29 @@
-// import React, { useState, useEffect } from 'react';
-// import Parser from 'rss-parser';
-// import {type} from "@testing-library/user-event/dist/type";
-//
-// const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-// type
-// Props = {}
-// const App = ({}: Props) => {
-//   const [rssItems, setRssItems] = useState([]);
-//   useEffect(() => {
-//     const parser = new Parser();
-//     parser.parseURL(`${CORS_PROXY}https://www.reddit.com/.rss`, (err, feed) => {
-//       if (err) throw err;
-//       setRssItems(feed.items);
-//     });
-//     return (
-//         console.log(rssItems)
-//     )
-//   }, []);
-// }
-// export default App;
+import logo from './logo.svg';
+import './App.css';
+import Header from './Components/Header/Header';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+         Test pull request
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
