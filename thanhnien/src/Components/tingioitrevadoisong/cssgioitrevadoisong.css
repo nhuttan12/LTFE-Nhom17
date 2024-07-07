@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Merriweather;
+    src: url("https://static.thanhnien.com.vn/fonts/Merriweather-Bold.woff2");
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Container GioiTre_DoiSong css*/
+.young_life_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+}
+.young_life_container h2{
+    color: #333;
+    font-family: Arial, serif;
+    font-weight: bold;
+}
+/* Gioi tre css*/
+.youngContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: Merriweather;
+}
+.youngList{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0;
+}
+.young-item-image {
+    height: auto;
+    object-fit: cover; /* Thêm object-fit: cover */
+    min-width: 100px; /* Đặt min-width cho hình ảnh */
+    max-width: 200px;
+}
+.young-item-description {
+    color: #333;
+    margin: 0; /* Xóa khoảng cách xung quanh mô tả */
+    padding: 0;
+}
+.young-item {
+    max-width: 23%;
+    padding: 10px;
+    font-family: Merriweather;
+    display: flex;
+    flex-direction: row; /* Đảm bảo các phần tử con sắp xếp theo hàng ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử con */
+}
+
+
+/* Doi song css*/
+.lifeContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: Merriweather;
+}
+.lifeList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.life-item-image {
+    height: auto;
+    object-fit: cover; /* Thêm object-fit: cover */
+    min-width: 100px; /* Đặt min-width cho hình ảnh */
+    max-width: 200px;
+}
+.life-item-description {
+    color: #333;
+    margin: 0; /* Xóa khoảng cách xung quanh mô tả */
+    padding: 0;
+}
+.life-item {
+    max-width: 23%;
+    padding: 10px;
+    font-family: Merriweather;
+    display: flex;
+    flex-direction: row; /* Đảm bảo các phần tử con sắp xếp theo hàng ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử con */
+}
+
