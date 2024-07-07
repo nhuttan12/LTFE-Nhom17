@@ -6,14 +6,20 @@ import Item1 from "./Item1";
 import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import thoisuData from '../../Json/thoisu.json';
+import homeData from '../../Json/home.json';
 import {faCircle} from "@fortawesome/free-regular-svg-icons"; // Import dữ liệu từ file JSON
 
 const DanhSachBaiBao = () => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
-
+    function getRandomData() {
+        const dataSources = [homeData, thoisuData];
+        const randomIndex = Math.floor(Math.random() * dataSources.length);
+        return dataSources[randomIndex];
+    }
     useEffect(() => {
-        setData(thoisuData);
+        const randomData = getRandomData();
+        setData(randomData);
     }, []);
 
     const getRandomElements = (arr) => {
@@ -65,7 +71,7 @@ const DanhSachBaiBao = () => {
     return (
         <div className="ds-bai-bao">
             <div className="ds-tieu-de">
-                <h2>Thế giới</h2>
+                <h2>{getRandomData().title}</h2>
                 <div className="menuRight">
                     <a href="#">Chính trị</a>
                     <a href="#">Pháp luật</a>
