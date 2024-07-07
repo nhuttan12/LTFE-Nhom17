@@ -2,27 +2,31 @@
     font-family: Merriweather;
     src: url("https://static.thanhnien.com.vn/fonts/Merriweather-Bold.woff2");
 }
-/* tin 24h container css */
-.container-24h {
+/* tinnhanh360 container css */
+.tinnhanh360-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
 }
 
-.container-24h h2 {
+.tinnhanh360-title {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.tinnhanh360-title span{
     color: #333;
-    font-family: Arial, serif;
-    font-weight: bold;
+    font-family: 'Playfair Display';
+    font-weight: 300;
+    font-style: italic;
 }
-
-/* Item tin 24h css */
-.list24h {
+/* Item tinh nhanh 360 */
+.tinnhanh360List {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 
-.item-24h {
+.tinnhanh360-item {
     max-width: 20%;
     display: flex;
     font-family: Merriweather;
@@ -30,13 +34,17 @@
     flex-wrap: wrap;
 }
 
-.item-24h-image {
+.categoryLink {
+    color: #0098d1;
+}
+
+.tinnhanh360-item-image {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-.item-24h-description {
+.tinnhanh360-item-description {
     color: #333;
     margin: 0; /* Xóa khoảng cách xung quanh mô tả */
     padding: 0;

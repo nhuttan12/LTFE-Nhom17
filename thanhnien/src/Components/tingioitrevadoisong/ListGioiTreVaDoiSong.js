@@ -1,7 +1,7 @@
 import React from "react";
 import ItemGioiTre from "./ItemGioiTre";
 import ItemDoiSong from "./ItemDoiSong";
-import gioitredoisong from "./cssgioitrevadoisong.css"
+import gioitredoisongcss from "./cssgioitrevadoisong.css"
 const young_data = [
     {
         image:"https://images2.thanhnien.vn/zoom/300_188/528068263637045248/2024/7/6/14a1-1720271759729229230191-0-0-946-1514-crop-17202726744482006695067.jpeg",

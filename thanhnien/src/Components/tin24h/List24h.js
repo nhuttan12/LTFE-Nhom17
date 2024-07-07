@@ -1,6 +1,6 @@
 import React from "react";
 import Item24h from "./Item24h";
-import tin24h from "./csstin24h.css"
+import tin24hcss from "./csstin24h.css"
 const data_24h = [
     {
         image:"https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/7/tngt-7-7-17203379931331536144881-0-201-1124-2000-crop-17203380029322135637556.jpg",

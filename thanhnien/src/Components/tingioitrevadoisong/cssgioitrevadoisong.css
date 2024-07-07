@@ -71,7 +71,7 @@
     gap: 10px; /* Khoảng cách giữa các phần tử con */
 }
 
-/* Tấm ảnh đầu*/
+/* Tấm ảnh đầu của mỗi mục*/
 .firstImage {
     max-width: 30%;
     padding: 10px;
