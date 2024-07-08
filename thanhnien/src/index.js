@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
@@ -10,16 +10,21 @@ import Footer from "./Components/common/Footer";
 import ListGioiTreVaDoiSong from './Components/tingioitrevadoisong/ListGioiTreVaDoiSong';
 import List24h from './Components/tin24h/List24h';
 import ListTinNhanh360 from './Components/tinnhanh360/ListTinNhanh360';
+import Header from "./Components/Header/Header";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/*<ListThiTruong/>*/}
-    {/*  <ListTongHop/>*/}
-    {/* Đang bị bug */}
+    {/* <ListTongHop/> */}
+    <Header/>
     {/* <ListGioiTreVaDoiSong/> */}
-    <ListTinNhanh360/>
+    {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
+    <DanhSachBaiBao/>
+    {/* <Footer/> */}
+    {/* <App/> */}
     {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
   </React.StrictMode>
