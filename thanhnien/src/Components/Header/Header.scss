@@ -3,17 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.container {
-  .header {
-    margin-top: 30px;
-    .header-ov {
-      padding-left: 30px;
-      padding-right: 30px;
+body {
+  background: white;
+}
+.header {
+  margin-top: 30px;
+  width: 100%;
+  .header-ov {
+    background: #ebebeb;
+    width: 100%;
+    .header-os {
+      background: #ebebeb;
+      width: 1300px;
+      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #fafafa;
       .header-list {
         display: flex;
         align-items: center;
@@ -40,92 +45,97 @@
         }
       }
     }
-    .header-sticky {
-      .header-top {
-        margin-top: 20px;
-        border-bottom: 1px solid #d9d9d9;
-        padding-bottom: 30px;
-        .header-container {
-          .header-flex {
-            padding-left: 30px;
-            padding-right: 30px;
+  }
+  .header-sticky {
+    .header-top {
+      border-bottom: 1px solid #d9d9d9;
+      margin-top: 20px;
+      padding-bottom: 30px;
+      .header-container {
+        width: 1300px;
+        margin: auto;
+        .header-flex {
+          display: flex;
+          justify-content: space-between;
+          .header-left {
             display: flex;
-            justify-content: space-between;
-            .header-left {
+            align-items: center;
+            .search {
+              border: 0.5px solid #392f2f;
+              font-size: 1rem;
+              border-radius: 5px;
+              padding-left: 35px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png")
+                no-repeat left;
+              background-position: 10px;
+              background-size: 20px;
+            }
+          }
+          .header-right {
+            display: flex;
+            justify-content: flex-end;
+            div {
               display: flex;
               align-items: center;
-              .search {
-                border: 0.5px solid #392f2f;
-                font-size: 1rem;
-                border-radius: 5px;
-                padding-left: 35px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png")
-                  no-repeat left;
-                background-position: 10px;
-                background-size: 20px;
+              padding-right: 15px;
+              h5 {
+                font-weight: 450;
+                font-size: 0.8rem;
               }
-            }
-            .header-right {
-              display: flex;
-              justify-content: flex-end;
               div {
-                display: flex;
-                align-items: center;
-                padding-right: 15px;
-                h5 {
-                  font-weight: 450;
-                  font-size: 1rem;
-                }
-                div {
-                  padding-left: 16px;
-                  width: 50px;
-                  height: 50px;
-                  background: #fedb00;
-                  border-radius: 50%;
-                }
-              }
-              .login {
-                .login {
-                  padding-left: 16px;
+                padding-left: 16px;
+                width: 50px;
+                height: 50px;
+                background: #fedb00;
+                border-radius: 50%;
+                .icon {
+                  width: 100%;
                 }
               }
             }
-            .header-center {
-              width: 500px;
-              img {
-                float: right;
-                width: 300px;
+            .login {
+              padding-right: 0px;
+              .login {
+                padding-left: 16px;
+                background: #58cefa;
               }
+            }
+          }
+          .header-center {
+            width: 500px;
+            img {
+              float: right;
+              width: 300px;
             }
           }
         }
       }
-      .header-middle {
+    }
+    .header-middle {
+      width: 100%;
+      margin-top: 10px;
+      .header-container {
         width: 100%;
-        margin-top: 10px;
-        .header-container {
+        .header-nav {
           width: 100%;
-          .header-nav {
-            width: 100%;
-            .header-nav-flex {
-              margin: auto;
-              width: 1200px;
-              border-bottom: 2px solid #0098d1;
-              padding-bottom: 15px;
-              padding-right: 50px;
-              .menu-nav {
-                display: flex;
-                justify-content: space-between;
-                list-style: none;
-                li {
-                  a {
-                    text-decoration: none;
-                    color: black;
-                    font-weight: 600;
-                    font-size: .95rem;
-                  }
+          .header-nav-flex {
+            margin: auto;
+            width: 1200px;
+            border-bottom: 2px solid #0098d1;
+            padding-bottom: 15px;
+            padding-right: 50px;
+            .menu-nav {
+              display: flex;
+              justify-content: space-between;
+              list-style: none;
+              li {
+                a {
+                  text-decoration: none;
+                  color: black;
+                  font-weight: 600;
+                  font-size: 0.95rem;
                 }
               }
             }

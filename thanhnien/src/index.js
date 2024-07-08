@@ -8,6 +8,7 @@ import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/common/Footer";
 import Header from "./Components/Header/Header";
+import MainNews from "./Components/MainNews/MainNews";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
     {/*  <ListTongHop/>*/}
     {/* <DanhSachBaiBao/>
       <Footer/> */}
+      <MainNews/>
   </React.StrictMode>
 );
 
