@@ -7,11 +7,10 @@ import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/common/Footer";
+import Header from "./Components/common/Header";
 import ListGioiTreVaDoiSong from './Components/tingioitrevadoisong/ListGioiTreVaDoiSong';
 import List24h from './Components/tin24h/List24h';
 import ListTinNhanh360 from './Components/tinnhanh360/ListTinNhanh360';
-import Header from "./Components/Header/Header";
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
