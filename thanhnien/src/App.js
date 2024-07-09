@@ -1,4 +1,4 @@
-import Header from './Components/common/Header.js';
+import Header from './Components/common/Header';
 
 function App() {
   return (
