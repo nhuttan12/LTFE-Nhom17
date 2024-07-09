@@ -10,13 +10,13 @@ import homeData from '../../Json/home.json';
 import {faCircle} from "@fortawesome/free-regular-svg-icons"; // Import dữ liệu từ file JSON
 
 const DanhSachBaiBao = () => {
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
     function getRandomData() {
         const dataSources = [homeData, thoisuData];
         const randomIndex = Math.floor(Math.random() * dataSources.length);
         return dataSources[randomIndex];
     }
+    const [data, setData] = useState(null);
+    const [randomArticles, setRandomArticles] = useState([]);
     useEffect(() => {
         const randomData = getRandomData();
         setData(randomData);
@@ -32,7 +32,7 @@ const DanhSachBaiBao = () => {
             const storedShuffleTime = localStorage.getItem('lastShuffleTime');
             const currentTime = Date.now();
 
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 2 minutes
+            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
                 const newRandomArticles = getRandomElements(data.items);
                 setRandomArticles(newRandomArticles);
                 localStorage.setItem('lastShuffleTime', currentTime);

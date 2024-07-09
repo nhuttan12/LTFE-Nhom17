@@ -12,7 +12,7 @@ const moreData = [
     },
 ];
 
-const NewsArticle = ({ category, title, description, image }) => {
+const NewsArticle = ({ category, title, description, image, url }) => {
     const [showMoreItems, setShowMoreItems] = useState(false);
     const articleRef = useRef(null);
 
@@ -26,15 +26,17 @@ const NewsArticle = ({ category, title, description, image }) => {
 
     return (
         <div className="news-article" ref={articleRef}>
-            <img src={image} alt={title} className="news-article-image" />
+            <a href={url}><img src={image} title={title} className="news-article-image" alt={title}/></a>
             <div className="news-article-content">
-                <p className="news-article-category">{category}</p>
-                <h4 className="news-article-title">{title}</h4>
-                <p className="news-article-description"><FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }}/>{description}</p>
+                <a href={url} title={title}><p className="news-article-category">{category}</p></a>
+                <a href={url} title={title}><h4 className="news-article-title">{title}</h4></a>
+                <a href={url} title={description}><p className="news-article-description"><FontAwesomeIcon
+                    icon={faCircle} size={"2xs"}
+                    style={{marginRight: '10px'}}/>{description}</p></a>
                 {showMoreItems && (
                     <div className="more-items">
                         {moreData.map((news, index) => (
-                            <ItemMore key={index} title={news.title} image={news.image} />
+                            <ItemMore key={index} title={news.title} image={news.image}/>
                         ))}
                     </div>
                 )}
