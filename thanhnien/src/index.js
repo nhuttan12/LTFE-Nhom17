@@ -18,7 +18,10 @@ root.render(
     {/*<ListThiTruong/>*/}
     {/* <ListTongHop/> */}
     {/* <Header/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
+    <div>
+    <ListGioiTreVaDoiSong/>
+    </div>
+    
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
     {/* <DanhSachBaiBao/> */}

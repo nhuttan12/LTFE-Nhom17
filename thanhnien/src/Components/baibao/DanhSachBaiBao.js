@@ -5,8 +5,8 @@ import './cssBaiBao.css';
 import Item1 from "./Item1";
 import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import thoisuData from '../../Json/thoisu.json';
-import homeData from '../../Json/home.json';
+import thoisuData from '../../Json/thoisu';
+import homeData from '../../Json/home';
 import {faCircle} from "@fortawesome/free-regular-svg-icons"; // Import dữ liệu từ file JSON
 
 const DanhSachBaiBao = () => {
