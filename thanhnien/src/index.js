@@ -18,11 +18,11 @@ root.render(
   <React.StrictMode>
     {/*<ListThiTruong/>*/}
     {/* <ListTongHop/> */}
-    <Header/>
+    {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
-    <DanhSachBaiBao/>
+    {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
     {/* <App/> */}
     {/* <DanhSachBaiBao/> */}
