@@ -8,19 +8,24 @@ import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/common/Footer";
 import Header from "./Components/common/Header";
+import ListGioiTreVaDoiSong from './Components/tingioitrevadoisong/ListGioiTreVaDoiSong';
+import List24h from './Components/tin24h/List24h';
+import ListTinNhanh360 from './Components/tinnhanh360/ListTinNhanh360';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/*<ListThiTruong/>*/}
     {/* <ListTongHop/> */}
-    <Header />
-    {/*  <ListTongHop/>*/}
-      <DanhSachBaiBao/>
-    {/*  <Footer/>*/}
-    {/*  <App/>*/}
-    {/* <DanhSachBaiBao/>
-      <Footer/> */}
+    <Header/>
+    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <ListTinNhanh360/> */}
+    {/* <List24h/> */}
+    <DanhSachBaiBao/>
+    {/* <Footer/> */}
+    {/* <App/> */}
+    {/* <DanhSachBaiBao/> */}
+    {/* <Footer/> */}
   </React.StrictMode>
 );
 
