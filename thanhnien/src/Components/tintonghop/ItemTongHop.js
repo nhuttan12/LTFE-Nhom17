@@ -12,7 +12,7 @@ const moreData = [
     },
 ];
 
-const NewsArticle = ({ category, title, description, image, url }) => {
+const NewsArticle = ({ category, title, description, image,imgsize, url }) => {
     const [showMoreItems, setShowMoreItems] = useState(false);
     const articleRef = useRef(null);
 
@@ -26,7 +26,7 @@ const NewsArticle = ({ category, title, description, image, url }) => {
 
     return (
         <div className="news-article" ref={articleRef}>
-            <a href={url}><img src={image} title={title} className="news-article-image" alt={title}/></a>
+            <a href={url}><img src={image} title={title} style={{ height: imgsize }} className="news-article-image" alt={title}/></a>
             <div className="news-article-content">
                 <a href={url} title={title}><p className="news-article-category">{category}</p></a>
                 <a href={url} title={title}><h4 className="news-article-title">{title}</h4></a>

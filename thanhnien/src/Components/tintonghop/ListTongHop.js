@@ -91,6 +91,17 @@ const ArticleList = () => {
 
         return "Tổng hợp"; // Hoặc trả về một giá trị mặc định khác nếu không tìm thấy
     }
+    function getImageSize(title) {
+        const lowerCaseTitle = title.toLowerCase();
+        const keywords = ["euro", "world cup", "bóng đá"]; // Mảng các từ khóa
+
+        if (keywords.some(keyword => lowerCaseTitle.includes(keyword))) {
+            return "400px";
+        } else {
+            return undefined;
+        }
+    }
+
 
     if (!randomArticles.length) {
         return <div>Loading...</div>;
@@ -107,6 +118,7 @@ const ArticleList = () => {
                     category={getCategoryFromTitle(item.title)}
                     title={decodeHtmlEntities(item.title)}
                     image={item.content_html.match(/<img src="([^"]*)"/)[1]}
+                    imgsize={getImageSize(item.title)} // Truyền imageSize vào props
                     description={decodeHtmlEntities(extractContentAfterLinks(item.content_html))}
                     url={item.url}
                 />
