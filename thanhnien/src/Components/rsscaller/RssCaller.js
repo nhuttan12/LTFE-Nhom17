@@ -2,7 +2,7 @@ import Parser from 'rss-parser';
 
 // url = https://thanhnien.vn/rss
 
-// Khi sử dụng hãy thêm async để data() không bị underfined
+// Khi sử dụng hãy thêm async, await để data() không bị underfined
 
 class RssCaller {
     constructor(url) {
