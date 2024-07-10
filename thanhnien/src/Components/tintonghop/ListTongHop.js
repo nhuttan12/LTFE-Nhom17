@@ -8,13 +8,8 @@ import thethaoData from '../../Json/thethao.json';
 const ArticleList = () => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
-    function getRandomData() {
-        const dataSources = ["Thời sự", "Tổng hợp"];
-        const randomIndex = Math.floor(Math.random() * dataSources.length);
-        return dataSources[randomIndex];
-    }
     useEffect(() => {
-        setData(thethaoData);
+        setData(homeData);
     }, []);
 
     const getRandomElements = (arr, numElements) => {
@@ -96,7 +91,7 @@ const ArticleList = () => {
         const keywords = ["euro", "world cup", "bóng đá"]; // Mảng các từ khóa
 
         if (keywords.some(keyword => lowerCaseTitle.includes(keyword))) {
-            return "400px";
+            return "425px";
         } else {
             return undefined;
         }

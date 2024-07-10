@@ -29,6 +29,14 @@
 .news-item-title {
     font-size: 14px;
     margin: 10px 0;
+    width: 405px;
+    width: 149px;
+    height: auto; /* Cho phép chiều cao tự động điều chỉnh theo số dòng */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Số dòng tối đa hiển thị */
+    -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
 }
 
 .news-item-description {
@@ -36,7 +44,7 @@
 }
 /* ListThiTruong.css */
 .news-list {
-    max-width: 1200px;
+    max-width: 735px;
     margin: 0 auto;
     padding: 20px 0;
 }
