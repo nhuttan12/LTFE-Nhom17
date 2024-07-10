@@ -8,8 +8,9 @@ import thethaoData from '../../Json/thethao.json';
 const ArticleList = () => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
+
     useEffect(() => {
-        setData(homeData);
+        setData(thethaoData);
     }, []);
 
     const getRandomElements = (arr, numElements) => {
@@ -23,7 +24,7 @@ const ArticleList = () => {
             const currentTime = Date.now();
 
             if (!storedShuffleTime || currentTime - storedShuffleTime >= 1000) { // 2 minutes 120000 // 30 seconds 30000
-                const newRandomArticles = getRandomElements(data.items, 4);
+                const newRandomArticles = getRandomElements(data.items, 6);
                 setRandomArticles(newRandomArticles);
                 localStorage.setItem('lastShuffleTime', currentTime);
                 localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
@@ -33,7 +34,11 @@ const ArticleList = () => {
             }
         }
     }, [data]);
-
+    if (!randomArticles.length) {
+        return <div>Loading...</div>;
+    }
+    const firstThree = randomArticles.slice(0, 3);
+    const nextThree = randomArticles.slice(3);
     const decodeHtmlEntities = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
@@ -49,9 +54,9 @@ const ArticleList = () => {
         }
         return '';
     };
-    function getCategoryFromTitle(title) {
-        const lowerCaseTitle = title.toLowerCase();
 
+    const getCategoryFromTitle = (title) => {
+        const lowerCaseTitle = title.toLowerCase();
         const keywordsAndCategories = {
             "euro": "Thể thao",
             "world cup": "Thể thao",
@@ -85,8 +90,9 @@ const ArticleList = () => {
         }
 
         return "Tổng hợp"; // Hoặc trả về một giá trị mặc định khác nếu không tìm thấy
-    }
-    function getImageSize(title) {
+    };
+
+    const getImageSize = (title) => {
         const lowerCaseTitle = title.toLowerCase();
         const keywords = ["euro", "world cup", "bóng đá"]; // Mảng các từ khóa
 
@@ -95,27 +101,21 @@ const ArticleList = () => {
         } else {
             return undefined;
         }
-    }
+    };
 
-
-    if (!randomArticles.length) {
-        return <div>Loading...</div>;
-    }
-
-    const firstArticle = randomArticles[0];
-    const nextThreeArticles = randomArticles.slice(1, 4);
 
     return (
         <div className="article-list">
-            {nextThreeArticles.map((item, index) => (
+            {firstThree.map((item, index) => (
                 <NewsArticle
                     key={index}
                     category={getCategoryFromTitle(item.title)}
                     title={decodeHtmlEntities(item.title)}
                     image={item.content_html.match(/<img src="([^"]*)"/)[1]}
-                    imgsize={getImageSize(item.title)} // Truyền imageSize vào props
+                    imgsize={getImageSize(item.title)}
                     description={decodeHtmlEntities(extractContentAfterLinks(item.content_html))}
                     url={item.url}
+                    data={nextThree[index] ? nextThree.slice(index, index + 1) : []}
                 />
             ))}
         </div>

@@ -116,20 +116,16 @@ const DanhSachBaiBao = () => {
                         tieuDe={decodeHtmlEntities(item.title)}
                         moTa={
                             index < linkData.length ? (
-                                <a
-                                    href={linkData[index].url}
-                                    title={decodeHtmlEntities(linkData[index].title)} className="bai-bao-mo-ta"
-                                >
+                                <a href={linkData[index].url}
+                                    title={decodeHtmlEntities(linkData[index].title)} className="bai-bao-mo-ta">
                                     {decodeHtmlEntities(linkData[index].title)}
                                 </a>
                             ) : null
                         }
                         moTaPhu={
                             index + 2 < linkData.length ? (
-                                <a
-                                    href={linkData[index + 2].url}
-                                    title={decodeHtmlEntities(linkData[index + 2].title)} className="bai-bao-mo-ta"
-                                >
+                                <a href={linkData[index + 2].url}
+                                    title={decodeHtmlEntities(linkData[index + 2].title)} className="bai-bao-mo-ta">
                                     {decodeHtmlEntities(linkData[index + 2].title)}
                                 </a>
                             ) : null
