@@ -10,7 +10,7 @@ const ArticleList = () => {
     const [randomArticles, setRandomArticles] = useState([]);
 
     useEffect(() => {
-        setData(thethaoData);
+        setData(homeData);
     }, []);
 
     const getRandomElements = (arr, numElements) => {
