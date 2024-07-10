@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.post {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+}
+.post .post-container {
+  margin-top: 25px;
+}
+.post .post-container .slide {
+  position: relative;
+  border-top: 1px solid #ebebeb;
+  width: 453%;
+}
+.post .post-container .post-box {
+  padding-top: 30px;
+}
+.post .post-container .post-box a .post-img {
+  width: 100%;
+}
+.post .post-container .post-box h5 .post-title {
+  font-size: 0.9rem;
+}/*# sourceMappingURL=MiniNews.css.map */
