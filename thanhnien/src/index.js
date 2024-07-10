@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/common/Footer";
+import MainNews from "./Components/MainNews/MainNews";
 import Header from "./Components/common/Header";
 import ListGioiTreVaDoiSong from './Components/tingioitrevadoisong/ListGioiTreVaDoiSong';
 import List24h from './Components/tin24h/List24h';
@@ -22,9 +24,16 @@ root.render(
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
     {/*<DanhSachBaiBao/>*/}
+    {/*<ListThiTruong/>*/}
+    <Header />
+      <Footer/> */}
+    <MainNews />
+    {/* <Header/> */}
+    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <ListTinNhanh360/> */}
+    {/* <List24h/> */}
     {/* <Footer/> */}
     {/* <App/> */}
-    {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
   </React.StrictMode>
 );
