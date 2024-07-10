@@ -9,6 +9,16 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
+import RssCaller from "../rsscaller/RssCaller.mjs"
+
+(async () => {
+  try {
+      const url = new RssCaller('https://thanhnien.vn/rss/doi-song.rss')
+      const feed = await url.data();
+  } catch (error) {
+      console.error("Error fetching RSS feed:", error);
+  }
+})();
 
 function Header() {
   return (

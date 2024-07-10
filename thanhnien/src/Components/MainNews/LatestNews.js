@@ -1,4 +1,5 @@
 import React from "react";
+import RssCaller from "../rsscaller/RssCaller.mjs"
 
 function LatestNews(props) {
   return (
