@@ -1,39 +1,121 @@
 // NewsList.js
-import React from 'react';
 import NewsArticle from './ItemTongHop';
 import './csstonghop.css';
-
-const newsData = [
-    {
-        category: "Pháp luật",
-        title: "Sự thật về người phụ nữ nước ngoài xin tiền giữa đường vì 'bị bỏ lại'",
-        description: "Trục xuất 3 người Pakistan chiếm đoạt tài sản các cửa hàng ở Đà Nẵng",
-        image: "https://images2.thanhnien.vn/zoom/320_427/528068263637045248/2024/7/4/tay-tang-17200671803771825746926-0-420-826-1040-crop-17200762417642021561101.png"
-    },
-    {
-        category: "Dân sinh",
-        title: "Xe của Bộ Công an xuất hiện trước nhà Bí thư huyện đảo Phú Quý",
-        description: "Khởi tố vụ án hình sự liên quan Khu đô thị du lịch biển của Tập đoàn Rạng Đông",
-        image: "https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/7/3/biden-172002265386397265920-27-0-1627-2560-crop-1720023365141372047404.jpg"
-    },
-    {
-        category: "Thế giới",
-        title: "Tổng thống Biden cân nhắc rời đường đua tranh cử?",
-        description: "Reuters: Tỷ lệ ủng hộ hai ông Biden - Trump ngang nhau",
-        image: "https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/7/3/avatar1720025080614-1720025081300109114682.jpeg"
-    }
-];
+import React, {useEffect, useState} from 'react';
+import homeData from '../../Json/home.json';
+import thethaoData from '../../Json/thethao.json';
 
 const ArticleList = () => {
+    const [data, setData] = useState(null);
+    const [randomArticles, setRandomArticles] = useState([]);
+
+    useEffect(() => {
+        setData(homeData);
+    }, []);
+
+    const getRandomElements = (arr, numElements) => {
+        let shuffled = arr.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, numElements);
+    };
+
+    useEffect(() => {
+        if (data) {
+            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
+            const currentTime = Date.now();
+
+            if (!storedShuffleTime || currentTime - storedShuffleTime >= 1000) { // 2 minutes 120000 // 30 seconds 30000
+                const newRandomArticles = getRandomElements(data.items, 6);
+                setRandomArticles(newRandomArticles);
+                localStorage.setItem('lastShuffleTime', currentTime);
+                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
+            } else {
+                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
+                setRandomArticles(shuffledArticles);
+            }
+        }
+    }, [data]);
+    if (!randomArticles.length) {
+        return <div>Loading...</div>;
+    }
+    const firstThree = randomArticles.slice(0, 3);
+    const nextThree = randomArticles.slice(3);
+    const decodeHtmlEntities = (str) => {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = str;
+        return txt.value;
+    };
+
+    const extractContentAfterLinks = (htmlString) => {
+        const regex = /<\/a>(.*)/;
+        const match = htmlString.match(regex);
+
+        if (match) {
+            return match[1].trim();
+        }
+        return '';
+    };
+
+    const getCategoryFromTitle = (title) => {
+        const lowerCaseTitle = title.toLowerCase();
+        const keywordsAndCategories = {
+            "euro": "Thể thao",
+            "world cup": "Thể thao",
+            "Messi": "Thể thao",
+            "covid": "Sức khỏe",
+            "vaccine": "Sức khỏe",
+            "quần": "Thời trang 24/7",
+            "áo": "Thời trang 24/7",
+            "thủ tướng": "Chính trị",
+            "lãnh sự quán": "Chính trị",
+            "pháp": "Thế giới",
+            "mỹ": "Thế giới",
+            "ukraine": "Thế giới",
+            "nga": "Thế giới",
+            "dân": "Dân sinh",
+            "vneid": "Thời sự",
+            "bồn": "Pháp luật",
+            "sinh viên": "Giới trẻ",
+            "nha khoa": "Y tế",
+            "đh": "Giáo dục",
+            "samsung": "Công nghệ",
+            "xiaomi": "Công nghệ",
+            "iphone": "Công nghệ",
+            // ... thêm các cặp từ khóa và danh mục khác
+        };
+
+        for (const keyword in keywordsAndCategories) {
+            if (lowerCaseTitle.includes(keyword)) {
+                return keywordsAndCategories[keyword];
+            }
+        }
+
+        return "Tổng hợp"; // Hoặc trả về một giá trị mặc định khác nếu không tìm thấy
+    };
+
+    const getImageSize = (title) => {
+        const lowerCaseTitle = title.toLowerCase();
+        const keywords = ["euro", "world cup", "bóng đá"]; // Mảng các từ khóa
+
+        if (keywords.some(keyword => lowerCaseTitle.includes(keyword))) {
+            return "425px";
+        } else {
+            return undefined;
+        }
+    };
+
+
     return (
         <div className="article-list">
-            {newsData.map((news, index) => (
+            {firstThree.map((item, index) => (
                 <NewsArticle
                     key={index}
-                    category={news.category}
-                    title={news.title}
-                    description={news.description}
-                    image={news.image}
+                    category={getCategoryFromTitle(item.title)}
+                    title={decodeHtmlEntities(item.title)}
+                    image={item.content_html.match(/<img src="([^"]*)"/)[1]}
+                    imgsize={getImageSize(item.title)}
+                    description={decodeHtmlEntities(extractContentAfterLinks(item.content_html))}
+                    url={item.url}
+                    data={nextThree[index] ? nextThree.slice(index, index + 1) : []}
                 />
             ))}
         </div>

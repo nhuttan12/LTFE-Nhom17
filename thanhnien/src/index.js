@@ -17,21 +17,23 @@ import ListTinNhanh360 from './Components/tinnhanh360/ListTinNhanh360';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <ListThiTruong/>
+     {/*<ListTongHop/>*/}
+    {/*<Header/>*/}
+    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <ListTinNhanh360/> */}
+    {/* <List24h/> */}
+    {/*<DanhSachBaiBao/>*/}
     {/*<ListThiTruong/>*/}
-    {/* <ListTongHop/> */}
     <Header />
-    {/*  <ListTongHop/>*/}
-    {/* <DanhSachBaiBao/>
       <Footer/> */}
     <MainNews />
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
-    {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
     {/* <App/> */}
-    {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
   </React.StrictMode>
 );
