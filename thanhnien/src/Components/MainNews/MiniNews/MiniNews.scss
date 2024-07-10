@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.post {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 35px;
+  .post-container {
+    margin-top: 25px;
+    .slide {
+      position: relative;
+      border-top: 1px solid #ebebeb;
+      width: 453%;
+    }
+    .post-box {
+      padding-top: 30px;
+      a {
+        .post-img {
+          width: 100%;
+        }
+      }
+      h5 {
+        .post-title {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
