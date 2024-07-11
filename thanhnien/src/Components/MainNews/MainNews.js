@@ -5,16 +5,19 @@ import PopularNews from "./PopularNews";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import MiniNews from "./MiniNews/MiniNews";
-import RssCaller from "../rsscaller/RssCaller.mjs"
+// import RssCaller from "../rsscaller/RssCaller.mjs"
 
-(async () => {
-  try {
-      const url = new RssCaller('https://thanhnien.vn/rss/doi-song.rss')
-      const feed = await url.data();
-  } catch (error) {
-      console.error("Error fetching RSS feed:", error);
-  }
-})();
+// var main_data;
+// (async () => {
+//   try {
+//       const url = new RssCaller('https://thanhnien.vn/rss/home.rss')
+//       const feed = await url.data();
+//       main_data=feed[0];
+//   } catch (error) {
+//       console.error("Error fetching RSS feed:", error);
+//   }
+// })();
+
 
 const main_data = {
   image:

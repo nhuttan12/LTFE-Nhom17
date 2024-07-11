@@ -6,7 +6,6 @@ function MiniNews(props) {
     <div className="post">
       {props.data.map((item, index) => (
         <div key={index} className="post-container">
-          {console.log(index)}
           {(index === 0 || index === 4) && <div className="slide"></div>}
           <div className="post-box">
             <a href={item.url}>

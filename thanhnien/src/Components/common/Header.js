@@ -1,36 +1,43 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBullhorn,
-  faCloud,
-  faHouse,
-  faMicrophone,
-  faNewspaper,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import "./Header.css";
-import RssCaller from "../rsscaller/RssCaller.mjs"
+import { TiWeatherCloudy } from "react-icons/ti";
+import { FaMicrophoneAlt } from "react-icons/fa";
+import { FaBullhorn } from "react-icons/fa";
+import { FaNewspaper } from "react-icons/fa6";
+import { FaRegUserCircle } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 
-(async () => {
-  try {
-      const url = new RssCaller('https://thanhnien.vn/rss/doi-song.rss')
-      const feed = await url.data();
-  } catch (error) {
-      console.error("Error fetching RSS feed:", error);
-  }
-})();
+import "./Header.css";
 
 function Header() {
+  var date = new Date();
+  date.getDate();
+  const daysOfWeek = [
+    "Chủ nhật",
+    "Thứ hai",
+    "Thứ ba",
+    "Thứ tư",
+    "Thứ năm",
+    "Thứ sáu",
+    "Thứ bảy",
+  ];
+
+  const currentDate = {
+    dayName: daysOfWeek[date.getDay()],
+    day: date.getDate(),
+    month: date.getMonth(),
+    year: date.getFullYear(),
+  };
+
   return (
     <header className="header">
       <div className="header-ov">
         <div className="header-os">
           <div className="header-list">
-            <div className="date item">Thứ hai, 24/6/2024</div>
+            <div className="date item">{currentDate.dayName}, {currentDate.day}/{currentDate.month}/{currentDate.year}</div>
             <div className="area item">TP. Hồ Chí Minh</div>
-            <div className="tempurature item">29 C</div>
+            <div className="tempurature item">33&deg;C</div>
             <div className="weather item">
-              <FontAwesomeIcon icon={faCloud} />
+              <TiWeatherCloudy size={25}/>
             </div>
             <a href="https://example.com" className="item">
               Bạn cần biết
@@ -113,37 +120,25 @@ function Header() {
                 <div className="podcast">
                   <h5>Podcast</h5>
                   <div>
-                    <FontAwesomeIcon
-                      icon={faMicrophone}
-                      size="lg"
-                      className="icon"
-                    />
+                    <FaMicrophoneAlt size={20} />
                   </div>
                 </div>
                 <div className="advertisement">
                   <h5>Quảng cáo</h5>
                   <div>
-                    <FontAwesomeIcon
-                      icon={faBullhorn}
-                      size="lg"
-                      className="icon"
-                    />
+                  <FaBullhorn size={20} />
                   </div>
                 </div>
                 <div className="order-news">
                   <h5>Đặt báo</h5>
                   <div>
-                    <FontAwesomeIcon
-                      icon={faNewspaper}
-                      size="lg"
-                      className="icon"
-                    />
+                  <FaNewspaper size={20} />
                   </div>
                 </div>
                 <div className="login">
                   <h5>Đăng nhập</h5>
                   <div className="login">
-                    <FontAwesomeIcon icon={faUser} size="lg" />
+                  <FaRegUserCircle size={20} />
                   </div>
                 </div>
               </div>
@@ -161,7 +156,7 @@ function Header() {
                       title="Trang chủ"
                       className="nav-link home"
                     >
-                      <FontAwesomeIcon icon={faHouse} size="lg" style={{color: "#58cefa",}} />
+                      <FaHome size={25} />
                     </a>
                   </li>
                   <li>
