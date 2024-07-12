@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
@@ -26,14 +25,14 @@ root.render(
     {/* <List24h/> */}
     {/*<DanhSachBaiBao/>*/}
     {/*<ListThiTruong/>*/}
-    <Header />
+    {/* <Header />
     <Footer />
-    <MainNews />
+    <MainNews /> */}
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    {/* <ListTinNhanh360/> */}
-    {/* <List24h/> */}
-    <Multimedia />
+    <ListTinNhanh360/>
+    <List24h/>
+    {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
     {/* <App/> */}

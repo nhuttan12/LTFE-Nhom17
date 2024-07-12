@@ -1,11 +1,9 @@
 import React from "react";
-
-const ItemTinNhanh360 = ({image, category, description}) => {
+import parse from 'html-react-parser';
+const ItemTinNhanh360 = ({stuff}) => {
     return (
         <div className='tinnhanh360-item'>
-            <img src={image} alt={description} className='tinhanh360-item-image'/>
-            <a className="categoryLink" src="">{category}</a>
-            <a className='tinhanh360-item-description'>{description}</a>
+            {parse(stuff)}
         </div>
     )
 }
