@@ -17,26 +17,19 @@ import Multimedia from "./Components/Multimedia/Multimedia";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ListThiTruong />
+      <Header/>
+    {/*<ListThiTruong />*/}
     {/*<ListTongHop/>*/}
-    {/*<Header/>*/}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/* <ListTinNhanh360/> */}
-    {/* <List24h/> */}
+    {/* <ListGioiTreVaDoiSong/>*/}
+    {/* <ListTinNhanh360/>*/}
+    {/* <List24h/>*/}
     {/*<DanhSachBaiBao/>*/}
     {/*<ListThiTruong/>*/}
-    {/* <Header />
-    <Footer />
-    <MainNews /> */}
-    {/* <Header/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/*<ListTinNhanh360/>*/}
-    {/*<List24h/>*/}
-    {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <Footer/> */}
+    {/*<MainNews />*/}
+    {/* <Multimedia />*/}
+     <DanhSachBaiBao/>
     {/* <App/> */}
-    {/* <Footer/> */}
+     <Footer/>
   </React.StrictMode>
 );
 

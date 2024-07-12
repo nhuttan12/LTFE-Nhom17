@@ -1,4 +1,5 @@
 import React from "react";
+import "./MainNews.css";
 
 function LatestNews(props) {
   return (
