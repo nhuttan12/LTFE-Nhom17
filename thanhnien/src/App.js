@@ -1,5 +1,4 @@
 import Header from './Components/common/Header';
-
 function App() {
   return (
     <div className="App">
