@@ -40,15 +40,32 @@ const ListTinNhanh360 = () => {
     const [data_tinnhanh360, setData_tinnhanh360] = useState([]);
 
     console.log(data_tinnhanh360);
+
+    // const getData_tinhnhanh360 = async () => {
+    //     try {
+    //      const res = await axios.get("http://localhost:4000/");
+    //      setData_tinnhanh360(res.data);
+    //  } catch (error) {
+    //      console.log(error);
+    //   }
+    // }
+
+
+    // Format khi gửi Post
     const getData_tinhnhanh360 = async () => {
         try {
-         const res = await axios.get("http://localhost:4000/");
+         const go = {
+            "signal": "tin-nhanh-360"
+         }
+         const res = await axios.post("http://localhost:4000/",go);
          setData_tinnhanh360(res.data);
      } catch (error) {
          console.log(error);
       }
     }
+    // End format
 
+    // Gọi sau khi render component để render lại lần nữa
     useEffect(()=>{
         getData_tinhnhanh360();
     },[])

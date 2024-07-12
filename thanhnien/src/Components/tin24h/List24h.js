@@ -46,14 +46,25 @@ import axios from "axios";
 // ]
 
 const List24h = () =>{
-    
     const [data_24h, setData_24h] = useState([]);
 
     console.log(data_24h);
 
+    // const getData_24h = async () => {
+    //     try {
+    //      const res = await axios.get("http://localhost:4000/");
+    //      setData_24h(res.data);
+    //  } catch (error) {
+    //      console.log(error);
+    //   }
+    // }
+
     const getData_24h = async () => {
         try {
-         const res = await axios.get("http://localhost:4000/");
+         const go = {
+            "signal": "tin-24h"
+         }
+         const res = await axios.post("http://localhost:4000/",go);
          setData_24h(res.data);
      } catch (error) {
          console.log(error);
