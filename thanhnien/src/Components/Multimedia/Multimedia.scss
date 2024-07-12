@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.multimedia {
+  background: #0197d0;
+  width: 100%;
+  .multimedia-container {
+    background: #0197d0;
+    padding-top: 2rem;
+    width: 1200px;
+    margin: auto;
+    .mulimedia-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .category {
+        color: white;
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      .other-category {
+        display: flex;
+        gap: 2rem;
+        .seperate {
+          border-right: 0.1px solid #ebebeb !important;
+        }
+        div {
+          a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            color: white;
+          }
+          a:hover {
+            color: white;
+          }
+        }
+      }
+    }
+    .multimedia-content {
+      padding-top: 1.7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2.5rem;
+      .main-multimedia {
+        width: 45%;
+        .main-post {
+          .img {
+            a {
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .title {
+            padding-top: 0.8rem;
+            a {
+              font-size: 1.4rem;
+              color: white;
+            }
+          }
+          .title:hover {
+            a {
+              color: #00a5e0;
+            }
+          }
+        }
+      }
+      .multimedia-welcome {
+        padding-top: 0.8rem;
+        .welcome {
+          a {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+        }
+        .welcome:hover {
+          a {
+            color: #00a5e0;
+          }
+        }
+      }
+      .sub-multimedia {
+        width: 55%;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        column-gap: 2rem;
+        .sub-post {
+          .img {
+            a {
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .title {
+            padding-top: 0.5rem;
+            a {
+              color: white;
+            }
+          }
+          .title:hover {
+            a {
+              color: #00a5e0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

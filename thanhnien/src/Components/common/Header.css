@@ -35,11 +35,15 @@ body {
 }
 .header .header-ov .header-os .header-list .item {
   padding-left: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .header .header-ov .header-os .header-social {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.header .header-ov .header-os .header-social .following {
+  font-family: Arial, Helvetica, sans-serif;
 }
 .header .header-ov .header-os .header-social .item {
   padding-left: 5px;
@@ -89,6 +93,7 @@ body {
 .header .header-sticky .header-top .header-container .header-flex .header-right div h5 {
   font-weight: 450;
   font-size: 0.8rem;
+  margin-top: 0rem;
 }
 .header .header-sticky .header-top .header-container .header-flex .header-right div div {
   padding-left: 16px;
@@ -135,10 +140,14 @@ body {
   display: flex;
   justify-content: space-between;
   list-style: none;
+  align-items: center;
 }
 .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
   font-size: 0.95rem;
+}
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a:hover {
+  color: #0098d1;
 }/*# sourceMappingURL=Header.css.map */

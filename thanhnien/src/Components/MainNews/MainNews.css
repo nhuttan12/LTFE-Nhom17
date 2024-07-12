@@ -125,27 +125,30 @@ body {
   color: #8b8b8b;
   border: 0px;
 }
-.section-home .sub-news .sub-news-container .tab-content {
+.section-home .sub-news .sub-news-container .sub-news-tab .tab-content {
   padding-left: 15px;
   padding-right: 15px;
 }
-.section-home .sub-news .sub-news-container .tab-content .tab-pane {
+.section-home .sub-news .sub-news-container .sub-news-tab .tab-content .tab-pane {
   padding-left: 10px;
   padding-right: 10px;
   height: 400px;
   overflow-y: auto;
 }
-.section-home .sub-news .sub-news-container .tab-content .tab-pane div div {
+.section-home .sub-news .sub-news-container .sub-news-tab .tab-content .tab-pane div div {
   border-bottom: 1px solid #ebebeb;
 }
-.section-home .sub-news .sub-news-container .tab-content .tab-pane div div div {
+.section-home .sub-news .sub-news-container .sub-news-tab .tab-content .tab-pane div div div {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.section-home .sub-news .sub-news-container .tab-content .tab-pane div div div .item {
+.section-home .sub-news .sub-news-container .sub-news-tab .tab-content .tab-pane div div div .item {
   font-size: 0.95rem;
   color: #8b8b8b;
   cursor: pointer;
+}
+.section-home .sub-news .sub-news-container .sub-news-tab .tab-content .tab-pane div div div .item:hover {
+  color: #0098d1;
 }
 .section-home .sub-news .sub-news-box-blog {
   padding-top: 20px;
