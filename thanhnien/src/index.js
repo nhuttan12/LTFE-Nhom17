@@ -30,8 +30,8 @@ root.render(
     <MainNews /> */}
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    <ListTinNhanh360/>
-    <List24h/>
+    {/*<ListTinNhanh360/>*/}
+    {/*<List24h/>*/}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
