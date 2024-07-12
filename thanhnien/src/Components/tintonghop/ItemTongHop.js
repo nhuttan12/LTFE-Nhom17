@@ -1,40 +1,73 @@
+// ItemTongHop.js
 import React, { useState, useRef, useEffect } from 'react';
 import './csstonghop.css';
 import ItemMore from './ItemMore';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
-const moreData = [
-    {
-        title: 'Đông Nam Á sở hữu tranh cổ nhất thế giới, ít nhất 51.000 năm tuổi',
-        image:
-            'https://images2.thanhnien.vn/zoom/320_427/528068263637045248/2024/7/4/tay-tang-17200671803771825746926-0-420-826-1040-crop-17200762417642021561101.png',
-    },
-];
-
-const NewsArticle = ({ category, title, description, image }) => {
+const NewsArticle = ({ category, title, description, image, imgsize, url, data }) => {
     const [showMoreItems, setShowMoreItems] = useState(false);
     const articleRef = useRef(null);
 
     useEffect(() => {
-        if (articleRef.current && articleRef.current.offsetHeight > 300) {
-            setShowMoreItems(true);
-        } else {
-            setShowMoreItems(false); // Ẩn lại nếu chiều cao nhỏ hơn 300
-        }
-    }, [description, moreData]);
+        const checkArticleHeight = () => {
+            if (articleRef.current && articleRef.current.offsetHeight > 300) {
+                setShowMoreItems(true);
+            } else {
+                setShowMoreItems(false);
+            }
+        };
+        checkArticleHeight();
 
+        const observer = new ResizeObserver(checkArticleHeight);
+        if (articleRef.current) {
+            observer.observe(articleRef.current);
+        }
+
+        return () => {
+            if (articleRef.current) {
+                observer.unobserve(articleRef.current);
+            }
+        };
+    }, [description]);
+    const extractContentAfterLinks = (htmlString) => {
+        const regex = /<\/a>(.*)/;
+        const match = htmlString.match(regex);
+
+        if (match) {
+            return match[1].trim();
+        }
+        return '';
+    };
+    const decodeHtmlEntities = (str) => {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = str;
+        return txt.value;
+    };
     return (
         <div className="news-article" ref={articleRef}>
-            <img src={image} alt={title} className="news-article-image" />
+            <a href={url}>
+                <img src={image} title={title} style={{ height: imgsize }} className="news-article-image" alt={title} />
+            </a>
             <div className="news-article-content">
-                <p className="news-article-category">{category}</p>
-                <h4 className="news-article-title">{title}</h4>
-                <p className="news-article-description"><FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }}/>{description}</p>
-                {showMoreItems && (
+                <div className="flexdl">
+                    <a href={url} title={title}>
+                        <p className="news-article-category">{category}</p>
+                    </a>
+                    <a href={url} title={title}>
+                        <h4 className="news-article-title">{title}</h4>
+                    </a>
+                    <a href={url} title={description}>
+                        <p className="news-article-description">
+                            <FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }} />
+                            {description}
+                        </p>
+                    </a>
+                </div>
+                {showMoreItems && data && data.length > 0 && (
                     <div className="more-items">
-                        {moreData.map((news, index) => (
-                            <ItemMore key={index} title={news.title} image={news.image} />
+                        {data.map((news, index) => (
+                            <ItemMore key={index} title={decodeHtmlEntities(news.title)} image={news.content_html.match(/<img src="([^"]*)"/)[1]} />
                         ))}
                     </div>
                 )}

@@ -4,58 +4,73 @@
   box-sizing: border-box;
 }
 
-.container .header {
-  margin-top: 30px;
+body {
+  background: white;
 }
-.container .header .header-ov {
-  padding-left: 30px;
-  padding-right: 30px;
+
+.header {
+  margin-top: 30px;
+  width: 100%;
+}
+.header .header-ov {
+  background: #ebebeb;
+  width: 100%;
+}
+.header .header-ov .header-os {
+  background: #ebebeb;
+  width: 1300px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fafafa;
 }
-.container .header .header-ov .header-list {
+.header .header-ov .header-os .header-list {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.container .header .header-ov .header-list a {
+.header .header-ov .header-os .header-list a {
   color: black;
   text-decoration: none;
 }
-.container .header .header-ov .header-list .item {
+.header .header-ov .header-os .header-list .item {
   padding-left: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.container .header .header-ov .header-social {
+.header .header-ov .header-os .header-social {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.container .header .header-ov .header-social .item {
+.header .header-ov .header-os .header-social .following {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header .header-ov .header-os .header-social .item {
   padding-left: 5px;
   padding-top: 4px;
 }
-.container .header .header-ov .header-social .item img {
+.header .header-ov .header-os .header-social .item img {
   width: 24px;
   height: 24px;
 }
-.container .header .header-sticky .header-top {
-  margin-top: 20px;
+.header .header-sticky .header-top {
   border-bottom: 1px solid #d9d9d9;
+  margin-top: 20px;
   padding-bottom: 30px;
 }
-.container .header .header-sticky .header-top .header-container .header-flex {
-  padding-left: 30px;
-  padding-right: 30px;
+.header .header-sticky .header-top .header-container {
+  width: 1300px;
+  margin: auto;
+}
+.header .header-sticky .header-top .header-container .header-flex {
   display: flex;
   justify-content: space-between;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-left {
+.header .header-sticky .header-top .header-container .header-flex .header-left {
   display: flex;
   align-items: center;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-left .search {
+.header .header-sticky .header-top .header-container .header-flex .header-left .search {
   border: 0.5px solid #392f2f;
   font-size: 1rem;
   border-radius: 5px;
@@ -66,61 +81,73 @@
   background-position: 10px;
   background-size: 20px;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-right {
+.header .header-sticky .header-top .header-container .header-flex .header-right {
   display: flex;
   justify-content: flex-end;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-right div {
+.header .header-sticky .header-top .header-container .header-flex .header-right div {
   display: flex;
   align-items: center;
   padding-right: 15px;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-right div h5 {
+.header .header-sticky .header-top .header-container .header-flex .header-right div h5 {
   font-weight: 450;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-top: 0rem;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-right div div {
+.header .header-sticky .header-top .header-container .header-flex .header-right div div {
   padding-left: 16px;
   width: 50px;
   height: 50px;
   background: #fedb00;
   border-radius: 50%;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-right .login .login {
-  padding-left: 16px;
+.header .header-sticky .header-top .header-container .header-flex .header-right div div .icon {
+  width: 100%;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-center {
+.header .header-sticky .header-top .header-container .header-flex .header-right .login {
+  padding-right: 0px;
+}
+.header .header-sticky .header-top .header-container .header-flex .header-right .login .login {
+  padding-left: 16px;
+  background: #58cefa;
+}
+.header .header-sticky .header-top .header-container .header-flex .header-center {
   width: 500px;
 }
-.container .header .header-sticky .header-top .header-container .header-flex .header-center img {
+.header .header-sticky .header-top .header-container .header-flex .header-center img {
   float: right;
   width: 300px;
 }
-.container .header .header-sticky .header-middle {
+.header .header-sticky .header-middle {
   width: 100%;
   margin-top: 10px;
 }
-.container .header .header-sticky .header-middle .header-container {
+.header .header-sticky .header-middle .header-container {
   width: 100%;
 }
-.container .header .header-sticky .header-middle .header-container .header-nav {
+.header .header-sticky .header-middle .header-container .header-nav {
   width: 100%;
 }
-.container .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex {
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex {
   margin: auto;
   width: 1200px;
   border-bottom: 2px solid #0098d1;
   padding-bottom: 15px;
   padding-right: 50px;
 }
-.container .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav {
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav {
   display: flex;
   justify-content: space-between;
   list-style: none;
+  align-items: center;
 }
-.container .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a {
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
   font-size: 0.95rem;
+}
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a:hover {
+  color: #0098d1;
 }/*# sourceMappingURL=Header.css.map */

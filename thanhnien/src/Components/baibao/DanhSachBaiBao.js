@@ -10,13 +10,13 @@ import homeData from '../../Json/home';
 import {faCircle} from "@fortawesome/free-regular-svg-icons"; // Import dữ liệu từ file JSON
 
 const DanhSachBaiBao = () => {
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
     function getRandomData() {
         const dataSources = [homeData, thoisuData];
         const randomIndex = Math.floor(Math.random() * dataSources.length);
         return dataSources[randomIndex];
     }
+    const [data, setData] = useState(null);
+    const [randomArticles, setRandomArticles] = useState([]);
     useEffect(() => {
         const randomData = getRandomData();
         setData(randomData);
@@ -32,7 +32,7 @@ const DanhSachBaiBao = () => {
             const storedShuffleTime = localStorage.getItem('lastShuffleTime');
             const currentTime = Date.now();
 
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 2 minutes
+            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
                 const newRandomArticles = getRandomElements(data.items);
                 setRandomArticles(newRandomArticles);
                 localStorage.setItem('lastShuffleTime', currentTime);
@@ -116,20 +116,16 @@ const DanhSachBaiBao = () => {
                         tieuDe={decodeHtmlEntities(item.title)}
                         moTa={
                             index < linkData.length ? (
-                                <a
-                                    href={linkData[index].url}
-                                    title={decodeHtmlEntities(linkData[index].title)} className="bai-bao-mo-ta"
-                                >
+                                <a href={linkData[index].url}
+                                    title={decodeHtmlEntities(linkData[index].title)} className="bai-bao-mo-ta">
                                     {decodeHtmlEntities(linkData[index].title)}
                                 </a>
                             ) : null
                         }
                         moTaPhu={
                             index + 2 < linkData.length ? (
-                                <a
-                                    href={linkData[index + 2].url}
-                                    title={decodeHtmlEntities(linkData[index + 2].title)} className="bai-bao-mo-ta"
-                                >
+                                <a href={linkData[index + 2].url}
+                                    title={decodeHtmlEntities(linkData[index + 2].title)} className="bai-bao-mo-ta">
                                     {decodeHtmlEntities(linkData[index + 2].title)}
                                 </a>
                             ) : null
