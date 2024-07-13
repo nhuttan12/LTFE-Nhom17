@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import ItemThiTruong from './ItemThiTruong';
 import homeData from "../../Json/home.json";
+import TopNew from "../dulich/TopNew";
 
 const ListThiTruong = () => {
     const [data, setData] = useState(null);
@@ -99,6 +100,7 @@ const ListThiTruong = () => {
                         title={decodeHtmlEntities(news.title)}
                         description={decodeHtmlEntities(extractContentAfterLinks(news.content_html))}
                         image={news.content_html.match(/<img src="([^"]*)"/)[1]}
+                        url={news.url}
                     />
                 ))}
             </div>

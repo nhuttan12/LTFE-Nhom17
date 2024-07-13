@@ -15,6 +15,7 @@ import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
 import ListCarousel from "./Components/carosel/ListCarousel";
 import Carousel from "./Components/carosel/Carousel";
+import ListNewsTop from "./Components/dulich/ListNewsTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -32,7 +33,8 @@ root.render(
     {/* <DanhSachBaiBao/>*/}
     {/* <App/> */}
     {/* <Footer/>*/}
-      <Carousel title="Xung đột Ukaraina" />
+    {/*  <Carousel title="Xung đột Ukaraina" />*/}
+    <ListNewsTop/>
   </React.StrictMode>
 );
 

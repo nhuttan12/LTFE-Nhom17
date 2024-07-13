@@ -29,8 +29,7 @@
 .news-item-title {
     font-size: 14px;
     margin: 10px 0;
-    width: 405px;
-    width: 149px;
+    width: 100%;
     height: auto; /* Cho phép chiều cao tự động điều chỉnh theo số dòng */
     overflow: hidden;
     text-overflow: ellipsis;
