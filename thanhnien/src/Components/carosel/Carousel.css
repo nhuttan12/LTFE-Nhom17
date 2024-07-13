@@ -1,0 +1,102 @@
+.carousel-container {
+    width: 100%;
+    max-width: 735px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    cursor: pointer;
+}
+
+.carousel-items {
+    display: flex;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item {
+    position: relative;
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    width: 367.5px;
+    padding-right: 30px;
+}
+
+.carousel-item img {
+    width: 335px;
+    height: 210px;
+    cursor: pointer!important;
+    pointer-events: none;
+}
+.carousel-item h3{
+    margin: 8px 0 30px;
+}
+.carousel-item img,
+.carousel-item h3 {
+    user-select: none;  /* Ngăn không cho người dùng chọn (tô xanh) */
+    -webkit-user-select: none; /* Dành cho Safari */
+    -moz-user-select: none; /* Dành cho Firefox */
+    -ms-user-select: none; /* Dành cho IE/Edge */
+}
+.no-pointer-events {
+    pointer-events: none;
+}
+.carousel-navigation {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.carousel-navigation button {
+    width: 25px;           /* Kích thước chiều rộng của hình vuông */
+    height: 15px;          /* Kích thước chiều cao của hình vuông */
+    background-color: white; /* Màu nền của hình vuông */
+    position: relative;    /* Cho phép định vị tuyệt đối cho chấm tròn bên trong */
+    margin: 0 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-navigation button::before {  /* Tạo chấm tròn bên trong */
+    content: '';
+    width: 14px;              /* Kích thước chiều rộng của chấm tròn */
+    height: 14px;             /* Kích thước chiều cao của chấm tròn */
+    border-radius: 50%;      /* Tạo hình tròn */
+    background-color: #ebebeb; /* Màu nền của chấm tròn */
+    position: absolute;      /* Định vị tuyệt đối */
+    top: 50%;                /* Căn giữa theo chiều dọc */
+    left: 50%;               /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Điều chỉnh vị trí chính xác */
+}
+.carousel-navigation .btnActive{
+    width: 70px;
+    background: #007aff;
+    border-radius: 100px;
+}
+.carousel-navigation .active{
+     width: 70px;
+     border-radius: 100px;
+}
+.carousel-navigation .active::before {
+    content: '';
+    background-color: #007aff;
+    position: absolute;
+}
+
+.titleCarou{
+    width: fit-content;
+    max-width: 735px;
+    display: inline-block;
+    margin:20px 0 16px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 26px;
+    color: #292929;
+    border-bottom: 1px solid #0098d1;
+}

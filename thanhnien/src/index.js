@@ -13,11 +13,13 @@ import ListGioiTreVaDoiSong from "./Components/tingioitrevadoisong/ListGioiTreVa
 import List24h from "./Components/tin24h/List24h";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
+import ListCarousel from "./Components/carosel/ListCarousel";
+import Carousel from "./Components/carosel/Carousel";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-      <Header/>
+      {/*<Header/>*/}
     {/*<ListThiTruong />*/}
     {/*<ListTongHop/>*/}
     {/* <ListGioiTreVaDoiSong/>*/}
@@ -27,9 +29,10 @@ root.render(
     {/*<ListThiTruong/>*/}
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
-     <DanhSachBaiBao/>
+    {/* <DanhSachBaiBao/>*/}
     {/* <App/> */}
-     <Footer/>
+    {/* <Footer/>*/}
+      <Carousel title="Xung đột Ukaraina" />
   </React.StrictMode>
 );
 
