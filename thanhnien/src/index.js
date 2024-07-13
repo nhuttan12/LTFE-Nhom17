@@ -14,30 +14,32 @@ import ListGioiTreVaDoiSong from "./Components/tingioitrevadoisong/ListGioiTreVa
 import List24h from "./Components/tin24h/List24h";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
+import Category from "./Components/Category/Category";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ListThiTruong />
-    {/*<ListTongHop/>*/}
+    {/* <ListThiTruong /> */}
+    {/* <ListTongHop/> */}
     {/*<Header/>*/}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
-    {/*<DanhSachBaiBao/>*/}
-    {/*<ListThiTruong/>*/}
-    <Header />
-    <Footer />
-    <MainNews />
+    {/* <DanhSachBaiBao/> */}
+    {/* <ListThiTruong/> */}
+    {/* <Header /> */}
+    {/* <Footer /> */}
+    {/* <MainNews /> */}
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
-    <Multimedia />
+    {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
     {/* <App/> */}
     {/* <Footer/> */}
+    <Category/>
   </React.StrictMode>
 );
 

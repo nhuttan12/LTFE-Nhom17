@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.category-container {
+  padding-top: 2rem;
+  width: 1150px;
+  margin: auto;
+}
+.category-container .category-left {
+  width: 65%;
+}
+.category-container .category-left .category-main-news .category-top-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 1rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-left {
+  border-right: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  padding-right: 1rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-left .main-image img {
+  width: 100%;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-left .main-title {
+  padding-top: 1rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-left .main-title h5 {
+  font-size: 1.2rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-left .main-description {
+  padding-top: 1.3rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-left .main-description p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right {
+  width: 35%;
+  padding-left: 1rem;
+  height: 100%;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .top-post .image img {
+  width: 100%;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .top-post .title {
+  padding-top: 0.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #ebebeb;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .top-post .title h5 {
+  font-size: 0.9rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .middle-post {
+  padding-top: 1rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .middle-post .image img {
+  width: 100%;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .middle-post .title {
+  padding-top: 0.5rem;
+  padding-bottom: 0.6rem;
+}
+.category-container .category-left .category-main-news .category-top-container .category-top .category-right .middle-post .title h5 {
+  font-size: 0.9rem;
+}
+.category-container .category-left .category-main-news .category-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+}
+.category-container .category-left .category-main-news .category-middle .left-post {
+  display: flex;
+  width: 50%;
+}
+.category-container .category-left .category-main-news .category-middle .left-post .image {
+  width: 35%;
+}
+.category-container .category-left .category-main-news .category-middle .left-post .image img {
+  width: 100%;
+}
+.category-container .category-left .category-main-news .category-middle .left-post .title {
+  width: 55%;
+  padding-left: 0.5rem;
+}
+.category-container .category-left .category-main-news .category-middle .left-post .title h5 {
+  font-size: 0.9rem;
+}
+.category-container .category-left .category-main-news .category-middle .right-post {
+  display: flex;
+  width: 50%;
+}
+.category-container .category-left .category-main-news .category-middle .right-post .image {
+  width: 35%;
+}
+.category-container .category-left .category-main-news .category-middle .right-post .image img {
+  width: 100%;
+}
+.category-container .category-left .category-main-news .category-middle .right-post .title {
+  width: 55%;
+  padding-left: 0.5rem;
+}
+.category-container .category-left .category-main-news .category-middle .right-post .title h5 {
+  font-size: 0.9rem;
+}/*# sourceMappingURL=Category.css.map */
