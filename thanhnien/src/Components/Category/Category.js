@@ -3,6 +3,7 @@ import Header from "../Common/Header";
 import "./Category.css";
 import CategoryPost from "./Category Post/CategoryPost";
 import ListGioiTreVaDoiSong from "../tingioitrevadoisong/ListGioiTreVaDoiSong";
+import CategoryNavigation from "./CategoryNavagation/CategoryNavigation";
 
 function Category(props) {
   const main_news = [
@@ -132,6 +133,7 @@ function Category(props) {
   return (
     <div>
       <Header />
+      <CategoryNavigation />
       <div className="category-container">
         <div className="category-left">
           <div className="category-main-news">
@@ -190,6 +192,8 @@ function Category(props) {
           <CategoryPost data={posts} />
         </div>
         <div className="category-right">
+          {/* tạm thời comment lại để sửa css, nếu sửa xong file chính thì  */}
+          {/* <ListGioiTreVaDoiSong/> */}
         </div>
       </div>
     </div>

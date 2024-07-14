@@ -15,6 +15,8 @@ import List24h from "./Components/tin24h/List24h";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
 import Category from "./Components/Category/Category";
+import SportCategory from "./Components/SportCategory/SportCategory";
+import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCategory";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -39,7 +41,9 @@ root.render(
     {/* <Footer/> */}
     {/* <App/> */}
     {/* <Footer/> */}
-    <Category/>
+    {/* <Category/> */}
+    {/* <SportCategory /> */}
+    <TechnologyCategory />
   </React.StrictMode>
 );
 

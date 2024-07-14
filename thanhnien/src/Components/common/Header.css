@@ -133,7 +133,6 @@ body {
   margin: auto;
   width: 1150px;
   border-bottom: 2px solid #0098d1;
-  padding-bottom: 15px;
   padding-right: 50px;
 }
 .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav {
@@ -141,13 +140,14 @@ body {
   justify-content: space-between;
   list-style: none;
   align-items: center;
+  padding-left: 0rem;
 }
-.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a {
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav ul li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
   font-size: 0.95rem;
 }
-.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav li a:hover {
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav ul li a:hover {
   color: #0098d1;
 }/*# sourceMappingURL=Header.css.map */
