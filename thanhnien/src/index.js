@@ -16,12 +16,13 @@ import Multimedia from "./Components/Multimedia/Multimedia";
 import ListCarousel from "./Components/carosel/ListCarousel";
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
+import homeData from "./Json/home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
       {/*<Header/>*/}
-    {/*<ListThiTruong />*/}
+    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
     {/*<ListTongHop/>*/}
     {/* <ListGioiTreVaDoiSong/>*/}
     {/* <ListTinNhanh360/>*/}
@@ -34,7 +35,7 @@ root.render(
     {/* <App/> */}
     {/* <Footer/>*/}
     {/*  <Carousel title="Xung đột Ukaraina" />*/}
-    <ListNewsTop/>
+    <ListNewsTop dataNewsTop={homeData} />
   </React.StrictMode>
 );
 
