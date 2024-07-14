@@ -62,3 +62,7 @@
     flex: 0 0 23%; /* Không co giãn, không thu nhỏ, chiếm 25% chiều rộng của container */
     box-sizing: border-box; /* Bao gồm padding và border vào tính toán chiều rộng */
 }
+.item-thi-truong{
+    display: flex;
+    max-width: 1150px;
+}

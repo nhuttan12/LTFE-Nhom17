@@ -19,13 +19,14 @@ import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCatego
 import ListCarousel from "./Components/carosel/ListCarousel";
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
+import homeData from "./Json/home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
-    <Header/>
+    <Header />
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
@@ -36,11 +37,22 @@ root.render(
     <MainNews />
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    <ListTinNhanh360/>
+    <ListTinNhanh360 />
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
+    {/*<Header/>*/}
+    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
+    {/*<ListTongHop/>*/}
+    {/* <ListGioiTreVaDoiSong/>*/}
+    {/* <ListTinNhanh360/>*/}
+    {/* <List24h/>*/}
+    {/*<DanhSachBaiBao/>*/}
+    {/*<ListThiTruong/>*/}
+    {/*<MainNews />*/}
+    {/* <Multimedia />*/}
+    {/* <DanhSachBaiBao/>*/}
     {/* <App/> */}
     {/* <Footer/> */}
     {/* <Category/> */}
@@ -48,6 +60,7 @@ root.render(
     {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}
     {/* <TechnologyCategory /> */}
+    <ListNewsTop dataNewsTop={homeData} />
   </React.StrictMode>
 );
 
