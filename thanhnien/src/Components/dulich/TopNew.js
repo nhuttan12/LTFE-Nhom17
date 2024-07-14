@@ -1,38 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './topNews.css';
-import ItemThiTruong from "../tinthitruong/ItemThiTruong";
-import ThreeBigNews from "./ThreeBigNews";
-const TopNew = ({dataNews, numData}) => {
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
-    useEffect(() => {
-        setData(dataNews);
-    }, []);
+const TopNew = ({firstArticle}) => {
 
-    const getRandomElements = (arr) => {
-        let shuffled = arr.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, numData);
-    };
-
-    useEffect(() => {
-        if (data) {
-            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
-            const currentTime = Date.now();
-
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
-                const newRandomArticles = getRandomElements(data.items);
-                setRandomArticles(newRandomArticles);
-                localStorage.setItem('lastShuffleTime', currentTime);
-                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
-            } else {
-                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
-                setRandomArticles(shuffledArticles);
-            }
-        }
-    }, [data]);
-    const firstArticle = randomArticles[0];
-    const nextTwoArticles = randomArticles.slice(1, 5);
-    const nextFourArticles = randomArticles.slice(5, 9);
     const decodeHtmlEntities = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
@@ -69,29 +38,6 @@ const TopNew = ({dataNews, numData}) => {
                         </a>
                     </div>
                 </div>)}
-            <div className="news-grid">
-                {nextTwoArticles.map((news, index) => (
-                    <ItemThiTruong
-                        key={index}
-                        // category={getCategoryFromTitle(news.title)}
-                        title={decodeHtmlEntities(news.title)}
-                        description={decodeHtmlEntities(extractContentAfterLinks(news.content_html))}
-                        image={news.content_html.match(/<img src="([^"]*)"/)[1]}
-                        url={news.url}
-                    />
-                ))}
-            </div>
-            <div className="carousel-track">
-                {nextFourArticles.map((item, index) => (
-                    <article className="carousel-item" key={index}>
-                        <img src={item.image} alt={item.title}/>
-                        <div className="item-details">
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
-                        </div>
-                    </article>
-                ))}
-            </div>
         </div>
     );
 }

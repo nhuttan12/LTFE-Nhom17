@@ -41,8 +41,11 @@ const ListNewsTop = ({dataNewsTop}) => {
             <div className="top-new">
                 {/*<h2>Tin thị trường</h2>*/}
                 <ItemThiTruong dataArticles={nextFourArticles} title={" "} cate={"no"}/>
+
+            </div>
+            <div className="top-new border">
                 <h2>Khám phá</h2>
-            <ThreeBigNews bigData={nextThreeArticles}/>
+                <ThreeBigNews bigData={nextThreeArticles}/>
             </div>
         </div>
     );

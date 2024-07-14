@@ -2,6 +2,15 @@
     max-width: 1150px;
     margin-right: auto;
     margin-left: auto;
+    h2{
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
+.top-new.border{
+    border-top: 1px solid #ddd;
+
 }
 .firest{
     display: flex;
@@ -38,4 +47,33 @@
     line-height: 22px;
     text-align: center;
     color: #454545;
+}
+.big-image{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+.big-item{
+    width:340px;
+    height: 456px;
+    margin-bottom: 20px;
+}
+.big-track{
+    display: flex;
+    max-width: 1150px;
+    justify-content: space-between;
+}
+.big-title{
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 26px;
+    min-height: 74px;
+    overflow: hidden;
+    margin-top: -100px;
+    padding: 10px;
+    color: white;
+}
+.big-title:hover{
+    color: #00a5e0;
+    cursor: pointer ;
 }
