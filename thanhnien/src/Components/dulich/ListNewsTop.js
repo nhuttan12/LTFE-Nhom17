@@ -3,6 +3,7 @@ import TopNew from "./TopNew";
 import ItemThiTruong from "../tinthitruong/ItemThiTruong";
 import ThreeBigNews from "./ThreeBigNews";
 import './topNews.css';
+import ForNewsBlue from "./ForNewsBlue";
 
 const ListNewsTop = ({dataNewsTop}) => {
     const [data, setData] = useState(null);
@@ -35,6 +36,7 @@ const ListNewsTop = ({dataNewsTop}) => {
     const firstArticle = randomArticles[0];
     const nextFourArticles = randomArticles.slice(1, 5);
     const nextThreeArticles = randomArticles.slice(5, 8);
+    const BlueFourArticles = randomArticles.slice(8, 12);
     return (
         <div className="Carousel">
             <TopNew firstArticle={firstArticle}/>
@@ -46,6 +48,10 @@ const ListNewsTop = ({dataNewsTop}) => {
             <div className="top-new border">
                 <h2>Khám phá</h2>
                 <ThreeBigNews bigData={nextThreeArticles}/>
+            </div>
+            <div className="top-new border">
+                <h2>Chơi gì, ăn đâu, đi thế nào?</h2>
+                <ForNewsBlue blueData={BlueFourArticles}/>
             </div>
         </div>
     );
