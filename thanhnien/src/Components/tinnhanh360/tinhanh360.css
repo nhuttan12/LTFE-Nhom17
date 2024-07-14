@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Merriweather;
+  src: url("https://static.thanhnien.com.vn/fonts/Merriweather-Bold.woff2");
+}
+.tinnhanh360 {
+  width: 1150px;
+  margin: auto;
+  padding-top: 2rem;
+}
+.tinnhanh360 .tinnhanh360-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360-title {
+  font-size: 1.5rem;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360-title span {
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+  color: #333;
+  font-family: "Playfair Display";
+  font-weight: 300;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2rem;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item {
+  background: #c6ebf9;
+  padding: 1.5rem;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-img a {
+  width: 100%;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-img a img {
+  width: 100%;
+  height: auto;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-url {
+  padding-top: 1rem;
+}/*# sourceMappingURL=tinhanh360.css.map */

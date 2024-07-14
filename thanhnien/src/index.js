@@ -25,7 +25,7 @@ root.render(
   <React.StrictMode>
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
-    {/*<Header/>*/}
+    <Header/>
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
@@ -33,10 +33,10 @@ root.render(
     {/* <ListThiTruong/> */}
     {/* <Header /> */}
     {/* <Footer /> */}
-    {/* <MainNews /> */}
+    <MainNews />
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    {/* <ListTinNhanh360/> */}
+    <ListTinNhanh360/>
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
@@ -47,7 +47,7 @@ root.render(
     {/*  <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}
-    <TechnologyCategory />
+    {/* <TechnologyCategory /> */}
   </React.StrictMode>
 );
 

@@ -40,6 +40,7 @@
   margin: auto;
 }
 .technology .tech-container .tech-main-news .tech-top .tech-top-container .tech-left .main-title a h2 {
+  font-size: 2rem;
   color: white;
 }
 .technology .tech-container .tech-main-news .tech-top .tech-top-container .tech-left .main-title a:hover h2 {

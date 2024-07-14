@@ -76,7 +76,8 @@
   width: 55%;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  column-gap: 2rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
 }
 .multimedia .multimedia-container .multimedia-content .sub-multimedia .sub-post .img a img {
   width: 100%;
@@ -89,6 +90,4 @@
 }
 .multimedia .multimedia-container .multimedia-content .sub-multimedia .sub-post .title:hover a {
   color: #00a5e0;
-}
-
-/*# sourceMappingURL=Multimedia.css.map */
+}/*# sourceMappingURL=Multimedia.css.map */
