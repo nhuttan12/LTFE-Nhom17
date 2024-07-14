@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './cssgioitrevadoisong.css'
 const ItemGioiTre = ({image, title, description,className}) =>{
     return (
         <div className={`young-item ${className}`}>

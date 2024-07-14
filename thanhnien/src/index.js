@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
@@ -17,6 +16,9 @@ import Multimedia from "./Components/Multimedia/Multimedia";
 import Category from "./Components/Category/Category";
 import SportCategory from "./Components/SportCategory/SportCategory";
 import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCategory";
+import ListCarousel from "./Components/carosel/ListCarousel";
+import Carousel from "./Components/carosel/Carousel";
+import ListNewsTop from "./Components/dulich/ListNewsTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -42,6 +44,8 @@ root.render(
     {/* <App/> */}
     {/* <Footer/> */}
     {/* <Category/> */}
+    {/*  <Carousel title="Xung đột Ukaraina" />*/}
+    {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}
     <TechnologyCategory />
   </React.StrictMode>

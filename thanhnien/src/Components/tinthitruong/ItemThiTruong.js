@@ -2,13 +2,13 @@
 import React from 'react';
 import './cssthitruong.css';
 
-const ItemThiTruong = ({ category, title, description, image }) => {
+const ItemThiTruong = ({ category, title, image, url, urlCatelogy }) => {
     return (
         <div className="news-item">
-            <img src={image} alt={title} className="news-item-image"/>
+            <a href={url} title={title}><img src={image} alt={title} className="news-item-image"/></a>
             <div className="news-item-content">
-                <p className="news-item-category">{category}</p>
-                <h4 className="news-item-title">{title}</h4>
+                <a href={urlCatelogy} title={title}><p className="news-item-category">{category}</p></a>
+                    <a href={url} title={title}><h4 className="news-item-title">{title}</h4></a>
             </div>
         </div>
     );

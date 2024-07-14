@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './cssgioitrevadoisong.css'
 const ItemDoiSong = ({image, title, description, className}) =>{
     return (
         <div className={`life-item ${className}`}>
