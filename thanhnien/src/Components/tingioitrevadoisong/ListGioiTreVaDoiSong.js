@@ -1,6 +1,7 @@
 import React from "react";
 import ItemGioiTre from "./ItemGioiTre";
 import ItemDoiSong from "./ItemDoiSong";
+import "./cssgioitrevadoisong.css"
 import gioitredoisongcss from "./cssgioitrevadoisong.css"
 const young_data = [
     {

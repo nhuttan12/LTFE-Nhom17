@@ -13,30 +13,28 @@ import ListGioiTreVaDoiSong from "./Components/tingioitrevadoisong/ListGioiTreVa
 import List24h from "./Components/tin24h/List24h";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
+import ListCarousel from "./Components/carosel/ListCarousel";
+import Carousel from "./Components/carosel/Carousel";
+import ListNewsTop from "./Components/dulich/ListNewsTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ListThiTruong />
+      {/*<Header/>*/}
+    {/*<ListThiTruong />*/}
     {/*<ListTongHop/>*/}
-    {/*<Header/>*/}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/* <ListTinNhanh360/> */}
-    {/* <List24h/> */}
+    {/* <ListGioiTreVaDoiSong/>*/}
+    {/* <ListTinNhanh360/>*/}
+    {/* <List24h/>*/}
     {/*<DanhSachBaiBao/>*/}
     {/*<ListThiTruong/>*/}
-    {/* <Header />
-    <Footer />
-    <MainNews /> */}
-    {/* <Header/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
-    <ListTinNhanh360/>
-    <List24h/>
-    {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <Footer/> */}
+    {/*<MainNews />*/}
+    {/* <Multimedia />*/}
+    {/* <DanhSachBaiBao/>*/}
     {/* <App/> */}
-    {/* <Footer/> */}
+    {/* <Footer/>*/}
+    {/*  <Carousel title="Xung đột Ukaraina" />*/}
+    <ListNewsTop/>
   </React.StrictMode>
 );
 
