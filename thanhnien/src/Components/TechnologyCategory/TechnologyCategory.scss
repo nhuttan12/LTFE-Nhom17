@@ -1,0 +1,176 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.technology {
+    .tech-container {
+        padding-top: 2rem;
+        background: #012f3f;
+
+        .tech-main-news {
+            width: 1150px;
+            margin: auto;
+
+            .tech-top {
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid #454545;
+                padding-bottom: 1.5rem;
+
+                .tech-top-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .tech-left {
+                        border-right: 1px solid #454545;
+                        display: flex;
+                        flex-direction: column;
+                        width: 65%;
+                        padding-right: 1rem;
+
+                        .main-image {
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        .main-title {
+                            padding-top: 1rem;
+                            text-align: center;
+                            width: 90%;
+                            margin: auto;
+
+                            a {
+                                h2 {
+                                    font-size: 2rem;
+                                    color: white;
+                                }
+                            }
+
+                            a:hover {
+                                h2 {
+                                    color: #0098d1 !important;
+                                }
+                            }
+                        }
+
+                        .main-description {
+                            padding-top: 1.3rem;
+
+                            a {
+                                font-family: Arial, Helvetica, sans-serif;
+                                color: #666;
+                            }
+
+                            a:hover {
+                                color: #666;
+                            }
+                        }
+                    }
+
+                    .tech-right {
+                        width: 35%;
+                        padding-left: 1rem;
+                        height: 100%;
+
+                        .top-post {
+                            .image {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .title {
+                                padding-top: 0.7rem;
+                                padding-bottom: 0.6rem;
+                                border-bottom: 1px solid #454545;
+
+                                a {
+                                    h5 {
+                                        font-size: 0.9rem;
+                                        color: white;
+                                    }
+                                }
+
+                                a:hover {
+                                    h5 {
+                                        color: #0098d1 !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        .middle-post {
+                            padding-top: 1rem;
+
+                            .image {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .title {
+                                padding-top: 0.7rem;
+                                padding-bottom: 0.6rem;
+
+                                a {
+                                    h5 {
+                                        font-size: 0.9rem;
+                                        color: white;
+                                    }
+                                }
+
+                                a:hover {
+                                    h5 {
+                                        color: #0098d1 !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tech-middle {
+                display: flex;
+                flex-direction: row;
+                padding-top: 2rem;
+                gap: 2rem;
+
+                .post {
+                    display: flex;
+                    flex-direction: column;
+
+                    .image {
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .title {
+                        width: 100%;
+                        padding-top: 0.5rem;
+
+                        a {
+                            h5 {
+                                font-size: 0.9rem;
+                                color: white;
+                            }
+                        }
+
+                        a:hover {
+                            h5 {
+                                color: #0098d1 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
