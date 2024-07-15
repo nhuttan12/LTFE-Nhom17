@@ -7,6 +7,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 
 import "./Header.css";
+import {Link} from "react-router-dom";
 
 function Header() {
   var date = new Date();
@@ -214,13 +215,13 @@ function Header() {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="https://example.com"
+                    <Link
+                      to="/du-lich"
                       title="Du lịch"
                       className="nav-link"
                     >
                       Du lịch
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a
