@@ -55,8 +55,7 @@ body {
 .section-home .main-news .main-news-container .main-news-flex .top-news .top-news-img a img {
   width: 100%;
   height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
+  object-fit: fill;
 }
 .section-home .main-news .main-news-container .main-news-flex .top-news .top-news-name {
   background: #ebebeb;
@@ -227,4 +226,6 @@ body {
 .section-home .sub-news .sub-news-box-blog .box-blog-container .box-blog-flex .blog-container .blog-flex .blog-author .author-flex .author-name {
   font-size: 0.8rem;
   font-weight: bold;
-}/*# sourceMappingURL=MainNews.css.map */
+}
+
+/*# sourceMappingURL=MainNews.css.map */

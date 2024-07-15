@@ -16,7 +16,6 @@ import Multimedia from "./Components/Multimedia/Multimedia";
 import Category from "./Components/Category/Category";
 import SportCategory from "./Components/SportCategory/SportCategory";
 import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCategory";
-import ListCarousel from "./Components/carosel/ListCarousel";
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
@@ -26,18 +25,18 @@ root.render(
   <React.StrictMode>
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
-    <Header />
+    {/*<Header />*/}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
     {/* <DanhSachBaiBao/> */}
     {/* <ListThiTruong/> */}
-    {/* <Header /> */}
+    {/* <Header />*/}
     {/* <Footer /> */}
-    <MainNews />
+    {/*<MainNews />*/}
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    <ListTinNhanh360 />
+    {/*<ListTinNhanh360 />*/}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
@@ -52,15 +51,15 @@ root.render(
     {/*<ListThiTruong/>*/}
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
-    {/* <DanhSachBaiBao/>*/}
-    {/* <App/> */}
+    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
+    {/* <App/>*/}
     {/* <Footer/> */}
     {/* <Category/> */}
-    {/*  <Carousel title="Xung đột Ukaraina" />*/}
+    {/*  <Carousel dataNews={homeData} title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}
     {/* <TechnologyCategory /> */}
-    <ListNewsTop dataNewsTop={homeData} />
+    {/*<ListNewsTop dataNews={homeData} />*/}
   </React.StrictMode>
 );
 

@@ -5,6 +5,7 @@ import PopularNews from "./PopularNews";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import MiniNews from "./MiniNews/MiniNews";
+
 import axios from "axios";
 import parse from "html-react-parser";
 
@@ -198,7 +199,8 @@ const MainNews = () => {
 
   const latest_news = [...data_tin].sort(()=> 0.5 - Math.random());
 
-  // data_tin.length > 0  là để dự phòng bất đồng bộ khi dữ liệu bị trống
+
+const MainNews = ({dataNews}) => {
   return (
     <div className="section-home">
       <div className="main-news">
