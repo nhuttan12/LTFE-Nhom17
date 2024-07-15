@@ -1,0 +1,13 @@
+.homeContent{
+    max-width: 1150px;
+}
+.home-flex{
+    display: flex;
+    .home-left{
+        width: 735px;
+    }
+    .home-right{
+        width: 325px;
+        margin-left: 60px;
+    }
+}

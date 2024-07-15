@@ -1,5 +1,6 @@
 import React from "react";
 import "./common.css";
+import {Link} from "react-router-dom";
 const Footer = () => {
     return(
         <div className="containerFoot">
@@ -8,34 +9,34 @@ const Footer = () => {
                     <div className="container">
                         <div className="footer-sections">
                             <div>
-                                <h4>Thời sự</h4>
-                                <h4>Thế giới</h4>
-                                <h4>Kinh tế</h4>
-                                <h4>Đời sống</h4>
+                                <Link to="/thoi-su" title="Thời sự" className="nav-link"><h4>Thời sự</h4></Link>
+                                <Link to="/the-gioi" title="Thế giới" className="nav-link"><h4>Thế giới</h4></Link>
+                                <Link to="/kinh-te" title="Kinh tế" className="nav-link"><h4>Kinh tế</h4></Link>
+                                <Link to="/doi-song" title="Đời sống" className="nav-link"><h4>Đời sống</h4></Link>
                             </div>
                             <div>
-                                <h4>Sức khỏe</h4>
-                                <h4>Giới trẻ</h4>
-                                <h4>Giáo dục</h4>
-                                <h4>Du lịch</h4>
+                                <Link to="/suc-khoe" title="Sức khỏe" className="nav-link"><h4>Sức khỏe</h4></Link>
+                                <Link to="/gioi-tre" title="Giới trẻ" className="nav-link"><h4>Giới trẻ</h4></Link>
+                                <Link to="/giao-duc" title="Giáo dục" className="nav-link"><h4>Giáo dục</h4></Link>
+                                <Link to="/du-lich" title="Du lịch" className="nav-link"><h4>Du lịch</h4></Link>
                             </div>
                             <div>
-                                <h4>Văn hoá</h4>
-                                <h4>Giải trí</h4>
-                                <h4>Thể thao</h4>
-                                <h4>Công nghệ</h4>
+                                <Link to="/van-hoa" title="Văn hoá" className="nav-link"><h4>Văn hoá</h4></Link>
+                                <Link to="/giai-tri" title="Giải trí" className="nav-link"><h4>Giải trí</h4></Link>
+                                <Link to="/the-thao" title="Thể thao" className="nav-link"><h4>Thể thao</h4></Link>
+                                <Link to="/cong-nghe" title="Công nghệ" className="nav-link"><h4>Công nghệ</h4></Link>
                             </div>
                             <div>
-                                <h4>Xe</h4>
-                                <h4>Thời trang trẻ</h4>
-                                <h4>Video</h4>
-                                <h4>Podcast</h4>
+                                <Link to="/xe" title="Xe" className="nav-link"><h4>Xe</h4></Link>
+                                <Link to="/thoi-trang-tre" title="Thời trang trẻ" className="nav-link"><h4>Thời trang
+                                    trẻ</h4></Link>
+                                <Link to="/video" title="Video" className="nav-link"><h4>Video</h4></Link>
+                                <Link to="/podcast" title="Podcast" className="nav-link"><h4>Podcast</h4></Link>
                             </div>
                             <div style={{marginRight: '100px'}}>
-                                <h4>Bạn đọc</h4>
-                                <h4>Rao vặt</h4>
+                                <Link to="/ban-doc" title="Bạn đọc" className="nav-link"><h4>Bạn đọc</h4></Link>
+                                <Link to="/rao-vat" title="Rao vặt" className="nav-link"><h4>Rao vặt</h4></Link>
                             </div>
-
                         </div>
                     </div>
                 </div>

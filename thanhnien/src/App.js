@@ -1,27 +1,28 @@
-//
-// import Header from './Components/Common/Header';
-//
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <p>
-//          Test pull request
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-//
-// export default App;
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './Components/Common/Header';
+import ListNewsTop from "./Components/dulich/ListNewsTop";
+import homeData from "./Json/home";
+import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
+import ListTongHop from "./Components/tintonghop/ListTongHop";
+import MainNews from "./Components/MainNews/MainNews";
+import HomePage from "./Containers/HomePage";
+
+function App() {
+    return (
+        <Router>
+            <div>
+                <Header />
+                {/*<HomePage/>*/}
+                <Routes>
+                    <Route path="/" element={<MainNews />} />
+                    <Route path="/du-lich" element={<ListNewsTop dataNews={homeData}/>} />
+                    <Route path="/bai-bao" element={<DanhSachBaiBao />} />
+                    <Route path="/tong-hop" element={<ListTongHop />} />
+                </Routes>
+            </div>
+        </Router>
+    );
+}
+
+export default App;

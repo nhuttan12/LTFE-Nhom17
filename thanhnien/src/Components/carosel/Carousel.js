@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Carousel.css';
-import thoisuData from '../../Json/thoisu';
 
-const Carousel = ({ title }) => {
+const Carousel = ({dataNews, title }) => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
     useEffect(() => {
-        setData(thoisuData);
+        setData(dataNews);
     }, []);
 
     const getRandomElements = (arr) => {

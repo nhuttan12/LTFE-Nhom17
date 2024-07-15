@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import './cssthitruong.css';
 
-const ItemThiTruong = ({dataArticles ,cate}) => {
+const ItemThiTruong = ({dataComponent ,cate}) => {
     const decodeHtmlEntities = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
@@ -58,7 +58,7 @@ const ItemThiTruong = ({dataArticles ,cate}) => {
     };
     return (
             <div className="news-grid">
-            {dataArticles.map((article, index) => (
+            {dataComponent.map((article, index) => (
                 <div className="news-item" key={index}>
                     <a href={article.url} title={decodeHtmlEntities(article.title)}>
                         <img
