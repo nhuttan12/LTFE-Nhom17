@@ -78,7 +78,7 @@ const List24h = () =>{
         <div className="container-24h">
             <h2>Tin 24h</h2>
             <div className="list24h">
-                {data_24h.map((item24h, index)=>(
+                {data_24h.slice(0,8).map((item24h, index)=>(
                     <Item24h
                         key={index}
                         stuff={item24h.item.content}
