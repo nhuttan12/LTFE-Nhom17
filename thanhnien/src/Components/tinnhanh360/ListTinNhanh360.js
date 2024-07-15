@@ -25,7 +25,6 @@ const ListTinNhanh360 = () => {
   useEffect(() => {
     getData_tinhnhanh360();
   }, []);
-  const slice_data= data_tinnhanh360.slice(0,6);
   return (
     <div className="tinnhanh360">
       <div className="tinnhanh360-container">
@@ -34,7 +33,7 @@ const ListTinNhanh360 = () => {
           <span>360</span>
         </div>
         <div className="tinnhanh360List">
-          {slice_data.map((tinnhanh, index) => (
+          {data_tinnhanh360.slice(0,6).map((tinnhanh, index) => (
             <ItemTinNhanh360 key={index} stuff={tinnhanh.item} />
           ))}
         </div>
