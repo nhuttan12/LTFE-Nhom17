@@ -13,30 +13,54 @@ import ListGioiTreVaDoiSong from "./Components/tingioitrevadoisong/ListGioiTreVa
 import List24h from "./Components/tin24h/List24h";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
+import Category from "./Components/Category/Category";
+import SportCategory from "./Components/SportCategory/SportCategory";
+import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCategory";
+import ListCarousel from "./Components/carosel/ListCarousel";
+import Carousel from "./Components/carosel/Carousel";
+import ListNewsTop from "./Components/dulich/ListNewsTop";
+import homeData from "./Json/home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ListThiTruong />
-    {/*<ListTongHop/>*/}
-    {/*<Header/>*/}
+    {/* <ListThiTruong /> */}
+    {/* <ListTongHop/> */}
+    <Header />
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <ListTinNhanh360/> */}
     {/* <List24h/> */}
-    {/*<DanhSachBaiBao/>*/}
-    {/*<ListThiTruong/>*/}
-    {/* <Header />
-    <Footer />
-    <MainNews /> */}
+    {/* <DanhSachBaiBao/> */}
+    {/* <ListThiTruong/> */}
+    {/* <Header /> */}
+    {/* <Footer /> */}
+    <MainNews />
     {/* <Header/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    <ListTinNhanh360/>
-    <List24h/>
+    <ListTinNhanh360 />
+    {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <Footer/> */}
+    {/*<Header/>*/}
+    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
+    {/*<ListTongHop/>*/}
+    {/* <ListGioiTreVaDoiSong/>*/}
+    {/* <ListTinNhanh360/>*/}
+    {/* <List24h/>*/}
+    {/*<DanhSachBaiBao/>*/}
+    {/*<ListThiTruong/>*/}
+    {/*<MainNews />*/}
+    {/* <Multimedia />*/}
+    {/* <DanhSachBaiBao/>*/}
     {/* <App/> */}
     {/* <Footer/> */}
+    {/* <Category/> */}
+    {/*  <Carousel title="Xung đột Ukaraina" />*/}
+    {/* <ListNewsTop/> */}
+    {/* <SportCategory /> */}
+    {/* <TechnologyCategory /> */}
+    <ListNewsTop dataNewsTop={homeData} />
   </React.StrictMode>
 );
 

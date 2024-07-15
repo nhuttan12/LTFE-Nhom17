@@ -29,8 +29,7 @@
 .news-item-title {
     font-size: 14px;
     margin: 10px 0;
-    width: 405px;
-    width: 149px;
+    width: 100%;
     height: auto; /* Cho phép chiều cao tự động điều chỉnh theo số dòng */
     overflow: hidden;
     text-overflow: ellipsis;
@@ -62,4 +61,8 @@
 .news-grid > * { /* Áp dụng cho tất cả các phần tử con trực tiếp của .news-grid */
     flex: 0 0 23%; /* Không co giãn, không thu nhỏ, chiếm 25% chiều rộng của container */
     box-sizing: border-box; /* Bao gồm padding và border vào tính toán chiều rộng */
+}
+.item-thi-truong{
+    display: flex;
+    max-width: 1150px;
 }

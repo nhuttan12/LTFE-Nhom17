@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.sport-container {
+  padding-top: 2rem;
+  width: 1150px;
+  margin: auto;
+}
+.sport-container .sport-main-news .sport-top {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 1.5rem;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-left {
+  border-right: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  padding-right: 1rem;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-left .main-image img {
+  width: 100%;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-left .main-title {
+  padding-top: 1rem;
+  text-align: center;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-left .main-description {
+  padding-top: 1.3rem;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-left .main-description a {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-left .main-description a:hover {
+  color: black;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right {
+  width: 35%;
+  padding-left: 1rem;
+  height: 100%;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .top-post .image img {
+  width: 100%;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .top-post .title {
+  padding-top: 0.7rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #ebebeb;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .top-post .title h5 {
+  font-size: 0.9rem;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .middle-post {
+  padding-top: 1rem;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .middle-post .image img {
+  width: 100%;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .middle-post .title {
+  padding-top: 0.7rem;
+  padding-bottom: 0.6rem;
+}
+.sport-container .sport-main-news .sport-top .sport-top-container .sport-right .middle-post .title h5 {
+  font-size: 0.9rem;
+}
+.sport-container .sport-main-news .sport-middle {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2rem;
+  gap: 2rem;
+}
+.sport-container .sport-main-news .sport-middle .post {
+  display: flex;
+  flex-direction: column;
+}
+.sport-container .sport-main-news .sport-middle .post .image {
+  width: 100%;
+}
+.sport-container .sport-main-news .sport-middle .post .image img {
+  width: 100%;
+}
+.sport-container .sport-main-news .sport-middle .post .title {
+  width: 100%;
+  padding-top: 0.5rem;
+}
+.sport-container .sport-main-news .sport-middle .post .title h5 {
+  font-size: 0.9rem;
+}/*# sourceMappingURL=SportCategory.css.map */
