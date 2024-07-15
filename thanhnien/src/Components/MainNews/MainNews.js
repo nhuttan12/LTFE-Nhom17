@@ -2,21 +2,12 @@ import React, { useState } from "react";
 import "./MainNews.css";
 import LatestNews from "./LatestNews";
 import PopularNews from "./PopularNews";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
 import MiniNews from "./MiniNews/MiniNews";
-// import RssCaller from "../rsscaller/RssCaller.mjs"
-
-// var main_data;
-// (async () => {
-//   try {
-//       const url = new RssCaller('https://thanhnien.vn/rss/home.rss')
-//       const feed = await url.data();
-//       main_data=feed[0];
-//   } catch (error) {
-//       console.error("Error fetching RSS feed:", error);
-//   }
-// })();
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 
 
 const main_data = {
@@ -215,14 +206,14 @@ const MainNews = (props) => {
             </div>
           </div>
         </div>
-        <div className="mini-news-container" style={{width: '100%'}}>
-          <MiniNews data={miniData}/>
+        <div className="mini-news-container" style={{ width: "100%" }}>
+          <MiniNews data={miniData} />
         </div>
       </div>
       <div className="sub-news">
         <div className="sub-news-container">
           <div className="sub-news-tab">
-            <Tabs
+            {/* <Tabs
               defaultActiveKey="latest"
               id="fill-tab-example"
               className="mb-3 subs-tab"
@@ -242,8 +233,8 @@ const MainNews = (props) => {
                   ))}
                 </div>
               </Tab>
-            </Tabs>
-          </div>
+            </Tabs> */}
+          </div>  
         </div>
         <div className="sub-news-box-blog">
           <div className="box-blog-container">

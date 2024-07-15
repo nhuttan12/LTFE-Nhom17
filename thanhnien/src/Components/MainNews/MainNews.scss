@@ -119,48 +119,48 @@ body {
       border: 1px solid #ebebeb;
       border-radius: 5px;
       height: 500px;
-      .sub-news-tab {
-        ul {
-          li {
-            .active {
-              color: black;
-              border-bottom: 1px solid #0098d1 !important;
-            }
-            button {
-              font-size: 1.05rem;
-              color: #8b8b8b;
-              border: 0px;
-            }
-          }
-        }
-        .tab-content {
-          padding-left: 15px;
-          padding-right: 15px;
-          .tab-pane {
-            padding-left: 10px;
-            padding-right: 10px;
-            height: 400px;
-            overflow-y: auto;
-            div {
-              div {
-                border-bottom: 1px solid #ebebeb;
-                div {
-                  padding-top: 10px;
-                  padding-bottom: 10px;
-                  .item {
-                    font-size: 0.95rem;
-                    color: #8b8b8b;
-                    cursor: pointer;
-                  }
-                  .item:hover{
-                    color: #0098d1;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      // .sub-news-tab {
+      //   ul {
+      //     li {
+      //       .active {
+      //         color: black;
+      //         border-bottom: 1px solid #0098d1 !important;
+      //       }
+      //       button {
+      //         font-size: 1.05rem;
+      //         color: #8b8b8b;
+      //         border: 0px;
+      //       }
+      //     }
+      //   }
+      //   .tab-content {
+      //     padding-left: 15px;
+      //     padding-right: 15px;
+      //     .tab-pane {
+      //       padding-left: 10px;
+      //       padding-right: 10px;
+      //       height: 400px;
+      //       overflow-y: auto;
+      //       div {
+      //         div {
+      //           border-bottom: 1px solid #ebebeb;
+      //           div {
+      //             padding-top: 10px;
+      //             padding-bottom: 10px;
+      //             .item {
+      //               font-size: 0.95rem;
+      //               color: #8b8b8b;
+      //               cursor: pointer;
+      //             }
+      //             .item:hover{
+      //               color: #0098d1;
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
     }
     .sub-news-box-blog {
       padding-top: 20px;
