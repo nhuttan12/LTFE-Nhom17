@@ -13,6 +13,7 @@ import ListTinNhanh360 from "../Components/tinnhanh360/ListTinNhanh360";
 import homeData from "../Json/home";
 import ItemThiTruong from "../Components/tinthitruong/ItemThiTruong";
 import '../Components/dulich/topNews.css';
+import ListTongHop from "../Components/tintonghop/ListTongHop";
 const HomePage = () => {
     const [data_home, setData_home] = useState([]);
     const [randomArticles, setRandomArticles] = useState([]);
@@ -60,10 +61,8 @@ const HomePage = () => {
     // Get the first 9 articles from the shuffled list
     const firstArticle = randomArticles.slice(0, 8);
 
-    console.log(firstArticle);
-    console.log(data_home);
 
-    const nextFourArticles = randomArticles.slice(1, 5);
+    const nextFourArticles = randomArticles.slice(8, 11);
     const nextThreeArticles = randomArticles.slice(5, 8);
     const BlueFourArticles = randomArticles.slice(8, 12);
     return (
@@ -90,14 +89,15 @@ const HomePage = () => {
                 </div>
             </div>
                 <Multimedia/>
-            {/*<div className="home-flex">*/}
-            {/*    <div className="home-left">*/}
+            <div className="home-flex">
+                <div className="home-left">
             {/*        /!*4 tintonghop*!/*/}
+                    <ListTongHop dataNews={nextFourArticles}/>
             {/*        /!*6 carousel*!/*/}
             {/*        /!* 20 tintonghop*!/*/}
             {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
-            {/*    </div>*/}
-            {/*    <div className="home-right">*/}
+                </div>
+                <div className="home-right">
             {/*        /!*5 kinhte same gioitre*!/*/}
             {/*        /!*5 kinhtexanh*!/*/}
             {/*        /!*5 suckhoe*!/*/}
@@ -105,8 +105,8 @@ const HomePage = () => {
             {/*        /!*5 dulich*!/*/}
             {/*        /!*5 xe*!/*/}
             {/*        /!*lamdep same kinhtexanh*!/*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                </div>
+            </div>
             {/*<div className="homeContent">*/}
             {/*    <DanhSachBaiBao/>*/}
             {/*    /!*8 data from thoisu*!/*/}

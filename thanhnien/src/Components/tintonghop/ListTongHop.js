@@ -6,40 +6,10 @@ import homeData from '../../Json/home.json';
 import thethaoData from '../../Json/thethao.json';
 import parse from "html-react-parser";
 
-const ArticleList = () => {
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
+const ArticleList = ({dataNews}) => {
 
-    useEffect(() => {
-        setData(homeData);
-    }, []);
-
-    const getRandomElements = (arr, numElements) => {
-        let shuffled = arr.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, numElements);
-    };
-
-    useEffect(() => {
-        if (data) {
-            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
-            const currentTime = Date.now();
-
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 1000) { // 2 minutes 120000 // 30 seconds 30000
-                const newRandomArticles = getRandomElements(data.items, 6);
-                setRandomArticles(newRandomArticles);
-                localStorage.setItem('lastShuffleTime', currentTime);
-                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
-            } else {
-                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
-                setRandomArticles(shuffledArticles);
-            }
-        }
-    }, [data]);
-    if (!randomArticles.length) {
-        return <div>Loading...</div>;
-    }
-    const firstThree = randomArticles.slice(0, 3);
-    const nextThree = randomArticles.slice(3);
+    const firstThree = dataNews.slice(0, 3);
+    const nextThree = dataNews.slice(3);
 
     const extractContentAfterLinks = (htmlString) => {
         const regex = /<\/a>(.*)/;
