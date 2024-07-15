@@ -5,11 +5,11 @@ import ThreeBigNews from "./ThreeBigNews";
 import './topNews.css';
 import ForNewsBlue from "./ForNewsBlue";
 
-const ListNewsTop = ({dataNewsTop}) => {
+const ListNewsTop = ({dataNews}) => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
     useEffect(() => {
-        setData(dataNewsTop);
+        setData(dataNews);
     }, []);
 
     const getRandomElements = (arr, numElements) => {
@@ -42,16 +42,16 @@ const ListNewsTop = ({dataNewsTop}) => {
             <TopNew firstArticle={firstArticle}/>
             <div className="top-new">
                 {/*<h2>Tin thị trường</h2>*/}
-                <ItemThiTruong dataArticles={nextFourArticles} title={" "} cate={"no"}/>
+                <ItemThiTruong dataComponent={nextFourArticles} title={" "} cate={"no"}/>
 
             </div>
             <div className="top-new border">
                 <h2>Khám phá</h2>
-                <ThreeBigNews bigData={nextThreeArticles}/>
+                <ThreeBigNews dataComponent={nextThreeArticles}/>
             </div>
             <div className="top-new border">
                 <h2>Chơi gì, ăn đâu, đi thế nào?</h2>
-                <ForNewsBlue blueData={BlueFourArticles}/>
+                <ForNewsBlue dataComponent={BlueFourArticles}/>
             </div>
         </div>
     );

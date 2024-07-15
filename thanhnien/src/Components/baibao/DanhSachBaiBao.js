@@ -9,7 +9,7 @@ import thoisuData from '../../Json/thoisu';
 import homeData from '../../Json/home';
 import {faCircle} from "@fortawesome/free-regular-svg-icons"; // Import dữ liệu từ file JSON
 
-const DanhSachBaiBao = () => {
+const DanhSachBaiBao = ({dataNews}) => {
     function getRandomData() {
         const dataSources = [homeData, thoisuData];
         const randomIndex = Math.floor(Math.random() * dataSources.length);
@@ -18,8 +18,7 @@ const DanhSachBaiBao = () => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
     useEffect(() => {
-        const randomData = getRandomData();
-        setData(randomData);
+        setData(dataNews);
     }, []);
 
     const getRandomElements = (arr) => {
@@ -63,7 +62,6 @@ const DanhSachBaiBao = () => {
 
         if (match) {
             const textContent = match[1].trim(); // Lấy phần tử thứ 2 (nội dung) và loại bỏ khoảng trắng thừa
-            console.log(textContent); // In ra nội dung
             return textContent;
         }
         return ' ';

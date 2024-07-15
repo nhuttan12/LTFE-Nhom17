@@ -14,7 +14,7 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<MainNews />} />
-                    <Route path="/du-lich" element={<ListNewsTop dataNewsTop={homeData}/>} />
+                    <Route path="/du-lich" element={<ListNewsTop dataNews={homeData}/>} />
                     <Route path="/bai-bao" element={<DanhSachBaiBao />} />
                     <Route path="/tong-hop" element={<ListTongHop />} />
                 </Routes>
