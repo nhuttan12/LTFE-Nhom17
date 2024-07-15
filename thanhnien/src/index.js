@@ -52,7 +52,7 @@ root.render(
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
     {/* <DanhSachBaiBao dataNews={homeData}/>*/}
-     <App/>
+    {/* <App/>*/}
     {/* <Footer/> */}
     {/* <Category/> */}
     {/*  <Carousel dataNews={homeData} title="Xung đột Ukaraina" />*/}

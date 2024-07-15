@@ -7,7 +7,8 @@ import {faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import thoisuData from '../../Json/thoisu';
 import homeData from '../../Json/home';
-import {faCircle} from "@fortawesome/free-regular-svg-icons"; // Import dữ liệu từ file JSON
+import {faCircle} from "@fortawesome/free-regular-svg-icons";
+import BaiBaoSingle from "./BaiBaoSingle"; // Import dữ liệu từ file JSON
 
 const DanhSachBaiBao = ({dataNews}) => {
     function getRandomData() {
@@ -106,31 +107,7 @@ const DanhSachBaiBao = ({dataNews}) => {
                         description={decodeHtmlEntities(extractContentAfterLinks(firstArticle.content_html))}
                     />
                 )}
-                {nextTwoArticles.map((item, index) => (
-                    <BaiBao
-                        key={index}
-                        url={item.url}
-                        chuDe={decodeHtmlEntities(item.title)}
-                        tieuDe={decodeHtmlEntities(item.title)}
-                        moTa={
-                            index < linkData.length ? (
-                                <a href={linkData[index].url}
-                                    title={decodeHtmlEntities(linkData[index].title)} className="bai-bao-mo-ta">
-                                    {decodeHtmlEntities(linkData[index].title)}
-                                </a>
-                            ) : null
-                        }
-                        moTaPhu={
-                            index + 2 < linkData.length ? (
-                                <a href={linkData[index + 2].url}
-                                    title={decodeHtmlEntities(linkData[index + 2].title)} className="bai-bao-mo-ta">
-                                    {decodeHtmlEntities(linkData[index + 2].title)}
-                                </a>
-                            ) : null
-                        }
-                        hinhAnh={item.content_html.match(/<img src="([^"]*)"/)[1]}
-                    />
-                ))}
+                <BaiBaoSingle dataComponent={nextTwoArticles}/>
             </div>
         </div>
     );

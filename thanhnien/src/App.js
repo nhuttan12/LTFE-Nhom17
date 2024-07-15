@@ -6,12 +6,14 @@ import homeData from "./Json/home";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import MainNews from "./Components/MainNews/MainNews";
+import HomePage from "./Containers/HomePage";
 
 function App() {
     return (
         <Router>
             <div>
                 <Header />
+                {/*<HomePage/>*/}
                 <Routes>
                     <Route path="/" element={<MainNews />} />
                     <Route path="/du-lich" element={<ListNewsTop dataNews={homeData}/>} />
