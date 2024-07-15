@@ -26,18 +26,9 @@ root.render(
   <React.StrictMode>
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
-    {/*<Header />*/}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/* <ListTinNhanh360/> */}
-    {/* <List24h/> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <ListThiTruong/> */}
-    {/* <Header />*/}
-    {/* <Footer /> */}
-    {/*<MainNews />*/}
-    {/* <Header/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/*<ListTinNhanh360 />*/}
+    {/* <Header /> */}
+    {/* <MainNews /> */}
+    {/* <ListTinNhanh360 /> */}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao dataNews={homeData}/>*/}
@@ -53,14 +44,20 @@ root.render(
     {/* <Multimedia />*/}
      <App/>
     {/* <Footer/> */}
+    {/* <DanhSachBaiBao/> */}
+    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <List24h/>*/}
+    {/* <App/> */}
     {/* <Category/> */}
-    {/*  <Carousel dataNews={homeData} title="Xung đột Ukaraina" />*/}
+    {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
-    {/* <SportCategory /> */}
+//     <SportCategory />
     {/* <TechnologyCategory /> */}
     {/*<ListNewsTop dataNews={homeData} />*/}
     {/*  <HomePage/>*/}
     {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
+    {/* <ListNewsTop dataNewsTop={homeData} /> */}
+    {/* <Footer/> */}
 
   </React.StrictMode>
 );
