@@ -1,7 +1,11 @@
+
 .homeContent{
+    margin: 0 auto;
     max-width: 1150px;
 }
 .home-flex{
+    margin: 0 auto;
+    max-width: 1150px;
     display: flex;
     .home-left{
         width: 735px;

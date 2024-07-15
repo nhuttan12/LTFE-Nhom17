@@ -19,6 +19,7 @@ import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCatego
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
+import HomePage from "./Containers/HomePage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -39,7 +40,7 @@ root.render(
     {/*<ListTinNhanh360 />*/}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao/> */}
+    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
     {/* <Footer/> */}
     {/*<Header/>*/}
     {/*<ListThiTruong dataThiTruong={homeData}/>*/}
@@ -47,12 +48,10 @@ root.render(
     {/* <ListGioiTreVaDoiSong/>*/}
     {/* <ListTinNhanh360/>*/}
     {/* <List24h/>*/}
-    {/*<DanhSachBaiBao/>*/}
     {/*<ListThiTruong/>*/}
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
-    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
-    {/* <App/>*/}
+     <App/>
     {/* <Footer/> */}
     {/* <Category/> */}
     {/*  <Carousel dataNews={homeData} title="Xung đột Ukaraina" />*/}
@@ -60,6 +59,9 @@ root.render(
     {/* <SportCategory /> */}
     {/* <TechnologyCategory /> */}
     {/*<ListNewsTop dataNews={homeData} />*/}
+    {/*  <HomePage/>*/}
+    {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
+
   </React.StrictMode>
 );
 

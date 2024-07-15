@@ -4,6 +4,7 @@ import './csstonghop.css';
 import React, {useEffect, useState} from 'react';
 import homeData from '../../Json/home.json';
 import thethaoData from '../../Json/thethao.json';
+import parse from "html-react-parser";
 
 const ArticleList = () => {
     const [data, setData] = useState(null);
@@ -39,11 +40,6 @@ const ArticleList = () => {
     }
     const firstThree = randomArticles.slice(0, 3);
     const nextThree = randomArticles.slice(3);
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
 
     const extractContentAfterLinks = (htmlString) => {
         const regex = /<\/a>(.*)/;
@@ -110,10 +106,10 @@ const ArticleList = () => {
                 <NewsArticle
                     key={index}
                     category={getCategoryFromTitle(item.title)}
-                    title={decodeHtmlEntities(item.title)}
+                    title={parse(item.title)}
                     image={item.content_html.match(/<img src="([^"]*)"/)[1]}
                     imgsize={getImageSize(item.title)}
-                    description={decodeHtmlEntities(extractContentAfterLinks(item.content_html))}
+                    description={parse(extractContentAfterLinks(item.content_html))}
                     url={item.url}
                     data={nextThree[index] ? nextThree.slice(index, index + 1) : []}
                 />
