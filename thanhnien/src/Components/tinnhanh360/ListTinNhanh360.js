@@ -7,16 +7,6 @@ const ListTinNhanh360 = () => {
   const [data_tinnhanh360, setData_tinnhanh360] = useState([]);
 
   console.log(data_tinnhanh360);
-
-  // const getData_tinhnhanh360 = async () => {
-  //     try {
-  //      const res = await axios.get("http://localhost:4000/");
-  //      setData_tinnhanh360(res.data);
-  //  } catch (error) {
-  //      console.log(error);
-  //   }
-  // }
-
   // Format khi gửi Post
   const getData_tinhnhanh360 = async () => {
     try {
@@ -35,7 +25,6 @@ const ListTinNhanh360 = () => {
   useEffect(() => {
     getData_tinhnhanh360();
   }, []);
-
   return (
     <div className="tinnhanh360">
       <div className="tinnhanh360-container">
@@ -44,7 +33,7 @@ const ListTinNhanh360 = () => {
           <span>360</span>
         </div>
         <div className="tinnhanh360List">
-          {data_tinnhanh360.map((tinnhanh, index) => (
+          {data_tinnhanh360.slice(0,6).map((tinnhanh, index) => (
             <ItemTinNhanh360 key={index} stuff={tinnhanh.item} />
           ))}
         </div>

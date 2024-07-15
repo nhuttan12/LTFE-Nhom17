@@ -49,7 +49,7 @@ const parse = async url => {
 
     // console.log(feed.items)
     articles = [];
-    feed.items.slice(0,6).forEach(item =>{
+    feed.items.slice(0,40).forEach(item =>{
         articles.push({ item })
     })
 }
@@ -71,6 +71,7 @@ app.post('/', async (req,res) =>{
     try {
         await parse(urlFeed); // Chờ hàm parse hoàn thành
         res.send(articles);
+        console.log(articles);
     } catch (error) {
         res.status(500).send("Error parsing feed");
     }

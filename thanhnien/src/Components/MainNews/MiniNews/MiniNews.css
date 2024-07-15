@@ -22,7 +22,7 @@
 .post .post-container .post-box {
   padding-top: 30px;
 }
-.post .post-container .post-box a .post-img {
+.post .post-container .post-box a img{
   width: 100%;
 }
 .post .post-container .post-box h5 .post-title {
