@@ -25,41 +25,23 @@ root.render(
   <React.StrictMode>
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
-    {/*<Header />*/}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/* <ListTinNhanh360/> */}
-    {/* <List24h/> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <ListThiTruong/> */}
-    {/* <Header />*/}
-    {/* <Footer /> */}
-    {/*<MainNews />*/}
-    {/* <Header/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/*<ListTinNhanh360 />*/}
+    {/* <Header /> */}
+    {/* <MainNews /> */}
+    {/* <ListTinNhanh360 /> */}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
-    {/* <Footer/> */}
-    {/*<Header/>*/}
-    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
-    {/*<ListTongHop/>*/}
-    {/* <ListGioiTreVaDoiSong/>*/}
-    {/* <ListTinNhanh360/>*/}
+    {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/>*/}
-    {/*<DanhSachBaiBao/>*/}
-    {/*<ListThiTruong/>*/}
-    {/*<MainNews />*/}
-    {/* <Multimedia />*/}
-    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
-    {/* <App/>*/}
-    {/* <Footer/> */}
+    {/* <App/> */}
     {/* <Category/> */}
-    {/*  <Carousel dataNews={homeData} title="Xung đột Ukaraina" />*/}
+    {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
-    {/* <SportCategory /> */}
+    <SportCategory />
     {/* <TechnologyCategory /> */}
-    {/*<ListNewsTop dataNews={homeData} />*/}
+    {/* <ListNewsTop dataNewsTop={homeData} /> */}
+    {/* <Footer/> */}
+
   </React.StrictMode>
 );
 
