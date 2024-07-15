@@ -1,5 +1,5 @@
 import React from 'react';
-const ThreeBigNews = (bigData) => {
+const ThreeBigNews = ({dataComponent}) => {
     const decodeHtmlEntities = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
@@ -7,7 +7,7 @@ const ThreeBigNews = (bigData) => {
     };
     return (
         <div className="big-track">
-            {bigData.bigData.map((article, index) => (
+            {dataComponent.map((article, index) => (
                 <div className="big-item" key={index}>
                     <a href={article.url} title={decodeHtmlEntities(article.title)}>
                         <img

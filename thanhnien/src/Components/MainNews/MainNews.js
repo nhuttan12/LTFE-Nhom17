@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MainNews.css";
 import LatestNews from "./LatestNews";
 import PopularNews from "./PopularNews";
@@ -8,67 +8,68 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import axios from "axios";
+import parse from "html-react-parser";
 
+// const main_data = {
+//   image:
+//     "https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/24/tro-xi-nhiet-dien-1a-171921031585163605971.jpg",
+//   title:
+//     "Chính phủ yêu cầu báo cáo về 3,8 triệu tấn tro xỉ tồn đọng ở trà vinh",
+//   description:
+//     "Phó thủ tướng Trần Hồng Hà yêu cầu các bên liên quan báo cáo về hàng triệu tấn tro xỉ tại Trà Vinh đang khó tiêu thụ, dù đã được chứng nhận hợp chuẩn, hợp quy làm vật liệu san lấp.",
+//   url: "https://thanhnien.vn/9-nhom-doi-tuong-duoc-tang-luong-huu-tro-cap-tu-17-185240628184739934.htm",
+// };
 
-const main_data = {
-  image:
-    "https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/24/tro-xi-nhiet-dien-1a-171921031585163605971.jpg",
-  title:
-    "Chính phủ yêu cầu báo cáo về 3,8 triệu tấn tro xỉ tồn đọng ở trà vinh",
-  description:
-    "Phó thủ tướng Trần Hồng Hà yêu cầu các bên liên quan báo cáo về hàng triệu tấn tro xỉ tại Trà Vinh đang khó tiêu thụ, dù đã được chứng nhận hợp chuẩn, hợp quy làm vật liệu san lấp.",
-  url: "https://thanhnien.vn/9-nhom-doi-tuong-duoc-tang-luong-huu-tro-cap-tu-17-185240628184739934.htm",
-};
+// const data = [
+//   {
+//     title: "Từ 1.7, tăng lương hưu cao nhất từ trước đến nay",
+//     description:
+//       "Từ ngày 1.7, lương hưu, trợ cấp bảo hiểm xã hội (BHXH) và trợ cấp hàng tháng sẽ tăng thêm 15%. Theo Bộ LĐ-TB-XH, 9 đối tượng được điều chỉnh tăng lương hưu, trợ cấp.",
+//     url: "https://thanhnien.vn/9-nhom-doi-tuong-duoc-tang-luong-huu-tro-cap-tu-17-185240628184739934.htm#:~:text=M%E1%BB%A9c%20%C4%91i%E1%BB%81u%20ch%E1%BB%89nh%20t%C4%83ng%20l%C6%B0%C6%A1ng,nh%E1%BA%A5t%20t%E1%BB%AB%20tr%C6%B0%E1%BB%9Bc%20%C4%91%E1%BA%BFn%20nay.",
+//   },
+//   {
+//     title: "Đà Lạt, 3 cháu be thiệt mạng do hoả hoạn",
+//     description:
+//       "Vụ hoả hoạn xảy ra khoảng 10 giờ hôm nay 24.6 tại TP. Đà Lạt làm 3 cháu bé thiệt mạng",
+//     url: "https://thanhnien.vn/da-lat-3-chau-be-thiet-mang-do-hoa-hoan-185240624120226796.htm",
+//   },
+//   {
+//     title: "TP.HCM: Đã có điểm chuẩn lớp 10 chuyên, tích hợp, xem tại đây",
+//     description:
+//       "Sở GD-ĐT TP.HCM vừa công bố điểm chuẩn lớp 10 chuyên, tích hợp năm học 2024-2025. Học sinh trúng tuyển sử dụng tài khoản của mình truy cập vào trang ts10.hcm.edu.vn để xác nhận nhập học trực tuyến từ ngày 25.6 đến trước 16 giờ ngày 29.6.",
+//     url: "https://thanhnien.vn/tphcm-da-co-diem-chuan-lop-10-chuyen-tich-hop-xem-tai-day-185240623175553642.htm",
+//   },
+// ];
 
-const data = [
-  {
-    title: "Từ 1.7, tăng lương hưu cao nhất từ trước đến nay",
-    description:
-      "Từ ngày 1.7, lương hưu, trợ cấp bảo hiểm xã hội (BHXH) và trợ cấp hàng tháng sẽ tăng thêm 15%. Theo Bộ LĐ-TB-XH, 9 đối tượng được điều chỉnh tăng lương hưu, trợ cấp.",
-    url: "https://thanhnien.vn/9-nhom-doi-tuong-duoc-tang-luong-huu-tro-cap-tu-17-185240628184739934.htm#:~:text=M%E1%BB%A9c%20%C4%91i%E1%BB%81u%20ch%E1%BB%89nh%20t%C4%83ng%20l%C6%B0%C6%A1ng,nh%E1%BA%A5t%20t%E1%BB%AB%20tr%C6%B0%E1%BB%9Bc%20%C4%91%E1%BA%BFn%20nay.",
-  },
-  {
-    title: "Đà Lạt, 3 cháu be thiệt mạng do hoả hoạn",
-    description:
-      "Vụ hoả hoạn xảy ra khoảng 10 giờ hôm nay 24.6 tại TP. Đà Lạt làm 3 cháu bé thiệt mạng",
-    url: "https://thanhnien.vn/da-lat-3-chau-be-thiet-mang-do-hoa-hoan-185240624120226796.htm",
-  },
-  {
-    title: "TP.HCM: Đã có điểm chuẩn lớp 10 chuyên, tích hợp, xem tại đây",
-    description:
-      "Sở GD-ĐT TP.HCM vừa công bố điểm chuẩn lớp 10 chuyên, tích hợp năm học 2024-2025. Học sinh trúng tuyển sử dụng tài khoản của mình truy cập vào trang ts10.hcm.edu.vn để xác nhận nhập học trực tuyến từ ngày 25.6 đến trước 16 giờ ngày 29.6.",
-    url: "https://thanhnien.vn/tphcm-da-co-diem-chuan-lop-10-chuyen-tich-hop-xem-tai-day-185240623175553642.htm",
-  },
-];
-
-const latest_news = [
-  {
-    title: "Thế giới vừa trải qua tháng 6 nóng chưa từng thấy trong lịch sử",
-    url: "https://thanhnien.vn/the-gioi-vua-trai-qua-thang-6-nong-chua-tung-thay-trong-lich-su-185240708161837793.htm",
-  },
-  {
-    title: "Huawei sẽ trang bị chip 5nm cho Mate70 series",
-    url: "https://thanhnien.vn/huawei-se-trang-bi-chip-5nm-cho-mate70-series-185240708162030137.htm",
-  },
-  {
-    title:
-      "'Anh trai say hi' vào top trending, đạt 3 triệu lượt xem trong 24 giờ",
-    url: "https://thanhnien.vn/anh-trai-say-hi-vao-top-trending-dat-3-trieu-luot-xem-trong-24-gio-185240708161944543.htm",
-  },
-  {
-    title: "Những nơi không nên cất giữ smartphone",
-    url: "https://thanhnien.vn/nhung-noi-khong-nen-cat-giu-smartphone-185240630190309241.htm",
-  },
-  {
-    title:
-      "Phía sau những tấm ảnh đẹp của VĐV giải Pickleball Thanh Niên Cúp VINFAST",
-    url: "https://thanhnien.vn/phia-sau-nhung-tam-anh-dep-cua-vdv-giai-pickleball-thanh-nien-cup-vinfast-185240708163923112.htm",
-  },
-  {
-    title: "Cùng chung tay bảo vệ môi trường biển",
-    url: "https://thanhnien.vn/cung-chung-tay-bao-ve-moi-truong-bien-185240708113516832.htm",
-  },
-];
+// const latest_news = [
+//   {
+//     title: "Thế giới vừa trải qua tháng 6 nóng chưa từng thấy trong lịch sử",
+//     url: "https://thanhnien.vn/the-gioi-vua-trai-qua-thang-6-nong-chua-tung-thay-trong-lich-su-185240708161837793.htm",
+//   },
+//   {
+//     title: "Huawei sẽ trang bị chip 5nm cho Mate70 series",
+//     url: "https://thanhnien.vn/huawei-se-trang-bi-chip-5nm-cho-mate70-series-185240708162030137.htm",
+//   },
+//   {
+//     title:
+//       "'Anh trai say hi' vào top trending, đạt 3 triệu lượt xem trong 24 giờ",
+//     url: "https://thanhnien.vn/anh-trai-say-hi-vao-top-trending-dat-3-trieu-luot-xem-trong-24-gio-185240708161944543.htm",
+//   },
+//   {
+//     title: "Những nơi không nên cất giữ smartphone",
+//     url: "https://thanhnien.vn/nhung-noi-khong-nen-cat-giu-smartphone-185240630190309241.htm",
+//   },
+//   {
+//     title:
+//       "Phía sau những tấm ảnh đẹp của VĐV giải Pickleball Thanh Niên Cúp VINFAST",
+//     url: "https://thanhnien.vn/phia-sau-nhung-tam-anh-dep-cua-vdv-giai-pickleball-thanh-nien-cup-vinfast-185240708163923112.htm",
+//   },
+//   {
+//     title: "Cùng chung tay bảo vệ môi trường biển",
+//     url: "https://thanhnien.vn/cung-chung-tay-bao-ve-moi-truong-bien-185240708113516832.htm",
+//   },
+// ];
 
 const popular_news = [
   {
@@ -118,56 +119,90 @@ const popular_news = [
   },
 ];
 
-const miniData = [
-  {
-    title:
-      "Vụ án Tịnh thất Bồng Lai: Khởi tố Lê Thanh Nhất Nguyên về hành vi lừa đảo",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/le-thanh-nhat-nguyen-1720520908907136874990-0-0-597-955-crop-1720521071924919976996.jpg",
-    url: "https://thanhnien.vn/vu-an-tinh-that-bong-lai-khoi-to-le-thanh-nhat-nguyen-ve-hanh-vi-lua-dao-185240709173256463.htm",
-  },
-  {
-    title: "Bệnh bạch hầu: Bộ Y tế thông tin mới nhất về các ổ dịch",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/tno-1-17204314766521070633582-0-0-705-1128-crop-1720524301491771571008.jpg",
-    url: "https://thanhnien.vn/benh-bach-hau-bo-y-te-thong-tin-moi-nhat-ve-cac-o-dich-18524070917525874.htm",
-  },
-  {
-    title: "Đề xuất thu phí 12 cao tốc do ngân sách đầu tư từ 2025",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/anh-cao-toc-1-17143700706091341477426-320-0-1920-2560-crop-1720520881264559483423.jpg",
-    url: "https://thanhnien.vn/de-xuat-thu-phi-12-cao-toc-do-ngan-sach-dau-tu-tu-2025-18524070917294572.htm",
-  },
-  {
-    title:
-      "Các đường dây xuyên quốc gia lập doanh nghiệp ở Việt Nam để trung chuyển ma túy",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/base64-1720517793265106002982-23-0-623-960-crop-1720517838371596416469.jpeg",
-    url: "https://thanhnien.vn/cac-duong-day-xuyen-quoc-gia-lap-doanh-nghiep-o-viet-nam-de-trung-chuyen-ma-tuy-185240709164508342.htm",
-  },
-  {
-    title:
-      "Xót lòng cảnh vợ chồng U.80 héo mòn chăm con cháu mắc bệnh động kinh",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/6/20/edit-hoan-canh-kho-khan-1718856239054619542550-259-0-1463-1926-crop-1718856264987873192296.jpeg",
-    url: "https://thanhnien.vn/xot-long-canh-vo-chong-u80-heo-mon-cham-con-chau-mac-benh-dong-kinh-185240620110809161.htm",
-  },
-  {
-    title:
-      "8 giờ ngày mai 10.7, công bố điểm khảo sát lớp 6 Trường THCS-THPT Trần Đại Nghĩa",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/khao-sat-lop-6-17200874828461583394934-106-0-1706-2560-crop-17205232213911097158717.jpg",
-    url: "https://thanhnien.vn/8-gio-ngay-mai-107-cong-bo-diem-khao-sat-lop-6-truong-thcs-thpt-tran-dai-nghia-185240709181104124.htm",
-  },
-  {
-    title:
-      "Chuyển hồ sơ vụ chồng tử vong, vợ bị thương sang cơ quan điều tra quân đội",
-    img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/dfc7c8d0-b30a-4ae8-b49f-9c0a0066a94f-17205266155121957417414-41-0-647-970-crop-17205266272061111522434.jpg",
-    url: "https://thanhnien.vn/chuyen-ho-so-vu-chong-tu-vong-vo-bi-thuong-sang-co-quan-dieu-tra-quan-doi-185240709191139455.htm",
-  },
-  {
-    title:
-      "Vụ người phụ nữ bị con rể cũ sát hại: Vợ cũ của nghi phạm đã tử vong",
-    img: "https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/24/sat-hai-me-vo-va-vo-cu-17192098238881874327499.jpg",
-    url: "https://thanhnien.vn/vu-nguoi-phu-nu-bi-con-re-cu-sat-hai-vo-cu-cua-nghi-pham-da-tu-vong-185240624131956421.htm",
-  },
-];
+// const miniData = [
+//   {
+//     title:
+//       "Vụ án Tịnh thất Bồng Lai: Khởi tố Lê Thanh Nhất Nguyên về hành vi lừa đảo",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/le-thanh-nhat-nguyen-1720520908907136874990-0-0-597-955-crop-1720521071924919976996.jpg",
+//     url: "https://thanhnien.vn/vu-an-tinh-that-bong-lai-khoi-to-le-thanh-nhat-nguyen-ve-hanh-vi-lua-dao-185240709173256463.htm",
+//   },
+//   {
+//     title: "Bệnh bạch hầu: Bộ Y tế thông tin mới nhất về các ổ dịch",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/tno-1-17204314766521070633582-0-0-705-1128-crop-1720524301491771571008.jpg",
+//     url: "https://thanhnien.vn/benh-bach-hau-bo-y-te-thong-tin-moi-nhat-ve-cac-o-dich-18524070917525874.htm",
+//   },
+//   {
+//     title: "Đề xuất thu phí 12 cao tốc do ngân sách đầu tư từ 2025",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/anh-cao-toc-1-17143700706091341477426-320-0-1920-2560-crop-1720520881264559483423.jpg",
+//     url: "https://thanhnien.vn/de-xuat-thu-phi-12-cao-toc-do-ngan-sach-dau-tu-tu-2025-18524070917294572.htm",
+//   },
+//   {
+//     title:
+//       "Các đường dây xuyên quốc gia lập doanh nghiệp ở Việt Nam để trung chuyển ma túy",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/base64-1720517793265106002982-23-0-623-960-crop-1720517838371596416469.jpeg",
+//     url: "https://thanhnien.vn/cac-duong-day-xuyen-quoc-gia-lap-doanh-nghiep-o-viet-nam-de-trung-chuyen-ma-tuy-185240709164508342.htm",
+//   },
+//   {
+//     title:
+//       "Xót lòng cảnh vợ chồng U.80 héo mòn chăm con cháu mắc bệnh động kinh",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/6/20/edit-hoan-canh-kho-khan-1718856239054619542550-259-0-1463-1926-crop-1718856264987873192296.jpeg",
+//     url: "https://thanhnien.vn/xot-long-canh-vo-chong-u80-heo-mon-cham-con-chau-mac-benh-dong-kinh-185240620110809161.htm",
+//   },
+//   {
+//     title:
+//       "8 giờ ngày mai 10.7, công bố điểm khảo sát lớp 6 Trường THCS-THPT Trần Đại Nghĩa",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/khao-sat-lop-6-17200874828461583394934-106-0-1706-2560-crop-17205232213911097158717.jpg",
+//     url: "https://thanhnien.vn/8-gio-ngay-mai-107-cong-bo-diem-khao-sat-lop-6-truong-thcs-thpt-tran-dai-nghia-185240709181104124.htm",
+//   },
+//   {
+//     title:
+//       "Chuyển hồ sơ vụ chồng tử vong, vợ bị thương sang cơ quan điều tra quân đội",
+//     img: "https://images2.thanhnien.vn/zoom/160_100/528068263637045248/2024/7/9/dfc7c8d0-b30a-4ae8-b49f-9c0a0066a94f-17205266155121957417414-41-0-647-970-crop-17205266272061111522434.jpg",
+//     url: "https://thanhnien.vn/chuyen-ho-so-vu-chong-tu-vong-vo-bi-thuong-sang-co-quan-dieu-tra-quan-doi-185240709191139455.htm",
+//   },
+//   {
+//     title:
+//       "Vụ người phụ nữ bị con rể cũ sát hại: Vợ cũ của nghi phạm đã tử vong",
+//     img: "https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/6/24/sat-hai-me-vo-va-vo-cu-17192098238881874327499.jpg",
+//     url: "https://thanhnien.vn/vu-nguoi-phu-nu-bi-con-re-cu-sat-hai-vo-cu-cua-nghi-pham-da-tu-vong-185240624131956421.htm",
+//   },
+// ];
 
-const MainNews = (props) => {
+const MainNews = () => {
+
+  const [data_tin, setData_tin] = useState([]);
+  // Format khi gửi Post
+ 
+  const getData_tin = async () => {
+    try {
+      const go = {
+        signal: "home",
+      };
+      const res = await axios.post("http://localhost:4000/", go);
+      setData_tin(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // End format
+
+  // Gọi sau khi render component để render lại lần nữa
+  useEffect(() => {
+    getData_tin();
+  }, []);
+
+  // Lấy src của bức ảnh trong content
+  const extractAnchorTag = (htmlString) => {
+    const anchorTagRegex = /<a[^>]*>(.*?)<\/a>/;
+    const match = htmlString.match(anchorTagRegex);
+    return match ? match[0] : "";
+  };
+  console.log(data_tin);
+
+  const latest_news = [...data_tin].sort(()=> 0.5 - Math.random());
+
+
+const MainNews = ({dataNews}) => {
   return (
     <div className="section-home">
       <div className="main-news">
@@ -175,29 +210,27 @@ const MainNews = (props) => {
           <div className="main-news-flex">
             <div className="top-news">
               <div className="top-news-img">
-                <a href={main_data.url}>
-                  <img src={main_data.image} alt={main_data.title} />
-                </a>
+              {data_tin.length > 0 && parse(extractAnchorTag(data_tin[0].item.content))}
               </div>
               <div className="top-news-name">
                 <div className="top-news-title">
-                  <a href={main_data.url}>{main_data.title}</a>
+                  <a href={data_tin.length > 0 && data_tin[0].item.link}>{data_tin.length > 0 && parse(data_tin[0].item.title)}</a>
                 </div>
                 <div className="top-news-description font">
-                  <a href={main_data.url}>{main_data.description}</a>
+                  <a href={data_tin.length > 0 && data_tin[0].item.link}>{data_tin.length > 0 && data_tin[0].item.contentSnippet}</a>
                 </div>
               </div>
             </div>
             <div className="middle-news">
               <div className="middle-news-container">
                 <div className="middle-news-grid">
-                  {data.map((item, index) => (
-                    <div key={index} className="middle-news-item">
+                  {data_tin.slice(1,4).map((item) => (
+                    <div className="middle-news-item">
                       <div className="title">
-                        <a href={item.url}>{item.title}</a>
+                        <a href={item.item.link}>{parse(item.item.title)}</a>
                       </div>
                       <div className="description font">
-                        <a href={item.url}>{item.description}</a>
+                        <a href={item.item.link}>{item.item.contentSnippet}</a>
                       </div>
                     </div>
                   ))}
@@ -206,8 +239,8 @@ const MainNews = (props) => {
             </div>
           </div>
         </div>
-        <div className="mini-news-container" style={{ width: "100%" }}>
-          <MiniNews data={miniData} />
+        <div className="mini-news-container" style={{width: '100%'}}>
+          <MiniNews data={data_tin.slice(6,14)}/>
         </div>
       </div>
       <div className="sub-news">
@@ -221,14 +254,14 @@ const MainNews = (props) => {
             >
               <Tab eventKey="latest" title="Tin mới">
                 <div className="latest-news">
-                  {latest_news.map((item, index) => (
+                  {latest_news.slice(0,6).map((item, index) => (
                     <LatestNews key={index} data={item} />
                   ))}
                 </div>
               </Tab>
               <Tab eventKey="popular" title="Đọc nhiều">
                 <div className="popular-news tab">
-                  {popular_news.map((item, index) => (
+                  {latest_news.slice(6,18).map((item, index) => (
                     <PopularNews key={index} data={item} />
                   ))}
                 </div>

@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons/faMagnifyingGlass";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './topNews.css';
-const ThreeBigNews = (blueData) => {
+const ThreeBigNews = ({dataComponent}) => {
     const decodeHtmlEntities = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
@@ -41,7 +41,7 @@ const ThreeBigNews = (blueData) => {
                 </div>
             </div>
             <div className="blue-list">
-                {blueData.blueData.map((article, index) => (
+                {dataComponent.map((article, index) => (
                     <div className="blue-item" key={index}>
                         <a href={article.url} title={decodeHtmlEntities(article.title)}>
                             <img
