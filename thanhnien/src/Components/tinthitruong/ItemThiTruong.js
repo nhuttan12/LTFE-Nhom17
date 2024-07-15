@@ -1,25 +1,9 @@
 // ItemThiTruong.js
 import React, {useEffect, useState} from 'react';
 import './cssthitruong.css';
+import parse from "html-react-parser";
 
 const ItemThiTruong = ({dataComponent ,cate}) => {
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
-    const extractContentAfterLinks = (htmlString) => {
-        const contentHtml = htmlString;
-        const regex = /<\/a>(.*)/; // Tìm kiếm mọi thứ sau thẻ </a>
-        const match = contentHtml.match(regex);
-
-        if (match) {
-            const textContent = match[1].trim(); // Lấy phần tử thứ 2 (nội dung) và loại bỏ khoảng trắng thừa
-            console.log(textContent); // In ra nội dung
-            return textContent;
-        }
-        return ' ';
-    };
     const getCategoryFromTitle = (title) => {
         const lowerCaseTitle = title.toLowerCase();
         const keywordsAndCategories = {
@@ -56,30 +40,33 @@ const ItemThiTruong = ({dataComponent ,cate}) => {
 
         return "Tổng hợp"; // Hoặc trả về một giá trị mặc định khác nếu không tìm thấy
     };
+
     return (
             <div className="news-grid">
             {dataComponent.map((article, index) => (
                 <div className="news-item" key={index}>
-                    <a href={article.url} title={decodeHtmlEntities(article.title)}>
-                        <img
-                            src={article.content_html.match(/<img src="([^"]*)"/)[1]}
-                            alt={decodeHtmlEntities(article.title)}
-                            className="news-item-image"
-                        />
+                    <a href={article.item.url} title={(article.item.title)}>
+                        {article.item.content &&
+                        article.item.content.match(/<img src="([^"]*)"/) &&
+                        article.item.content.match(/<img src="([^"]*)"/)[1] ? (
+                            <img src={article.item.content.match(/<img src="([^"]*)"/)[1]} alt={article.item.title} className="news-item-image"/> // or suitable alt text
+                        ) : (
+                            <div className="placeholder-image">Placeholder Image</div> // Hoặc nội dung thay thế
+                        )}
                     </a>
                     <div className="news-item-content">
                         {cate === "yes" && ( // Kiểm tra điều kiện trực tiếp
-                            <a href={article.urlCatelogy} title={decodeHtmlEntities(article.title)}>
-                                <p className="news-item-category">{getCategoryFromTitle(article.title)}</p>
+                            <a href={article.item.urlCatelogy} title={(article.item.title)}>
+                                <p className="news-item-category">{getCategoryFromTitle(article.item.title)}</p>
                             </a>
                         )}
-                        <a href={article.url} title={decodeHtmlEntities(article.title)}>
-                            <h4 className="news-item-title">{decodeHtmlEntities(article.title)}</h4>
+                        <a href={article.item.url} title={parse(article.item.title)}>
+                            <h4 className="news-item-title">{parse(article.item.title)}</h4>
                         </a>
                     </div>
                 </div>
             ))}
-        </div>
+            </div>
     );
 };
 
