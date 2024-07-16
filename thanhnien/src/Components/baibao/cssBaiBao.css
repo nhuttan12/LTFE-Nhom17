@@ -12,7 +12,7 @@
 }
 
 .bai-bao-hinh-anh {
-    width: 325px;
+    width: 95%;
     height: 205px;
     object-fit: cover;
     margin-right: 20px;
@@ -31,6 +31,7 @@
 .bai-bao-tieu-de {
     font-size: 17px;
     margin: 10px 0;
+    min-height: 70px;
     font-family: Merriweather;
 }
 .tieude1 {
@@ -41,11 +42,13 @@
 
 .bai-bao-mo-ta {
     color: #333;
+    height: auto;
+    width: 96%;
+    min-height: 70px;
     font-size: 16px;
     font-weight: 400;
     font-family:  serif;
     padding: 15px 0 10px;
-    height: 40px;
     margin-top: 15px;
     border-top: 1px solid #ddd;
 }
@@ -147,4 +150,28 @@ a:hover{
 }
 .bao-single{
     display: flex;
+    justify-content: space-between;
+}
+.bonus-tit{
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #00a5e0;
+}
+.ds-tit{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-left: 16px;
+    border-left: 1px solid #ebebeb;
+    a{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #292929;
+        display: block;
+        padding: 10px 5px;
+        font-family: "Times New Roman";
+        border-bottom: 1px solid #ebebeb;
+
+    }
 }

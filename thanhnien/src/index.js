@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/Common/Footer";
@@ -19,6 +18,9 @@ import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCatego
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
+import HomePage from "./Containers/HomePage";
+import ListNineTitle from "./Components/carosel/ListNineTitle";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,6 +28,37 @@ root.render(
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
     {/* <Header /> */}
+    {/* <MainNews /> */}
+    {/* <ListTinNhanh360 /> */}
+    {/* <List24h/> */}
+    {/* <Multimedia /> */}
+    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
+    {/* <Footer/> */}
+    {/*<Header/>*/}
+    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
+    {/*<ListTongHop/>*/}
+    {/* <ListGioiTreVaDoiSong/>*/}
+    {/* <ListTinNhanh360/>*/}
+    {/* <List24h/>*/}
+    {/*<ListThiTruong/>*/}
+    {/*<MainNews />*/}
+    {/* <Multimedia />*/}
+    {/* <App/>*/}
+    {/* <Footer/> */}
+    {/* <DanhSachBaiBao/> */}
+    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <List24h/>*/}
+     <App/>
+    {/* <Category/> */}
+    {/* <Carousel title="Xung đột Ukaraina" />*/}
+    {/* <ListNewsTop/> */}
+{/*//     <SportCategory />*/}
+    {/* <TechnologyCategory /> */}
+    {/*<ListNewsTop dataNews={homeData} />*/}
+    {/*  <HomePage/>*/}
+    {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
+    {/* <ListNewsTop dataNewsTop={homeData} /> */}
+    {/* <Footer/> */}
     <MainNews />
     {/* <ListTinNhanh360 /> */}
     {/* <List24h/> */}

@@ -42,7 +42,7 @@ const ThreeBigNews = ({dataComponent}) => {
                     <div className="blue-item" key={index}>
                         <a href={article.url} title={parse(article.title)}>
                             <img
-                                src={article.content_html.match(/<img src="([^"]*)"/)[1]}
+                                src={article.content.match(/<img src="([^"]*)"/)[1]}
                                 alt={parse(article.title)}
                                 className="blue-image"
                             />

@@ -9,48 +9,11 @@ import thoisuData from '../../Json/thoisu';
 import homeData from '../../Json/home';
 import {faCircle} from "@fortawesome/free-regular-svg-icons";
 import BaiBaoSingle from "./BaiBaoSingle"; // Import dữ liệu từ file JSON
-
-const DanhSachBaiBao = ({dataNews}) => {
-    console.log(dataNews);
-    function getRandomData() {
-        const dataSources = [homeData, thoisuData];
-        const randomIndex = Math.floor(Math.random() * dataSources.length);
-        return dataSources[randomIndex];
-    }
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
-    useEffect(() => {
-        setData(dataNews);
-    }, []);
-    const getRandomElements = (arr) => {
-        let shuffled = arr.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, 8);
-    };
-
-    useEffect(() => {
-        if (data) {
-            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
-            const currentTime = Date.now();
-
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
-                const newRandomArticles = getRandomElements(data.items);
-                setRandomArticles(newRandomArticles);
-                localStorage.setItem('lastShuffleTime', currentTime);
-                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
-            } else {
-                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
-                setRandomArticles(shuffledArticles);
-            }
-        }
-    }, [data]);
-    const firstArticle = randomArticles[0];
-    const nextArticles = randomArticles[1];
-    const nextTwoArticles = randomArticles.slice(2, 10);
-    const parse = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
+import parse from "html-react-parser";
+const DanhSachBaiBao = ({dataNews, title}) => {
+    const firstArticle = dataNews[0];
+    const nextArticles = dataNews[1];
+    const nextTwoArticles = dataNews.slice(2);
     const extractContentAfterLinks = (htmlString) => {
         const contentHtml = htmlString;
         const regex = /<\/a>(.*)/; // Tìm kiếm mọi thứ sau thẻ </a>
@@ -65,7 +28,7 @@ const DanhSachBaiBao = ({dataNews}) => {
     return (
         <div className="ds-bai-bao">
             <div className="ds-tieu-de">
-                <h2>{getRandomData().title}</h2>
+                <h2>{title}</h2>
                 <div className="menuRight">
                     <a href="#">Chính trị</a>
                     <a href="#">Pháp luật</a>
@@ -86,20 +49,20 @@ const DanhSachBaiBao = ({dataNews}) => {
             <div className="ds-noi-dung">
                 {firstArticle && (
                     <Item1
-                        title={parse(firstArticle.title)}
-                        image={firstArticle.content_html.match(/<img src="([^"]*)"/)[1]}
-                        detail={<a href={nextArticles.url} title={parse(nextArticles.title)}
+                        title={parse(firstArticle.item.title)}
+                        image={firstArticle.item.content.match(/<img src="([^"]*)"/)[1]}
+                        detail={<a href={nextArticles.item.url} title={parse(nextArticles.item.title)}
                                    className="mota1">
                             <FontAwesomeIcon
                                 icon={faCircle}
                                 size="2xs"
                                 style={{marginRight: '10px'}}
                             />
-                            {parse(nextArticles.title)}
+                            {parse(nextArticles.item.title)}
                         </a>}
-                        category={parse(firstArticle.description)}
-                        url={firstArticle.url}
-                        description={parse(extractContentAfterLinks(firstArticle.content_html))}
+                        // category={parse(firstArticle.item.description)}
+                        url={firstArticle.item.url}
+                        description={parse(extractContentAfterLinks(firstArticle.item.content))}
                     />
                 )}
                 <BaiBaoSingle dataComponent={nextTwoArticles}/>
