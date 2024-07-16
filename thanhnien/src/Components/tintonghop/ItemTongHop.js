@@ -54,7 +54,7 @@ const NewsArticle = ({ category, title, description, image, imgsize, url, data }
                 {showMoreItems && data && data.length > 0 && (
                     <div className="more-items">
                         {data.map((news, index) => (
-                            <ItemMore key={index} title={parse(news.title)} image={news.content_html.match(/<img src="([^"]*)"/)[1]} />
+                            <ItemMore key={index} title={parse(news.item.title)} image={news.item.content.match(/<img src="([^"]*)"/)[1]} />
                         ))}
                     </div>
                 )}

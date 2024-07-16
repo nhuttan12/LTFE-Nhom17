@@ -45,7 +45,7 @@ const ItemThiTruong = ({dataComponent ,cate}) => {
             <div className="news-grid">
             {dataComponent.map((article, index) => (
                 <div className="news-item" key={index}>
-                    <a href={article.item.url} title={(article.item.title)}>
+                    <a href={article.item.link} title={(article.item.title)}>
                         {article.item.content &&
                         article.item.content.match(/<img src="([^"]*)"/) &&
                         article.item.content.match(/<img src="([^"]*)"/)[1] ? (
@@ -60,7 +60,7 @@ const ItemThiTruong = ({dataComponent ,cate}) => {
                                 <p className="news-item-category">{getCategoryFromTitle(article.item.title)}</p>
                             </a>
                         )}
-                        <a href={article.item.url} title={parse(article.item.title)}>
+                        <a href={article.item.link} title={parse(article.item.title)}>
                             <h4 className="news-item-title">{parse(article.item.title)}</h4>
                         </a>
                     </div>

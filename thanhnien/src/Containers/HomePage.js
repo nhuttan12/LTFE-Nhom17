@@ -14,6 +14,8 @@ import homeData from "../Json/home";
 import ItemThiTruong from "../Components/tinthitruong/ItemThiTruong";
 import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";
+import Carousel from "../Components/carosel/Carousel";
+import ListNineTitle from "../Components/carosel/ListNineTitle";
 const HomePage = () => {
     const [data_home, setData_home] = useState([]);
     const [randomArticles, setRandomArticles] = useState([]);
@@ -39,7 +41,6 @@ const HomePage = () => {
     useEffect(() => {
         getData_home();
     }, []);
-
     // Shuffle and store articles on data_home update
     useEffect(() => {
         if (data_home.length > 0) {
@@ -47,7 +48,7 @@ const HomePage = () => {
             const currentTime = Date.now();
 
             if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
-                const newRandomArticles = getRandomElements(data_home, 30);
+                const newRandomArticles = getRandomElements(data_home, data_home.length);
                 setRandomArticles(newRandomArticles);
                 localStorage.setItem('lastShuffleTime', currentTime);
                 localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
@@ -57,19 +58,28 @@ const HomePage = () => {
             }
         }
     }, [data_home]);
+    const [tonghopstart, setTonghopstart] = useState(22); // Khởi tạo state
+
+    const moreClick = () => {
+        setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
+    };
 
     // Get the first 9 articles from the shuffled list
     const firstArticle = randomArticles.slice(0, 8);
 
 
     const nextFourArticles = randomArticles.slice(8, 11);
-    const nextThreeArticles = randomArticles.slice(5, 8);
+    const nextSixArticles = randomArticles.slice(11, 17);
+    const nextTwentiArticles = randomArticles.slice(17, tonghopstart);
+    const nextNineArticles = randomArticles.slice(tonghopstart, tonghopstart+9);
+
     const BlueFourArticles = randomArticles.slice(8, 12);
     return (
         <div className="homeContainer">
-
             <div className="homeContent">
-                <MainNews/>
+                {/*<MainNews/>*/}
+                <ListNineTitle dataNews={nextNineArticles} title="Tin tức mới nhất"/>
+
             </div>
             <div className="home-flex">
                 <div className="home-left">
@@ -94,8 +104,11 @@ const HomePage = () => {
             {/*        /!*4 tintonghop*!/*/}
                     <ListTongHop dataNews={nextFourArticles}/>
             {/*        /!*6 carousel*!/*/}
+                    <Carousel dataNews={nextSixArticles} title="Xung đột Ukaraina"/>
             {/*        /!* 20 tintonghop*!/*/}
-            {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
+                    <ListTongHop dataNews={nextTwentiArticles}/>
+                    {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
+                    <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
                 </div>
                 <div className="home-right">
             {/*        /!*5 kinhte same gioitre*!/*/}

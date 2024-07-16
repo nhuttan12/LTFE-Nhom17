@@ -7,9 +7,9 @@ import thethaoData from '../../Json/thethao.json';
 import parse from "html-react-parser";
 
 const ArticleList = ({dataNews}) => {
+    // 3/4 đầu tiên
+    const next = [...dataNews].sort(() => Math.random() - 0.5);
 
-    const firstThree = dataNews.slice(0, 3);
-    const nextThree = dataNews.slice(3);
 
     const extractContentAfterLinks = (htmlString) => {
         const regex = /<\/a>(.*)/;
@@ -26,7 +26,7 @@ const ArticleList = ({dataNews}) => {
         const keywordsAndCategories = {
             "euro": "Thể thao",
             "world cup": "Thể thao",
-            "Messi": "Thể thao",
+            "messi": "Thể thao",
             "covid": "Sức khỏe",
             "vaccine": "Sức khỏe",
             "quần": "Thời trang 24/7",
@@ -60,7 +60,7 @@ const ArticleList = ({dataNews}) => {
 
     const getImageSize = (title) => {
         const lowerCaseTitle = title.toLowerCase();
-        const keywords = ["euro", "world cup", "bóng đá"]; // Mảng các từ khóa
+        const keywords = ["euro", "world cup", "bóng đá","messi","ronaldo","tây ban nha"]; // Mảng các từ khóa
 
         if (keywords.some(keyword => lowerCaseTitle.includes(keyword))) {
             return "425px";
@@ -72,16 +72,16 @@ const ArticleList = ({dataNews}) => {
 
     return (
         <div className="article-list">
-            {firstThree.map((item, index) => (
+            {dataNews.map((item, index) => (
                 <NewsArticle
                     key={index}
-                    category={getCategoryFromTitle(item.title)}
-                    title={parse(item.title)}
-                    image={item.content_html.match(/<img src="([^"]*)"/)[1]}
-                    imgsize={getImageSize(item.title)}
-                    description={parse(extractContentAfterLinks(item.content_html))}
-                    url={item.url}
-                    data={nextThree[index] ? nextThree.slice(index, index + 1) : []}
+                    category={getCategoryFromTitle(item.item.title)}
+                    title={parse(item.item.title)}
+                    image={item.item.content.match(/<img src="([^"]*)"/)[1]}
+                    imgsize={getImageSize(item.item.title)}
+                    description={parse(extractContentAfterLinks(item.item.content))}
+                    url={item.item.link}
+                    data={next[index] ? next.slice(index, index + 1) : []}
                 />
             ))}
         </div>

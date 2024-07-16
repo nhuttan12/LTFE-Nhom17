@@ -20,6 +20,7 @@ import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
+import ListNineTitle from "./Components/carosel/ListNineTitle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -42,23 +43,22 @@ root.render(
     {/*<ListThiTruong/>*/}
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
-     <App/>
+    {/* <App/>*/}
     {/* <Footer/> */}
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/>*/}
-    {/* <App/> */}
+     <App/>
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
-//     <SportCategory />
+{/*//     <SportCategory />*/}
     {/* <TechnologyCategory /> */}
     {/*<ListNewsTop dataNews={homeData} />*/}
     {/*  <HomePage/>*/}
     {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
-
   </React.StrictMode>
 );
 
