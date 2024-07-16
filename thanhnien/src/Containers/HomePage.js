@@ -16,48 +16,53 @@ import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import Carousel from "../Components/carosel/Carousel";
 import ListNineTitle from "../Components/carosel/ListNineTitle";
+import KhungSuggest from "../Components/baibao/KhungSuggest";
 const HomePage = () => {
-    const [data_home, setData_home] = useState([]);
-    const [randomArticles, setRandomArticles] = useState([]);
+    const [dataHome, setDataHome] = useState([]);
+    const [dataThoiSu, setDataThoiSu] = useState([]);
+    const [randomHomeArticles, setRandomHomeArticles] = useState([]);
+    const [randomThoiSuArticles, setRandomThoiSuArticles] = useState([]);
 
-    // Fetch data from the server
-    const getData_home = async () => {
+    const fetchData = async (signal) => {
         try {
-            const go = { signal: "home" };
-            const res = await axios.post("http://localhost:4000/", go);
-            setData_home(res.data);
+            const res = await axios.post("http://localhost:4000/", { signal });
+            if (signal === "home") {
+                setDataHome(res.data);
+                shuffleAndStoreArticles(res.data, 'homeArticles', setRandomHomeArticles);
+            } else if (signal === "thoi-su") {
+                setDataThoiSu(res.data);
+                shuffleAndStoreArticles(res.data, 'thoiSuArticles', setRandomThoiSuArticles);
+            }
         } catch (error) {
-            console.log(error);
+            console.error(`Error loading data from API (${signal}):`, error);
         }
     };
 
-    // Shuffle array and get random elements
+    useEffect(() => {
+        fetchData("home");
+        fetchData("thoi-su");
+    }, []);
+
     const getRandomElements = (arr, numElements) => {
-        let shuffled = arr.sort(() => 0.5 - Math.random());
+        let shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, numElements);
     };
 
-    // Fetch data on component mount
-    useEffect(() => {
-        getData_home();
-    }, []);
-    // Shuffle and store articles on data_home update
-    useEffect(() => {
-        if (data_home.length > 0) {
-            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
-            const currentTime = Date.now();
+    const shuffleAndStoreArticles = (articles, storageKey, setRandomArticlesFunc) => {
+        const storedShuffleTime = localStorage.getItem(`lastShuffleTime_${storageKey}`);
+        const currentTime = Date.now();
+        const thirtySeconds = 30000;
 
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
-                const newRandomArticles = getRandomElements(data_home, data_home.length);
-                setRandomArticles(newRandomArticles);
-                localStorage.setItem('lastShuffleTime', currentTime);
-                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
-            } else {
-                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
-                setRandomArticles(shuffledArticles);
-            }
+        if (!storedShuffleTime || currentTime - storedShuffleTime >= thirtySeconds) {
+            const newRandomArticles = getRandomElements(articles, articles.length);
+            setRandomArticlesFunc(newRandomArticles);
+            localStorage.setItem(`lastShuffleTime_${storageKey}`, currentTime);
+            localStorage.setItem(storageKey, JSON.stringify(newRandomArticles));
+        } else {
+            const storedArticles = JSON.parse(localStorage.getItem(storageKey)) || [];
+            setRandomArticlesFunc(storedArticles);
         }
-    }, [data_home]);
+    };
     const [tonghopstart, setTonghopstart] = useState(22); // Khởi tạo state
 
     const moreClick = () => {
@@ -65,31 +70,31 @@ const HomePage = () => {
     };
 
     // Get the first 9 articles from the shuffled list
-    const firstArticle = randomArticles.slice(0, 8);
+    const firstArticle = randomHomeArticles.slice(0, 8);
 
 
-    const nextFourArticles = randomArticles.slice(8, 11);
-    const nextSixArticles = randomArticles.slice(11, 17);
-    const nextTwentiArticles = randomArticles.slice(17, tonghopstart);
-    const nextNineArticles = randomArticles.slice(tonghopstart, tonghopstart+9);
-
-    const BlueFourArticles = randomArticles.slice(8, 12);
+    const home_FourArticles = randomHomeArticles.slice(8, 11);
+    const home_SixArticles = randomHomeArticles.slice(11, 17);
+    const home_TwentiArticles = randomHomeArticles.slice(17, tonghopstart);
+    const home_NineArticles = randomHomeArticles.slice(tonghopstart, tonghopstart+9);
+    const thoisu_Eight = randomThoiSuArticles.slice(0, 8);
+    const thoisu_Nine = randomThoiSuArticles.slice(8, 17);
+    const thoisu_Seven = randomThoiSuArticles.slice(17, 24);
+    // const BlueFourArticles = randomArticles.slice(8, 12);
     return (
         <div className="homeContainer">
             <div className="homeContent">
                 {/*<MainNews/>*/}
-                <ListNineTitle dataNews={nextNineArticles} title="Tin tức mới nhất"/>
-
             </div>
             <div className="home-flex">
                 <div className="home-left">
                     {/*tin24h*/}
                     {/*<List24h/>*/}
                     <div className="top-new">
-                    <ListTinNhanh360/>
+                    {/*<ListTinNhanh360/>*/}
                     {/*tinnhanh360*/}
                         <h2>Tin thị trường</h2>
-                        <ItemThiTruong dataComponent={firstArticle} cate="yes"/>
+                        {/*<ItemThiTruong dataComponent={firstArticle} cate="yes"/>*/}
                     </div>
                     {/*tinthitruong*/}
                 </div>
@@ -98,17 +103,17 @@ const HomePage = () => {
                     {/*5 doisong*/}
                 </div>
             </div>
-                <Multimedia/>
+                {/*<Multimedia/>*/}
             <div className="home-flex">
                 <div className="home-left">
             {/*        /!*4 tintonghop*!/*/}
-                    <ListTongHop dataNews={nextFourArticles}/>
+            {/*        <ListTongHop dataNews={home_FourArticles}/>*/}
             {/*        /!*6 carousel*!/*/}
-                    <Carousel dataNews={nextSixArticles} title="Xung đột Ukaraina"/>
+            {/*        <Carousel dataNews={home_SixArticles} title="Xung đột Ukaraina"/>*/}
             {/*        /!* 20 tintonghop*!/*/}
-                    <ListTongHop dataNews={nextTwentiArticles}/>
+            {/*        <ListTongHop dataNews={home_TwentiArticles}/>*/}
                     {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
-                    <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
+                    {/*<button onClick={moreClick} className="btn-xemthem">Xem thêm</button>*/}
                 </div>
                 <div className="home-right">
             {/*        /!*5 kinhte same gioitre*!/*/}
@@ -120,28 +125,34 @@ const HomePage = () => {
             {/*        /!*lamdep same kinhtexanh*!/*/}
                 </div>
             </div>
-            {/*<div className="homeContent">*/}
-            {/*    <DanhSachBaiBao/>*/}
-            {/*    /!*8 data from thoisu*!/*/}
-            {/*    <div className="ds-noi-dung">*/}
-            {/*        <BaiBaoSingle/>*/}
-            {/*        /!*9 data kem title from thoisu*!/*/}
-            {/*    </div>*/}
-            {/*    <DanhSachBaiBao/>*/}
-            {/*    /!*8 data from thegioi*!/*/}
+            <div className="homeContent">
+                <DanhSachBaiBao dataNews={thoisu_Eight} title="Thời sự"/>
+                <div className="line"></div>
+                {/*    /!*8 data from thoisu*!/*/}
+                {/*    <div className="ds-noi-dung">*/}
+                <BaiBaoSingle dataComponent={thoisu_Nine} cate={["Pháp luật", "Thời luận", "Chống tin giả"]}/>
+                <div className="line"></div>
 
-            {/*    /!*giao duc*!/*/}
-            {/*    /!*van hoa*!/*/}
-            {/*    /!*giai tri*!/*/}
+                {/*        /!*9 data kem title from thoisu*!/*/}
+                <KhungSuggest dataNews={thoisu_Seven} title="Văn hóa" noSuggest="no"/>
+                <div className="line"></div>
 
-            {/*    /!*bandoc*!/*/}
-            {/*    /!*ban doc la 6 data get component Item1*!/*/}
+                {/*    </div>*/}
+                {/*    <DanhSachBaiBao/>*/}
+                {/*    /!*8 data from thegioi*!/*/}
 
-            {/*    <div className="ds-noi-dung">*/}
-            {/*        <BaiBaoSingle/>*/}
-            {/*        /!*9 data kem title from thoisu*!/*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                {/*    /!*giao duc*!/*/}
+                {/*    /!*van hoa*!/*/}
+                {/*    /!*giai tri*!/*/}
+
+                {/*    /!*bandoc*!/*/}
+                {/*    /!*ban doc la 6 data get component Item1*!/*/}
+
+                {/*    <div className="ds-noi-dung">*/}
+                {/*        <BaiBaoSingle/>*/}
+                {/*        /!*9 data kem title from thoisu*!/*/}
+                <ListNineTitle dataNews={home_NineArticles} title="Tin tức mới nhất"/>
+            </div>
         </div>
     );
 };

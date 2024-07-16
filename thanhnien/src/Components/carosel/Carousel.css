@@ -101,7 +101,7 @@
     border-bottom: 1px solid #0098d1;
 }
 .nine-container{
-    margin:30px auto;
+    margin:30px auto 50px;
     .nine-box{
         display: flex;
         flex-wrap: wrap;

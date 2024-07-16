@@ -31,3 +31,9 @@
     color: #8b8b8b;
     margin-bottom: 30px;
 }
+.line{
+    height: 1px;
+    width: 100%;
+    background-color: #ebebeb;
+    margin: 20px 0 40px;
+}

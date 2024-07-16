@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ListThiTruong from "./Components/tinthitruong/./ListThiTruong";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/Common/Footer";
