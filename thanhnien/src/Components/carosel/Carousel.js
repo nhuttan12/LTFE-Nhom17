@@ -3,35 +3,7 @@ import './Carousel.css';
 import parse from "html-react-parser";
 
 const Carousel = ({dataNews, title }) => {
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
-    useEffect(() => {
-        setData(dataNews);
-    }, []);
-
-    const getRandomElements = (arr) => {
-        let shuffled = arr.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, 6);
-    };
-
-    useEffect(() => {
-        if (data) {
-            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
-            const currentTime = Date.now();
-
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
-                const newRandomArticles = getRandomElements(data.items);
-                setRandomArticles(newRandomArticles);
-                localStorage.setItem('lastShuffleTime', currentTime);
-                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
-            } else {
-                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
-                setRandomArticles(shuffledArticles);
-            }
-        }
-    }, [data]);
-
-    const fiveArticles = randomArticles.slice(0, 5);
+    const fiveArticles = dataNews.slice(0, 5);
 
     const [current, setCurrent] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
@@ -40,11 +12,11 @@ const Carousel = ({dataNews, title }) => {
     const carouselRef = useRef(null);
 
     const handleNext = () => {
-        setCurrent((prevCurrent) => (prevCurrent + 1) % randomArticles.length);
+        setCurrent((prevCurrent) => (prevCurrent + 1) % dataNews.length);
     };
 
     const handlePrev = () => {
-        setCurrent((prevCurrent) => (prevCurrent - 1 + randomArticles.length) % randomArticles.length);
+        setCurrent((prevCurrent) => (prevCurrent - 1 + dataNews.length) % dataNews.length);
     };
 
     const handleMouseDown = (e) => {
@@ -103,17 +75,17 @@ const Carousel = ({dataNews, title }) => {
                 onMouseLeave={handleMouseUp}
             >
                 <div className="carousel-items">
-                    {randomArticles.map((item, index) => (
+                    {dataNews.map((item, index) => (
                         <div
                             className="carousel-item"
                             key={index}
-                            onClick={() => handleItemClick(item.url)}
+                            onClick={() => handleItemClick(item.item.url)}
                         >
-                            <a href={item.url} title={parse(item.title)}><img
-                                src={item.content_html.match(/<img src="([^"]*)"/)[1]}
-                                alt={parse(item.title)}/></a>
-                            <a href={item.url} title={parse(item.title)}>
-                                <h3>{parse(item.title)}</h3></a>
+                            <a href={item.item.url} title={parse(item.item.title)}><img
+                                src={item.item.content.match(/<img src="([^"]*)"/)[1]}
+                                alt={parse(item.item.title)}/></a>
+                            <a href={item.item.url} title={parse(item.item.title)}>
+                                <h3>{parse(item.item.title)}</h3></a>
                         </div>
                     ))}
                 </div>
