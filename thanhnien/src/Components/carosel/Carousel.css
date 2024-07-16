@@ -100,3 +100,32 @@
     color: #292929;
     border-bottom: 1px solid #0098d1;
 }
+.nine-container{
+    margin:30px auto 50px;
+    .nine-box{
+        display: flex;
+        flex-wrap: wrap;
+        .nine-item{
+            width: 30%;
+            display: flex;
+            padding: 30px;
+            margin-right: 35px;
+            border-bottom: 1px solid #ebebeb;
+            span{
+                margin-right: 30px;
+                width: 76px;
+                font-weight: 400;
+                font-size: 60px;
+                line-height: 60%;
+                color: #292929;
+            }
+            a{
+                font-weight: 400;
+                font-size: 21px;
+                line-height: 26px;
+                color: #292929;
+                font-family: "Times New Roman";
+            }
+        }
+    }
+}
