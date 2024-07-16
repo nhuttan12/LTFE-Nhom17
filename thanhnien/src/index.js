@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import MainNews from "./Components/MainNews/MainNews";
 import "./index.css";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
@@ -60,6 +60,20 @@ root.render(
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
     <MainNews />
+    {/* <ListTinNhanh360 /> */}
+    {/* <List24h/> */}
+    {/* <Multimedia /> */}
+    {/* <DanhSachBaiBao/> */}
+    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <List24h/> */}
+    {/* <App/> */}
+    {/* <Category/> */}
+    {/* <Carousel title="Xung đột Ukaraina" />*/}
+    {/* <ListNewsTop/> */}
+    {/* <SportCategory /> */}
+    {/* <TechnologyCategory /> */}
+    {/* <ListNewsTop dataNewsTop={homeData} /> */}
+    {/* <Footer/> */}
   </React.StrictMode>
 );
 
