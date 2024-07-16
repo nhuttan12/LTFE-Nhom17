@@ -50,8 +50,8 @@ root.render(
     {/* <List24h/>*/}
     {/*<DanhSachBaiBao/>*/}
     {/*<ListThiTruong/>*/}
-    {/* <MainNews /> */}
-    <UncontrolledExample />
+    <MainNews />
+    {/* <UncontrolledExample /> */}
     {/* <Multimedia />*/}
     {/* <DanhSachBaiBao dataNews={homeData}/>*/}
     {/* <App/>*/}

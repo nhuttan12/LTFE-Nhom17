@@ -3,11 +3,11 @@ import "./MainNews.css";
 import LatestNews from "./LatestNews";
 import PopularNews from "./PopularNews";
 import MiniNews from "./MiniNews/MiniNews";
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 import axios from "axios";
 import parse from "html-react-parser";
 
@@ -169,10 +169,16 @@ const popular_news = [
 // ];
 
 const MainNews = () => {
+  //animation của tab
+  const [value, setValue] = React.useState("1");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const [data_tin, setData_tin] = useState([]);
   // Format khi gửi Post
- 
+
   const getData_tin = async () => {
     try {
       const go = {
@@ -199,10 +205,8 @@ const MainNews = () => {
   };
   console.log(data_tin);
 
-  const latest_news = [...data_tin].sort(()=> 0.5 - Math.random());
+  const latest_news = [...data_tin].sort(() => 0.5 - Math.random());
 
-
-const MainNews = ({dataNews}) => {
   return (
     <div className="section-home">
       <div className="main-news">
@@ -210,21 +214,26 @@ const MainNews = ({dataNews}) => {
           <div className="main-news-flex">
             <div className="top-news">
               <div className="top-news-img">
-              {data_tin.length > 0 && parse(extractAnchorTag(data_tin[0].item.content))}
+                {data_tin.length > 0 &&
+                  parse(extractAnchorTag(data_tin[0].item.content))}
               </div>
               <div className="top-news-name">
                 <div className="top-news-title">
-                  <a href={data_tin.length > 0 && data_tin[0].item.link}>{data_tin.length > 0 && parse(data_tin[0].item.title)}</a>
+                  <a href={data_tin.length > 0 && data_tin[0].item.link}>
+                    {data_tin.length > 0 && parse(data_tin[0].item.title)}
+                  </a>
                 </div>
                 <div className="top-news-description font">
-                  <a href={data_tin.length > 0 && data_tin[0].item.link}>{data_tin.length > 0 && data_tin[0].item.contentSnippet}</a>
+                  <a href={data_tin.length > 0 && data_tin[0].item.link}>
+                    {data_tin.length > 0 && data_tin[0].item.contentSnippet}
+                  </a>
                 </div>
               </div>
             </div>
             <div className="middle-news">
               <div className="middle-news-container">
                 <div className="middle-news-grid">
-                  {data_tin.slice(1,4).map((item) => (
+                  {data_tin.slice(1, 4).map((item) => (
                     <div className="middle-news-item">
                       <div className="title">
                         <a href={item.item.link}>{parse(item.item.title)}</a>
@@ -239,8 +248,8 @@ const MainNews = ({dataNews}) => {
             </div>
           </div>
         </div>
-        <div className="mini-news-container" style={{width: '100%'}}>
-          <MiniNews data={data_tin.slice(6,14)}/>
+        <div className="mini-news-container" style={{ width: "100%" }}>
+          <MiniNews data={data_tin.slice(6, 14)} />
         </div>
       </div>
       <div className="sub-news">
@@ -267,7 +276,34 @@ const MainNews = ({dataNews}) => {
                 </div>
               </Tab>
             </Tabs> */}
-          </div>  
+            <Box sx={{ width: "100%", typography: "body1" }}>
+              <TabContext value={value}>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <TabList
+                    onChange={handleChange}
+                    aria-label="lab API tabs example"
+                  >
+                    <Tab label="Tin mới" value="1" />
+                    <Tab label="Đọc nhiều" value="2" />
+                  </TabList>
+                </Box>
+                <TabPanel value="1">
+                  <div className="latest-news">
+                    {latest_news.slice(0, 6).map((item, index) => (
+                      <LatestNews key={index} data={item} />
+                    ))}
+                  </div>
+                </TabPanel>
+                <TabPanel value="2">
+                  <div className="popular-news">
+                    {latest_news.slice(6, 18).map((item, index) => (
+                      <PopularNews key={index} data={item} />
+                    ))}
+                  </div>
+                </TabPanel>
+              </TabContext>
+            </Box>
+          </div>
         </div>
         <div className="sub-news-box-blog">
           <div className="box-blog-container">
