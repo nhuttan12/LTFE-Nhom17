@@ -27,7 +27,7 @@ root.render(
     {/* <ListThiTruong /> */}
     {/* <ListTongHop/> */}
     {/* <Header /> */}
-    {/* <MainNews /> */}
+    <MainNews />
     {/* <ListTinNhanh360 /> */}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
@@ -38,7 +38,7 @@ root.render(
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
-    <SportCategory />
+    {/* <SportCategory /> */}
     {/* <TechnologyCategory /> */}
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
