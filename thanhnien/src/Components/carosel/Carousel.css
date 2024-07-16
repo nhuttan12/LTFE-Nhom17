@@ -55,7 +55,7 @@
 .carousel-navigation button {
     width: 25px;           /* Kích thước chiều rộng của hình vuông */
     height: 15px;          /* Kích thước chiều cao của hình vuông */
-    background-color: white; /* Màu nền của hình vuông */
+    background-color: #ffffff; /* Màu nền của hình vuông */
     position: relative;    /* Cho phép định vị tuyệt đối cho chấm tròn bên trong */
     margin: 0 12px;
     border: none;

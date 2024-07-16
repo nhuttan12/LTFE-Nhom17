@@ -49,7 +49,7 @@ const parse = async url => {
 
     // console.log(feed.items)
     articles = [];
-    feed.items.slice(0,40).forEach(item =>{
+    feed.items.slice(0,feed.items.length).forEach(item =>{
         articles.push({ item })
     })
 }

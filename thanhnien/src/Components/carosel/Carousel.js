@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './Carousel.css';
-import thoisuData from '../../Json/thoisu';
+import parse from "html-react-parser";
 
-const Carousel = ({ title }) => {
+const Carousel = ({dataNews, title }) => {
     const [data, setData] = useState(null);
     const [randomArticles, setRandomArticles] = useState([]);
     useEffect(() => {
-        setData(thoisuData);
+        setData(dataNews);
     }, []);
 
     const getRandomElements = (arr) => {
@@ -31,11 +31,6 @@ const Carousel = ({ title }) => {
         }
     }, [data]);
 
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
     const fiveArticles = randomArticles.slice(0, 5);
 
     const [current, setCurrent] = useState(0);
@@ -114,11 +109,11 @@ const Carousel = ({ title }) => {
                             key={index}
                             onClick={() => handleItemClick(item.url)}
                         >
-                            <a href={item.url} title={decodeHtmlEntities(item.title)}><img
+                            <a href={item.url} title={parse(item.title)}><img
                                 src={item.content_html.match(/<img src="([^"]*)"/)[1]}
-                                alt={decodeHtmlEntities(item.title)}/></a>
-                            <a href={item.url} title={decodeHtmlEntities(item.title)}>
-                                <h3>{decodeHtmlEntities(item.title)}</h3></a>
+                                alt={parse(item.title)}/></a>
+                            <a href={item.url} title={parse(item.title)}>
+                                <h3>{parse(item.title)}</h3></a>
                         </div>
                     ))}
                 </div>

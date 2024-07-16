@@ -1,22 +1,19 @@
 import React from 'react';
-const ThreeBigNews = (bigData) => {
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
+import parse from "html-react-parser";
+
+const ThreeBigNews = ({dataComponent}) => {
     return (
         <div className="big-track">
-            {bigData.bigData.map((article, index) => (
+            {dataComponent.map((article, index) => (
                 <div className="big-item" key={index}>
-                    <a href={article.url} title={decodeHtmlEntities(article.title)}>
+                    <a href={article.url} title={parse(article.title)}>
                         <img
                             src={article.content_html.match(/<img src="([^"]*)"/)[1]}
-                            alt={decodeHtmlEntities(article.title)}
+                            alt={parse(article.title)}
                             className="big-image"
                         />
-                        <a href={article.url} title={decodeHtmlEntities(article.title)}>
-                            <h4 className="big-title">{decodeHtmlEntities(article.title)}</h4>
+                        <a href={article.url} title={parse(article.title)}>
+                            <h4 className="big-title">{parse(article.title)}</h4>
                         </a>
                     </a>
                 </div>

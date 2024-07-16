@@ -4,6 +4,7 @@ import './csstonghop.css';
 import ItemMore from './ItemMore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import parse from "html-react-parser";
 
 const NewsArticle = ({ category, title, description, image, imgsize, url, data }) => {
     const [showMoreItems, setShowMoreItems] = useState(false);
@@ -30,20 +31,6 @@ const NewsArticle = ({ category, title, description, image, imgsize, url, data }
             }
         };
     }, [description]);
-    const extractContentAfterLinks = (htmlString) => {
-        const regex = /<\/a>(.*)/;
-        const match = htmlString.match(regex);
-
-        if (match) {
-            return match[1].trim();
-        }
-        return '';
-    };
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
     return (
         <div className="news-article" ref={articleRef}>
             <a href={url}>
@@ -67,7 +54,7 @@ const NewsArticle = ({ category, title, description, image, imgsize, url, data }
                 {showMoreItems && data && data.length > 0 && (
                     <div className="more-items">
                         {data.map((news, index) => (
-                            <ItemMore key={index} title={decodeHtmlEntities(news.title)} image={news.content_html.match(/<img src="([^"]*)"/)[1]} />
+                            <ItemMore key={index} title={parse(news.title)} image={news.content_html.match(/<img src="([^"]*)"/)[1]} />
                         ))}
                     </div>
                 )}

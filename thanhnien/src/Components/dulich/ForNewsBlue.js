@@ -2,12 +2,9 @@ import React, { useState} from 'react';
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons/faMagnifyingGlass";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './topNews.css';
-const ThreeBigNews = (blueData) => {
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
+import parse from "html-react-parser";
+
+const ThreeBigNews = ({dataComponent}) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleChange = (event) => {
@@ -41,16 +38,16 @@ const ThreeBigNews = (blueData) => {
                 </div>
             </div>
             <div className="blue-list">
-                {blueData.blueData.map((article, index) => (
+                {dataComponent.map((article, index) => (
                     <div className="blue-item" key={index}>
-                        <a href={article.url} title={decodeHtmlEntities(article.title)}>
+                        <a href={article.url} title={parse(article.title)}>
                             <img
                                 src={article.content_html.match(/<img src="([^"]*)"/)[1]}
-                                alt={decodeHtmlEntities(article.title)}
+                                alt={parse(article.title)}
                                 className="blue-image"
                             />
-                            <a href={article.url} title={decodeHtmlEntities(article.title)}>
-                                <h4 className="blue-title">{decodeHtmlEntities(article.title)}</h4>
+                            <a href={article.url} title={parse(article.title)}>
+                                <h4 className="blue-title">{parse(article.title)}</h4>
                             </a>
                         </a>
                     </div>
