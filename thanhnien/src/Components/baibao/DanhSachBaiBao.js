@@ -11,6 +11,7 @@ import {faCircle} from "@fortawesome/free-regular-svg-icons";
 import BaiBaoSingle from "./BaiBaoSingle"; // Import dữ liệu từ file JSON
 
 const DanhSachBaiBao = ({dataNews}) => {
+    console.log(dataNews);
     function getRandomData() {
         const dataSources = [homeData, thoisuData];
         const randomIndex = Math.floor(Math.random() * dataSources.length);
@@ -21,7 +22,6 @@ const DanhSachBaiBao = ({dataNews}) => {
     useEffect(() => {
         setData(dataNews);
     }, []);
-
     const getRandomElements = (arr) => {
         let shuffled = arr.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 8);
@@ -45,13 +45,8 @@ const DanhSachBaiBao = ({dataNews}) => {
     }, [data]);
     const firstArticle = randomArticles[0];
     const nextArticles = randomArticles[1];
-    const nextTwoArticles = randomArticles.slice(2, 4);
-    const nextFourArticles = randomArticles.slice(4, 9);
-    const linkData = nextFourArticles.map(item => ({
-        url: item.url,
-        title: item.title,
-    }));
-    const decodeHtmlEntities = (str) => {
+    const nextTwoArticles = randomArticles.slice(2, 10);
+    const parse = (str) => {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
         return txt.value;
@@ -91,20 +86,20 @@ const DanhSachBaiBao = ({dataNews}) => {
             <div className="ds-noi-dung">
                 {firstArticle && (
                     <Item1
-                        title={decodeHtmlEntities(firstArticle.title)}
+                        title={parse(firstArticle.title)}
                         image={firstArticle.content_html.match(/<img src="([^"]*)"/)[1]}
-                        detail={<a href={nextArticles.url} title={decodeHtmlEntities(nextArticles.title)}
+                        detail={<a href={nextArticles.url} title={parse(nextArticles.title)}
                                    className="mota1">
                             <FontAwesomeIcon
                                 icon={faCircle}
                                 size="2xs"
                                 style={{marginRight: '10px'}}
                             />
-                            {decodeHtmlEntities(nextArticles.title)}
+                            {parse(nextArticles.title)}
                         </a>}
-                        category={decodeHtmlEntities(firstArticle.description)}
+                        category={parse(firstArticle.description)}
                         url={firstArticle.url}
-                        description={decodeHtmlEntities(extractContentAfterLinks(firstArticle.content_html))}
+                        description={parse(extractContentAfterLinks(firstArticle.content_html))}
                     />
                 )}
                 <BaiBaoSingle dataComponent={nextTwoArticles}/>

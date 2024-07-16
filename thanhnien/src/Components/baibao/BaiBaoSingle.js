@@ -1,39 +1,37 @@
 import React from 'react';
-import BaiBao from "./BaiBao";
+import BaiBao from './BaiBao';
+import parse from "html-react-parser";
+import './cssBaiBao.css';
 
 const BaiBaoSingle = ({dataComponent}) => {
+    console.log(dataComponent);
     const nextTwoArticles = dataComponent.slice(0, 2);
-    const nextFourArticles = dataComponent.slice(2, 7);
+    const nextFourArticles = dataComponent.slice(2);
     const linkData = nextFourArticles.map(item => ({
         url: item.url,
         title: item.title,
     }));
-    const decodeHtmlEntities = (str) => {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = str;
-        return txt.value;
-    };
     return (
         <div className="bao-single">
             {nextTwoArticles.map((item, index) => (
                 <BaiBao
                     key={index}
                     url={item.url}
-                    chuDe={decodeHtmlEntities(item.title)}
-                    tieuDe={decodeHtmlEntities(item.title)}
+                    chuDe={parse(item.title)}
+                    tieuDe={parse(item.title)}
                     moTa={
                         index < linkData.length ? (
                             <a href={linkData[index].url}
-                               title={decodeHtmlEntities(linkData[index].title)} className="bai-bao-mo-ta">
-                                {decodeHtmlEntities(linkData[index].title)}
+                               title={parse(linkData[index].title)} className="bai-bao-mo-ta">
+                                {parse(linkData[index].title)}
                             </a>
                         ) : null
                     }
                     moTaPhu={
                         index + 2 < linkData.length ? (
                             <a href={linkData[index + 2].url}
-                               title={decodeHtmlEntities(linkData[index + 2].title)} className="bai-bao-mo-ta">
-                                {decodeHtmlEntities(linkData[index + 2].title)}
+                               title={parse(linkData[index + 2].title)} className="bai-bao-mo-ta">
+                                {parse(linkData[index + 2].title)}
                             </a>
                         ) : null
                     }

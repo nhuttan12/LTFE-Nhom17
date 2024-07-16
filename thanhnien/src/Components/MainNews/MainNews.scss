@@ -33,6 +33,10 @@ body {
   background: #555;
 }
 
+a {
+  text-decoration: none;
+}
+
 .section-home {
   padding-top: 30px;
   width: 1150px;
@@ -50,36 +54,46 @@ body {
         .top-news {
           display: flex;
           flex-direction: row;
+          height: 280px;
+          background-color: #f6f6f6;
 
           .top-news-img {
-            width: 70%;
+            width: 448px;
 
             a {
               img {
-                width: 100%;
-                height: 100%;
-                object-fit: fill;
+                width: 448px;
+                height: 280px;
+                object-fit: cover;
               }
             }
           }
 
           .top-news-name {
-            background: #ebebeb;
-            width: 30%;
+            // background: #ebebeb;
+            width: calc(100% - 448px);
             padding: 15px 25px 15px 25px;
 
             .top-news-title {
-              font-size: 22px;
-              text-align: left;
+              a {
+                color: black;
+                font-size: 1.7rem;
+                text-align: left;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: 500;
+              }
             }
 
             .top-news-description {
+              padding-top: 15px;
+              max-height: 88px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+
               a {
-                padding-top: 15px;
-                font-size: 15px;
+                font-size: 1rem;
                 font-weight: 400;
-                overflow: hidden;
-                text-overflow: ellipsis;
               }
 
               a,
@@ -91,6 +105,8 @@ body {
         }
 
         .middle-news {
+          height: 190px;
+
           .middle-news-container {
             border-bottom: 1.5px solid #ebebeb;
             padding-bottom: 20px;
@@ -113,12 +129,32 @@ body {
                 }
 
                 .title {
-                  font-size: 15px;
-                  font-weight: bold;
+                  a {
+                    font-weight: bold;
+                    color: black;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: 1.25rem;
+                  }
+                }
+
+                .title:hover {
+                  a {
+                    color: #0098d1;
+                  }
                 }
 
                 .description {
                   margin-top: 10px;
+                  max-height: 110px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+
+                  a {
+                    max-height: 110px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
 
                   a,
                   a :hover {
@@ -130,6 +166,10 @@ body {
           }
         }
       }
+    }
+
+    .mini-news-container {
+      margin-top: 3rem;
     }
   }
 
@@ -148,17 +188,19 @@ body {
 
         .css-w8dmq8 {
           height: 100%;
-          .css-1gsv261{
-            .css-1ujnqem-MuiTabs-root{
-              .css-jpln7h-MuiTabs-scroller{
-                .css-heg063-MuiTabs-flexContainer{
-                  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+
+          .css-1gsv261 {
+            .css-1ujnqem-MuiTabs-root {
+              .css-jpln7h-MuiTabs-scroller {
+                .css-heg063-MuiTabs-flexContainer {
+                  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
                     width: 50%;
                   }
                 }
               }
             }
           }
+
           .MuiTabPanel-root.css-13xfq8m-MuiTabPanel-root {
             height: 500px;
             overflow-y: auto;
@@ -167,11 +209,31 @@ body {
             .latest-news-container {
               border-bottom: 1px solid #ebebeb;
               padding: .7rem 1rem .7rem 1rem;
+              .latest-news-item{
+                .item {
+                  color: black;
+                }
+              }
+              .latest-news-item:hover{
+                .item{
+                  color: #0098d1;
+                }
+              }
             }
 
             .popular-news-container {
               border-bottom: 1px solid #ebebeb;
               padding: .7rem 1rem .7rem 1rem;
+              .popular-news-item{
+                .item {
+                  color: black;
+                }
+              }
+              .popular-news-item:hover{
+                .item{
+                  color: #0098d1;
+                }
+              }
             }
           }
         }

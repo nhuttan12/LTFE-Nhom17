@@ -17,14 +17,27 @@
 .post .post-container .slide {
   position: relative;
   border-top: 1px solid #ebebeb;
-  width: 453%;
+  width: 444%;
 }
 .post .post-container .post-box {
   padding-top: 30px;
 }
 .post .post-container .post-box a img {
+  height: 100px;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.post .post-container .post-box h5 {
+  padding-top: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .post .post-container .post-box h5 .post-title {
   font-size: 0.9rem;
+  color: black;
+  font-weight: 600;
+}
+.post .post-container .post-box h5:hover .post-title {
+  color: #0098d1;
 }/*# sourceMappingURL=MiniNews.css.map */

@@ -7,6 +7,7 @@ import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import MainNews from "./Components/MainNews/MainNews";
 import HomePage from "./Containers/HomePage";
+import Footer from "./Components/Common/Footer";
 
 function App() {
     return (
@@ -15,11 +16,12 @@ function App() {
                 <Header />
                 {/*<HomePage/>*/}
                 <Routes>
-                    <Route path="/" element={<MainNews />} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="/du-lich" element={<ListNewsTop dataNews={homeData}/>} />
                     <Route path="/bai-bao" element={<DanhSachBaiBao />} />
                     <Route path="/tong-hop" element={<ListTongHop />} />
                 </Routes>
+                <Footer/>
             </div>
         </Router>
     );
