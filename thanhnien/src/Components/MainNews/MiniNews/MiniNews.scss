@@ -3,28 +3,47 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .post {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, auto);
   column-gap: 35px;
+
   .post-container {
     margin-top: 25px;
+
     .slide {
       position: relative;
       border-top: 1px solid #ebebeb;
-      width: 453%;
+      width: 444%;
     }
+
     .post-box {
       padding-top: 30px;
+
       a {
-        .post-img {
+        img {
+          height: 100px;
           width: 100%;
+          object-fit: cover;
         }
       }
+
       h5 {
+        padding-top: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
         .post-title {
           font-size: 0.9rem;
+          color: black;
+          font-weight: 600;
+        }
+      }
+
+      h5:hover {
+        .post-title {
+          color: #0098d1;
         }
       }
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import MainNews from "./Components/MainNews/MainNews";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ListTongHop from "./Components/tintonghop/ListTongHop";
 import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
@@ -20,6 +20,7 @@ import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -58,6 +59,7 @@ root.render(
     {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
+    <MainNews />
   </React.StrictMode>
 );
 
