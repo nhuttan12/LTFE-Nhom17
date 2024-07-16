@@ -16,7 +16,6 @@ import Multimedia from "./Components/Multimedia/Multimedia";
 import Category from "./Components/Category/Category";
 import SportCategory from "./Components/SportCategory/SportCategory";
 import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCategory";
-import ListCarousel from "./Components/carosel/ListCarousel";
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
@@ -33,7 +32,7 @@ root.render(
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
-    {/* <List24h/>*/}
+    {/* <List24h/> */}
     {/* <App/> */}
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}

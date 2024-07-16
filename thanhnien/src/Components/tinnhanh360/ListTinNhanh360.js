@@ -2,29 +2,13 @@ import React, { useEffect, useState } from "react";
 import ItemTinNhanh360 from "./ItemTinNhanh360";
 import "./tinhanh360.css";
 import axios from "axios";
+import DataFetch from "../fetchRSS/DataFetch";
 
 const ListTinNhanh360 = () => {
-  const [data_tinnhanh360, setData_tinnhanh360] = useState([]);
-
-  console.log(data_tinnhanh360);
-  // Format khi gửi Post
-  const getData_tinhnhanh360 = async () => {
-    try {
-      const go = {
-        signal: "tin-nhanh-360",
-      };
-      const res = await axios.post("http://localhost:4000/", go);
-      setData_tinnhanh360(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  // End format
-
-  // Gọi sau khi render component để render lại lần nữa
-  useEffect(() => {
-    getData_tinhnhanh360();
-  }, []);
+  
+  const tinnhanh360Signal = {signal: "datafetch", datapage:"tin-nhanh-360"};
+  const serverLink = "http://localhost:4000/";
+  const data_tinnhanh360 = DataFetch(serverLink,tinnhanh360Signal).data;
   return (
     <div className="tinnhanh360">
       <div className="tinnhanh360-container">

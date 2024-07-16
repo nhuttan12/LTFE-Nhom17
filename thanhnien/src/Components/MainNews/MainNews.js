@@ -8,8 +8,8 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import axios from "axios";
 import parse from "html-react-parser";
+import DataFetch from "../fetchRSS/DataFetch";
 
 const MainNews = () => {
   //animation của tab
@@ -19,26 +19,17 @@ const MainNews = () => {
     setValue(newValue);
   };
 
-  const [data_tin, setData_tin] = useState([]);
-  // Format khi gửi Post
-
-  const getData_tin = async () => {
-    try {
-      const go = {
-        signal: "home",
-      };
-      const res = await axios.post("http://localhost:4000/", go);
-      setData_tin(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  // End format
-
-  // Gọi sau khi render component để render lại lần nữa
-  useEffect(() => {
-    getData_tin();
-  }, []);
+  // Giao thức fetch mới
+  const homeSignal = {signal: "datafetch", datapage:"home"};
+  const serverLink = "http://localhost:4000/";
+  const data_tin = DataFetch(serverLink,homeSignal).data;
+  //
+  
+  // Test Lấy chi tiết article
+  const ngaymoidadenSignal = {signal: "detailarticle", articlepage:"https://thanhnien.vn/dam-vinh-hung-bi-cam-dien-9-thang-185240716132440871.htm"};
+  const test_data = DataFetch(serverLink,ngaymoidadenSignal).data;
+  console.log(test_data);
+  // End test lấy chi tiết Article
 
   // Lấy src của bức ảnh trong content
   const extractAnchorTag = (htmlString) => {
@@ -98,27 +89,6 @@ const MainNews = () => {
       <div className="sub-news">
         <div className="sub-news-container">
           <div className="sub-news-tab">
-            {/* <Tabs
-              defaultActiveKey="latest"
-              id="fill-tab-example"
-              className="mb-3 subs-tab"
-              fill
-            >
-              <Tab eventKey="latest" title="Tin mới">
-                <div className="latest-news">
-                  {latest_news.slice(0,6).map((item, index) => (
-                    <LatestNews key={index} data={item} />
-                  ))}
-                </div>
-              </Tab>
-              <Tab eventKey="popular" title="Đọc nhiều">
-                <div className="popular-news tab">
-                  {latest_news.slice(6,18).map((item, index) => (
-                    <PopularNews key={index} data={item} />
-                  ))}
-                </div>
-              </Tab>
-            </Tabs> */}
             <Box sx={{ width: "100%", typography: "body1" }}>
               <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

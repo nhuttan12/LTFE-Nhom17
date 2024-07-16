@@ -2,29 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./SportCategory.css";
 import axios from "axios";
 import parse from "html-react-parser";
-
+import DataFetch from "../fetchRSS/DataFetch";
 
 function SportCategory() {
-  const [data_sport, setData_sport] = useState([]);
-  // Format khi gửi Post
- 
-  const getData_sport = async () => {
-    try {
-      const go = {
-        signal: "the-thao",
-      };
-      const res = await axios.post("http://localhost:4000/", go);
-      setData_sport(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  // End format
 
-  // Gọi sau khi render component để render lại lần nữa
-  useEffect(() => {
-    getData_sport();
-  }, []);
+  const theThaoSignal = {signal: "datafetch", datapage:"the-thao"};
+  const serverLink = "http://localhost:4000/";
+  const data_sport = DataFetch(serverLink,theThaoSignal).data;
 
   const extractAnchorTag = (htmlString) => {
     const anchorTagRegex = /<a[^>]*>(.*?)<\/a>/;
