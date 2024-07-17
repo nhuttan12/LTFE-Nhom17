@@ -57,7 +57,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 4; /* Số dòng tối đa hiển thị */
     -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
-
 }
 /* ArticleList.css */
 .article-list {

@@ -1,11 +1,8 @@
+@charset "UTF-8";
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-}
-
-.font {
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -61,8 +58,7 @@ a {
 .section-home .main-news .main-news-container .main-news-flex .top-news .top-news-img a img {
   width: 448px;
   height: 280px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .section-home .main-news .main-news-container .main-news-flex .top-news .top-news-name {
   width: calc(100% - 448px);
@@ -106,7 +102,7 @@ a {
 }
 .section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item {
   border-right: 1.5px solid #ebebeb;
-  padding-right: 15px;
+  padding: 10px;
 }
 .section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item div a {
   text-align: left;
@@ -114,8 +110,7 @@ a {
 .section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item .title a {
   font-weight: bold;
   color: black;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 .section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item .title:hover a {
   color: #0098d1;
@@ -125,16 +120,20 @@ a {
   max-height: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Số dòng tối đa hiển thị */
+  -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
 }
 .section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item .description a {
   max-height: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item .description a,
-.section-home .main-news .main-news-container .main-news-flex .middle-news .middle-news-container .middle-news-grid .middle-news-item .description a :hover {
-  color: black;
+  color: #454545;
 }
 .section-home .main-news .mini-news-container {
   margin-top: 3rem;
@@ -262,4 +261,6 @@ a {
 .section-home .sub-news .sub-news-box-blog .box-blog-container .box-blog-flex .blog-container .blog-flex .blog-author .author-flex .author-name {
   font-size: 0.8rem;
   font-weight: bold;
-}/*# sourceMappingURL=MainNews.css.map */
+}
+
+/*# sourceMappingURL=MainNews.css.map */

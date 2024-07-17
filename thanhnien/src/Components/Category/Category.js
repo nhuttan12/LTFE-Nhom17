@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Common/Header";
 import "./Category.css";
 import CategoryPost from "./Category Post/CategoryPost";
 import ListGioiTreVaDoiSong from "../tingioitrevadoisong/ListGioiTreVaDoiSong";
@@ -132,7 +131,6 @@ function Category(props) {
 
   return (
     <div>
-      <Header />
       <CategoryNavigation />
       <div className="category-container">
         <div className="category-left">
