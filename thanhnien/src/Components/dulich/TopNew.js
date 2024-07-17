@@ -18,15 +18,15 @@ const TopNew = ({firstArticle}) => {
             {firstArticle && (
                 <div className="firest">
                     <div className="news-left">
-                        <a href={firstArticle.url} title={parse(firstArticle.title)}><p
+                        <a href={firstArticle.link} title={parse(firstArticle.title)}><p
                             className="top-new-title">
                             {parse(firstArticle.title)}</p></a>
-                        <a href={firstArticle.url} title={parse(firstArticle.title)}><p
+                        <a href={firstArticle.link} title={parse(firstArticle.title)}><p
                             className="top-new-description">
                             {parse(extractContentAfterLinks(firstArticle.content))}</p></a>
                     </div>
                     <div className="news-right">
-                        <a href={firstArticle.url} title={parse(firstArticle.title)}>
+                        <a href={firstArticle.link} title={parse(firstArticle.title)}>
                             <img src={firstArticle.content.match(/<img src="([^"]*)"/)[1]}
                                  alt={parse(firstArticle.title)}></img>
                         </a>

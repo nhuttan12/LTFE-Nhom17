@@ -88,12 +88,12 @@ function Multimedia() {
             {multimedia.map((item, index) => (
               <div key={index} className="sub-post">
                 <div className="img">
-                  <a href={item.url} title={item.title}>
+                  <a href={item.link} title={item.title}>
                     <img src={item.img} alt={item.title} />
                   </a>
                 </div>
                 <div className="title">
-                  <a href={item.url} title={item.title}>
+                  <a href={item.link} title={item.title}>
                     {item.title}
                   </a>
                 </div>

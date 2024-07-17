@@ -29,6 +29,7 @@
     height: 210px;
     cursor: pointer!important;
     pointer-events: none;
+    object-fit: cover;
 }
 .carousel-item h3{
     margin: 8px 0 30px;

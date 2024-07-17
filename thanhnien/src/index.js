@@ -37,9 +37,12 @@ root.render(
     {/*<Header/>*/}
     {/*<ListThiTruong dataThiTruong={homeData}/>*/}
     {/*<ListTongHop/>*/}
+
+      {/*//chua css*/}
     {/* <ListGioiTreVaDoiSong/>*/}
     {/* <ListTinNhanh360/>*/}
     {/* <List24h/>*/}
+
     {/*<ListThiTruong/>*/}
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
@@ -48,7 +51,7 @@ root.render(
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/>*/}
-     <App/>
+    {/* <App/>*/}
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
@@ -59,14 +62,14 @@ root.render(
     {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
-    <MainNews />
+    {/*<MainNews />*/}
     {/* <ListTinNhanh360 /> */}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/> */}
-    {/* <App/> */}
+     <App/>
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}

@@ -15,6 +15,7 @@ const BaiBaoSingle = ({dataComponent, cate, noSuggest}) => {
             title: item.item.title,
         }));
     }else{
+        console.log("dccd")
         mainArticles = dataComponent;
     }
     return (
@@ -22,7 +23,7 @@ const BaiBaoSingle = ({dataComponent, cate, noSuggest}) => {
             {mainArticles.map((item, index) => (
                 <BaiBao
                     key={index}
-                    link={item.item.link}
+                    url={item.item.link}
                     chuDe={parse(item.item.title)}
                     tieuDe={parse(item.item.title)}
                     {...(cate && cate.length > 0 && { cate: cate[index % cate.length] })}
