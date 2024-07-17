@@ -27,6 +27,7 @@
             padding-right: 1rem;
             .main-image {
               img {
+                cursor: pointer;
                 width: 100%;
               }
             }
@@ -39,7 +40,9 @@
             .main-description {
               padding-top: 1.3rem;
               p {
-                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                font-family: Inter,Arial;
+                color: #454545;
               }
             }
           }

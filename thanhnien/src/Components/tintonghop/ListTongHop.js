@@ -10,17 +10,6 @@ const ArticleList = ({dataNews}) => {
     // 3/4 đầu tiên
     const next = [...dataNews].sort(() => Math.random() - 0.5);
 
-
-    const extractContentAfterLinks = (htmlString) => {
-        const regex = /<\/a>(.*)/;
-        const match = htmlString.match(regex);
-
-        if (match) {
-            return match[1].trim();
-        }
-        return '';
-    };
-
     const getCategoryFromTitle = (title) => {
         const lowerCaseTitle = title.toLowerCase();
         const keywordsAndCategories = {
@@ -69,7 +58,6 @@ const ArticleList = ({dataNews}) => {
         }
     };
 
-
     return (
         <div className="article-list">
             {dataNews.map((item, index) => (
@@ -79,7 +67,7 @@ const ArticleList = ({dataNews}) => {
                     title={parse(item.item.title)}
                     image={item.item.content.match(/<img src="([^"]*)"/)[1]}
                     imgsize={getImageSize(item.item.title)}
-                    description={parse(extractContentAfterLinks(item.item.content))}
+                    description={parse(item.item.contentSnippet)}
                     url={item.item.link}
                     data={next[index] ? next.slice(index, index + 1) : []}
                 />

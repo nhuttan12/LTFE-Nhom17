@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {TiWeatherCloudy} from "react-icons/ti";
 import {FaMicrophoneAlt} from "react-icons/fa";
 import {FaBullhorn} from "react-icons/fa";
@@ -7,7 +7,7 @@ import {FaRegUserCircle} from "react-icons/fa";
 import {FaHome} from "react-icons/fa";
 
 import "./Header.css";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 function Header() {
     var date = new Date();
@@ -28,7 +28,12 @@ function Header() {
         month: date.getMonth(),
         year: date.getFullYear(),
     };
+    const [activeLink, setActiveLink] = useState('');
+    const location = useLocation();
 
+    const handleLinkClick = (link) => {
+        setActiveLink(link);
+    };
     return (
         <header className="header">
             <div className="header-ov">
@@ -112,126 +117,196 @@ function Header() {
                                 <input type="text" placeholder="Tìm kiếm" className="search"/>
                             </div>
                             <div className="header-center">
-                              <Link to="/"><img
-                                  className="header-logo-image"
-                                  alt="Logo"
-                                  src="https://static.thanhnien.com.vn/thanhnien.vn/image/logo.svg"
-                              /></Link>
+                                <Link to="/"><img
+                                    className="header-logo-image"
+                                    alt="Logo"
+                                    src="https://static.thanhnien.com.vn/thanhnien.vn/image/logo.svg"
+                                /></Link>
                             </div>
-                          <div className="header-right">
-                            <div className="podcast">
-                              <a href="https://thanhnien.vn/podcast.htm" title="Podcast"><h5>Podcast</h5></a>
-                              <div>
-                                <FaMicrophoneAlt size={20}/>
-                              </div>
+                            <div className="header-right">
+                                <div className="podcast">
+                                    <a href="https://thanhnien.vn/podcast.htm" title="Podcast"><h5>Podcast</h5></a>
+                                    <div>
+                                        <FaMicrophoneAlt size={20}/>
+                                    </div>
+                                </div>
+                                <div className="advertisement">
+                                    <a href="https://banggia.thanhnien.vn/" title="Quảng cáo"><h5>Quảng cáo</h5></a>
+                                    <div>
+                                        <FaBullhorn size={20}/>
+                                    </div>
+                                </div>
+                                <div className="order-news">
+                                    <a href="https://datbao.thanhnien.vn/" title="Đặt báo"><h5>Đặt báo</h5></a>
+                                    <div>
+                                        <FaNewspaper size={20}/>
+                                    </div>
+                                </div>
+                                <div className="login">
+                                    <a href="https://my.thanhnien.vn/page/login.html?redirect_url=https://thanhnien.vn/"
+                                       title="Đăng nhập"><h5>Đăng nhập</h5></a>
+                                    <div className="login">
+                                        <FaRegUserCircle size={20}/>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="advertisement">
-                              <a href="https://banggia.thanhnien.vn/" title="Quảng cáo"><h5>Quảng cáo</h5></a>
-                              <div>
-                                <FaBullhorn size={20}/>
-                              </div>
-                            </div>
-                            <div className="order-news">
-                              <a href="https://datbao.thanhnien.vn/" title="Đặt báo"><h5>Đặt báo</h5></a>
-                              <div>
-                                <FaNewspaper size={20}/>
-                              </div>
-                            </div>
-                            <div className="login">
-                              <a href="https://my.thanhnien.vn/page/login.html?redirect_url=https://thanhnien.vn/" title="Đăng nhập"><h5>Đăng nhập</h5></a>
-                              <div className="login">
-                                <FaRegUserCircle size={20}/>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                     </div>
                 </div>
-              <div className="header-middle">
-                <div className="header-container">
-                  <div className="header-nav">
-                    <div className="header-nav-flex">
-                      <ul className="menu-nav">
-                        <li>
-                          <Link to="/" title="Trang chủ" className="nav-link home">
-                            <FaHome size={25}/>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/thoi-su" title="Thời sự" className="nav-link">
-                            Thời sự
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/the-gioi" title="Thế giới" className="nav-link">
-                            Thế giới
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/doi-song" title="Đời sống" className="nav-link">
-                            Đời sống
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/suc-khoe" title="Sức khoẻ" className="nav-link">
-                            Sức khoẻ
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/gioi-tre" title="Giới trẻ" className="nav-link">
-                            Giới trẻ
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/giao-duc" title="Giáo dục" className="nav-link">
-                            Giáo dục
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/du-lich" title="Du lịch" className="nav-link">
-                            Du lịch
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/van-hoa" title="Văn hoá" className="nav-link">
-                            Văn hoá
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/giai-tri" title="Giải trí" className="nav-link">
-                            Giải trí
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/the-thao" title="Thể thao" className="nav-link">
-                            Thể thao
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/cong-nghe-game" title="Công nghệ - Game" className="nav-link">
-                            Công nghệ - Game
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/xe" title="Xe" className="nav-link">
-                            Xe
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/video" title="Video" className="nav-link">
-                            Video
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/thoi-trang-tre" title="Thời trang trẻ" className="nav-link">
-                            Thời trang trẻ
-                          </Link>
-                        </li>
-                      </ul>
+                <div className="header-middle">
+                    <div className="header-container">
+                        <div className="header-nav">
+                            <div className="header-nav-flex">
+                                <ul className="menu-nav">
+                                    <li>
+                                        <Link
+                                            to="/"
+                                            title="Trang chủ"
+                                            className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                                        >
+                                            <FaHome size={25}/>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/thoi-su"
+                                            title="Thời sự"
+                                            className={`nav-link ${location.pathname === '/thoi-su' ? 'active' : ''}`}
+                                        >
+                                            Thời sự
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/the-gioi"
+                                            title="Thế giới"
+                                            className={`nav-link ${location.pathname === '/the-gioi' ? 'active' : ''}`}
+                                        >
+                                            Thế giới
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/kinh-te"
+                                            title="Kinh tế"
+                                            className={`nav-link ${location.pathname === '/kinh-te' ? 'active' : ''}`}
+                                        >
+                                            Kinh tế
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/doi-song"
+                                            title="Đời sống"
+                                            className={`nav-link ${location.pathname === '/doi-song' ? 'active' : ''}`}
+                                        >
+                                            Đời sống
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/suc-khoe"
+                                            title="Sức khoẻ"
+                                            className={`nav-link ${location.pathname === '/suc-khoe' ? 'active' : ''}`}
+                                        >
+                                            Sức khoẻ
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/gioi-tre"
+                                            title="Giới trẻ"
+                                            className={`nav-link ${location.pathname === '/gioi-tre' ? 'active' : ''}`}
+                                        >
+                                            Giới trẻ
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/giao-duc"
+                                            title="Giáo dục"
+                                            className={`nav-link ${location.pathname === '/giao-duc' ? 'active' : ''}`}
+                                        >
+                                            Giáo dục
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/du-lich"
+                                            title="Du lịch"
+                                            className={`nav-link ${location.pathname === '/du-lich' ? 'active' : ''}`}
+                                        >
+                                            Du lịch
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/van-hoa"
+                                            title="Văn hoá"
+                                            className={`nav-link ${location.pathname === '/van-hoa' ? 'active' : ''}`}
+                                        >
+                                            Văn hoá
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/giai-tri"
+                                            title="Giải trí"
+                                            className={`nav-link ${location.pathname === '/giai-tri' ? 'active' : ''}`}
+                                        >
+                                            Giải trí
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/the-thao"
+                                            title="Thể thao"
+                                            className={`nav-link ${location.pathname === '/the-thao' ? 'active' : ''}`}
+                                        >
+                                            Thể thao
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/cong-nghe"
+                                            title="Công nghệ"
+                                            className={`nav-link ${location.pathname === '/cong-nghe' ? 'active' : ''}`}
+                                        >
+                                            Công nghệ
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/xe"
+                                            title="Xe"
+                                            className={`nav-link ${location.pathname === '/xe' ? 'active' : ''}`}
+                                        >
+                                            Xe
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/video"
+                                            title="Video"
+                                            className={`nav-link ${location.pathname === '/video' ? 'active' : ''}`}
+                                        >
+                                            Video
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/thoi-trang-tre"
+                                            title="Thời trang trẻ"
+                                            className={`nav-link ${location.pathname === '/thoi-trang-tre' ? 'active' : ''}`}
+                                        >
+                                            Thời trang trẻ
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
         </header>
     );

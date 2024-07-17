@@ -15,7 +15,6 @@ const BaiBaoSingle = ({dataComponent, cate, noSuggest}) => {
             title: item.item.title,
         }));
     }else{
-        console.log("dccd")
         mainArticles = dataComponent;
     }
     return (

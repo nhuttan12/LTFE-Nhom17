@@ -47,7 +47,7 @@
     font-size: 16px;
     line-height: 22px;
     color: #454545;
-    padding-left: 18px;
+    padding-left: 30px;
     display: block;
     position: relative;
     width: 390px;
@@ -57,6 +57,9 @@
     display: -webkit-box;
     -webkit-line-clamp: 4; /* Số dòng tối đa hiển thị */
     -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
+}
+.news-article-description li{
+    list-style-type: circle;
 }
 /* ArticleList.css */
 .article-list {

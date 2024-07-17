@@ -20,6 +20,7 @@ import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
+import ThoisuPage from "./Containers/ThoisuPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -70,7 +71,8 @@ root.render(
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/> */}
      <App/>
-    {/* <Category/> */}
+    {/*  <ThoisuPage/>*/}
+    {/* <Category/>*/}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}

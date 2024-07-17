@@ -13,7 +13,7 @@ const ThreeBigNews = ({dataComponent}) => {
 
     const handleButtonClick = (city) => {
         setSearchTerm(city); // Thay đổi giá trị input thành tên thành phố
-        console.log('Tìm kiếm:', city); // Thực hiện tìm kiếm với tên thành phố
+        // console.log('Tìm kiếm:', city); // Thực hiện tìm kiếm với tên thành phố
     };
     return (
         <div className="blue-track">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useShuffleArticles = (data_tin) => {
+const useShuffle = (data_tin) => {
     const [randomArticles, setRandomArticles] = useState([]);
 
     const getRandomElements = (arr, numElements) => {
@@ -33,4 +33,4 @@ const useShuffleArticles = (data_tin) => {
     return randomArticles;
 };
 
-export default useShuffleArticles;
+export default useShuffle;

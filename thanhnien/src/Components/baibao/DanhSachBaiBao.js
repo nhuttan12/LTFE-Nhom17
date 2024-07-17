@@ -14,17 +14,6 @@ const DanhSachBaiBao = ({dataNews, title}) => {
     const firstArticle = dataNews[0];
     const nextArticles = dataNews[1];
     const nextTwoArticles = dataNews.slice(2);
-    const extractContentAfterLinks = (htmlString) => {
-        const contentHtml = htmlString;
-        const regex = /<\/a>(.*)/; // Tìm kiếm mọi thứ sau thẻ </a>
-        const match = contentHtml.match(regex);
-
-        if (match) {
-            const textContent = match[1].trim(); // Lấy phần tử thứ 2 (nội dung) và loại bỏ khoảng trắng thừa
-            return textContent;
-        }
-        return ' ';
-    };
     return (
         <div className="ds-bai-bao">
             <div className="ds-tieu-de">

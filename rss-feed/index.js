@@ -32,7 +32,7 @@ app.post('/', async (req,res) =>{
         try {
             await parse(urlFeed);
             res.send(articles);
-            console.log(articles);
+            // console.log(articles);
         } catch (error) {
             res.status(500).send("Error parsing feed");
         }

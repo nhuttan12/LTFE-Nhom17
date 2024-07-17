@@ -18,18 +18,18 @@ import Carousel from "../Components/carosel/Carousel";
 import ListNineTitle from "../Components/carosel/ListNineTitle";
 import KhungSuggest from "../Components/baibao/KhungSuggest";
 import DataFetch from "../Components/fetchRSS/DataFetch";
-import shuffleArticles from "./shuffleArticles";
+import shuffle from "./shuffle";
 import Item1 from "../Components/baibao/Item1";
 
 const HomePage = () => {
     const homeSignal = {signal: "datafetch", datapage:"home"};
     const serverLink = "http://localhost:4000/";
     const data_tin = DataFetch(serverLink,homeSignal).data;
-    const randomHomeArticles = [...data_tin].sort(() => 0.5 - Math.random());;
+    const randomHome = [...data_tin].sort(() => 0.5 - Math.random());
 
     const thoisuSignal = {signal: "datafetch", datapage:"thoi-su"};
     const data_thoisu = DataFetch(serverLink,thoisuSignal).data;
-    const randomThoisuArticles = shuffleArticles(data_thoisu);
+    const randomThoisu = shuffle(data_thoisu);
 
     const thegioiSignal = {signal: "datafetch", datapage:"the-gioi"};
     const data_thegioi = DataFetch(serverLink,thegioiSignal).data;
@@ -47,18 +47,17 @@ const HomePage = () => {
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
-
     // Get the articles from the shuffled list
-    const home_NineArticles = randomHomeArticles.slice(0, 9);
-    const tin24h = randomHomeArticles.slice(9, 17);
-    const tinthitruong = randomHomeArticles.slice(17, 25);
+    const home_Nine = randomHome.slice(0, 9);
+    const tin24h = randomHome.slice(9, 17);
+    const tinthitruong = randomHome.slice(17, 25);
     
-    const thoisu_FourArticles = randomThoisuArticles.slice(0, 4);
-    const thoisu_SixArticles = randomThoisuArticles.slice(4, 10);
-    const thoisu_Eight = randomThoisuArticles.slice(10, 18);
-    const thoisu_Nine = randomThoisuArticles.slice(18, 26);
-    const thoisu_TwentiArticles = randomThoisuArticles.slice(26,tonghopstart);
-    // const BlueFourArticles = randomArticles.slice(8, 12);
+    const thoisu_Four = randomThoisu.slice(0, 4);
+    const thoisu_Six = randomThoisu.slice(4, 10);
+    const thoisu_Eight = randomThoisu.slice(10, 18);
+    const thoisu_Nine = randomThoisu.slice(18, 26);
+    const thoisu_Twenti = randomThoisu.slice(26,tonghopstart);
+    // const BlueFour = random.slice(8, 12);
     return (
         <div className="homeContainer">
             <div className="homeContent">
@@ -86,11 +85,11 @@ const HomePage = () => {
             <div className="home-flex">
                 <div className="home-left">
             {/*        /!*4 tintonghop*!/*/}
-                    <ListTongHop dataNews={thoisu_FourArticles}/>
+                    <ListTongHop dataNews={thoisu_Four}/>
             {/*        /!*6 carousel*!/*/}
-                    <Carousel dataNews={thoisu_SixArticles} title="Xung đột Ukaraina"/>
+                    <Carousel dataNews={thoisu_Six} title="Xung đột Ukaraina"/>
             {/*        /!* 20 tintonghop*!/*/}
-                    <ListTongHop dataNews={thoisu_TwentiArticles}/>
+                    <ListTongHop dataNews={thoisu_Twenti}/>
                     {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
                     <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
                 </div>
@@ -136,7 +135,7 @@ const HomePage = () => {
                 {/*    <div className="ds-noi-dung">*/}
                 {/*        <BaiBaoSingle/>*/}
                 {/*        /!*9 data kem title from thoisu*!/*/}
-                <ListNineTitle dataNews={home_NineArticles} title="Tin tức mới nhất"/>
+                <ListNineTitle dataNews={home_Nine} title="Tin tức mới nhất"/>
             </div>
         </div>
     );

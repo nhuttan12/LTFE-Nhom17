@@ -46,8 +46,12 @@ const NewsArticle = ({ category, title, description, image, imgsize, url, data }
                     </a>
                     <a href={url} title={description}>
                         <p className="news-article-description">
-                            <FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }} />
-                            {description}
+                            {/*<FontAwesomeIcon icon={faCircle} size={"2xs"} style={{ marginRight: '10px' }} />*/}
+                            <ul>
+                                <li>
+                                    {description}
+                                </li>
+                            </ul>
                         </p>
                     </a>
                 </div>
