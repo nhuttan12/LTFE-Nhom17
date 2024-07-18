@@ -10,35 +10,71 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import parse from "html-react-parser";
 import DataFetch from "../fetchRSS/DataFetch";
+import GetDetailArticle from "../fetchRSS/GetDetailArticle";
+
+const serverLink = "http://localhost:4000/";
 
 const MainNews = () => {
+  
   //animation của tab
-  const [value, setValue] = React.useState("1");
-
+  const [value, setValue] = useState("1"); 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  // Giao thức fetch mới
-  const homeSignal = {signal: "datafetch", datapage:"home"};
-  const serverLink = "http://localhost:4000/";
-  const data_tin = DataFetch(serverLink,homeSignal).data;
-  //
   
-  // Test Lấy chi tiết article
-  const ngaymoidadenSignal = {signal: "detailarticle", articlepage:"https://thanhnien.vn/dam-vinh-hung-bi-cam-dien-9-thang-185240716132440871.htm"};
-  const test_data = DataFetch(serverLink,ngaymoidadenSignal).data;
-  console.log(test_data);
-  // End test lấy chi tiết Article
+  // Các biến chứa dữ liệu khi fetch
+  const [data_tin, setData_tin] = useState([]);
+  const [data_ngaymoi,setData_ngaymoi] = useState([]);
+  const [data_phongvien,setData_phongvien] = useState([]);
+  const [ngaymoiFirstData, setNgaymoiFirstData] = useState(null);
+  const [phongvienFirstData, setPhongvienFirstData] = useState(null);
+  
+  // Sử dụng useState và useEffect để fetch data qua server nội bộ 
+  useEffect(() => {
+    // Khai báo hàm dùng để fetch
+    const fetchData = async () => {
+      try {
+        // Chuẩn bị signal trong giao thức
+        const homeSignal = { signal: "datafetch", datapage: "home" };
+        const ngaymoiSignal = { signal: "datafetch", datapage: "chao-ngay-moi" };
+        const blogphongvienSignal = { signal: "datafetch", datapage: "blog-phong-vien" };
+        // Fetch data
+        const homeData = await DataFetch(serverLink, homeSignal);
+        const ngaymoiData = await DataFetch(serverLink, ngaymoiSignal);
+        const phongvienData = await DataFetch(serverLink,blogphongvienSignal);
+        // Gán data
+        setData_tin(homeData);
+        setData_ngaymoi(ngaymoiData);
+        setData_phongvien(phongvienData);
 
-  // Lấy src của bức ảnh trong content
+        if (ngaymoiData.length > 0) {
+          const detailRes1 = await GetDetailArticle(serverLink,ngaymoiData[0].item.guid);
+          setNgaymoiFirstData(detailRes1);
+          console.log('Đây nè', detailRes1);
+        }
+
+        if (phongvienData.length > 0) {
+          const detailRes2 = await GetDetailArticle(serverLink,phongvienData[0].item.guid);
+          setPhongvienFirstData(detailRes2);
+          console.log('Lmao',detailRes2);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    // Sử dụng hàm
+    fetchData();
+  }, []);
+  
+  //
+
+  // Lấy bức ảnh trong content
   const extractAnchorTag = (htmlString) => {
     const anchorTagRegex = /<a[^>]*>(.*?)<\/a>/;
     const match = htmlString.match(anchorTagRegex);
     return match ? match[0] : "";
   };
-  console.log(data_tin);
-
+  // Data tin mới nhất (Xử lí bằng cách random dữ liệu)
   const latest_news = [...data_tin].sort(() => 0.5 - Math.random());
 
   return (
@@ -123,38 +159,38 @@ const MainNews = () => {
             <div className="box-blog-flex">
               <div className="box-container">
                 <div className="box-flex">
-                  <div className="box-topic font">Chào ngày mới</div>
+                  <div className="box-topic font">{ngaymoiFirstData !== null && ngaymoiFirstData.category}</div>
                   <div className="box-title">
-                    Để không gian được văn minh, tử tế
+                    {ngaymoiFirstData !== null && ngaymoiFirstData.title}
                   </div>
                   <div className="box-author">
                     <div className="author-image">
                       <img
                         src="https://static.thanhnien.com.vn/thanhnien.vn/image/ava_inter.png"
-                        alt="Nữ Vương"
+                        alt="Avatar"
                       />
                     </div>
                     <div className="author-flex">
                       <div className="author font">Tác giả</div>
-                      <div className="author-name font">Nữ Vương</div>
+                      <div className="author-name font">{ngaymoiFirstData !== null && ngaymoiFirstData.author}</div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="blog-container">
                 <div className="blog-flex">
-                  <div className="blog-topic font">Blog phóng viên</div>
-                  <div className="blog-title">Xử lý triệt để thẩm mỹ chui</div>
+                  <div className="blog-topic font">{phongvienFirstData !== null && phongvienFirstData.category}</div>
+                  <div className="blog-title">{phongvienFirstData !== null && phongvienFirstData.title}</div>
                   <div className="blog-author">
                     <div className="author-image">
                       <img
                         src="https://static.thanhnien.com.vn/thanhnien.vn/image/ava_inter.png"
-                        alt="Nữ Vương"
+                        alt="Avatar"
                       />
                     </div>
                     <div className="author-flex">
                       <div className="author font">Tác giả</div>
-                      <div className="author-name font">Nữ Vương</div>
+                      <div className="author-name font">{phongvienFirstData !== null && phongvienFirstData.author}</div>
                     </div>
                   </div>
                 </div>

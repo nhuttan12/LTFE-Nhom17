@@ -48,7 +48,7 @@ root.render(
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/>*/}
-     <App/>
+     {/* <App/> */}
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
