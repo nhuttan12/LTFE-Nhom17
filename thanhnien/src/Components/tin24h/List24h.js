@@ -4,11 +4,26 @@ import tin24hcss from "./csstin24h.css"
 import axios from "axios";
 import DataFetch from "../fetchRSS/DataFetch";
 
+const serverLink = "http://localhost:4000/";
+
 const List24h = () =>{
 
-    const tin24hSignal = {signal: "datafetch", datapage:"tin-24h"};
-    const serverLink = "http://localhost:4000/";
-    const data_24h = DataFetch(serverLink,tin24hSignal).data;
+    
+    const [data_24h, setData_24h] = useState([]);
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const tin24hSignal = {signal: "datafetch", datapage:"tin-24h"};
+            const tin24hdata = await DataFetch(serverLink,tin24hSignal);
+            setData_24h(tin24hdata);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData();  
+    },[])
+
     return (
         <div className="container-24h">
             <h2>Tin 24h</h2>

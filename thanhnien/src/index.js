@@ -32,8 +32,8 @@ root.render(
 
     {/*//chua css*/}
     {/* <ListGioiTreVaDoiSong/>*/}
-    {/* <ListTinNhanh360/>*/}
-    {/* <List24h/>*/}
+    {/* <ListTinNhanh360/> */}
+    <List24h/>
 
     {/*<ListThiTruong/>*/}
     {/* <DanhSachBaiBao/> */}
@@ -42,7 +42,7 @@ root.render(
     {/* <SportCategory /> */}
     {/* <TechnologyCategory /> */}
     {/* <HomePage/> */}
-    <MainNews />
+    {/* <MainNews /> */}
     {/* <App/> */}
     {/* <ThoisuPage/>*/}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
