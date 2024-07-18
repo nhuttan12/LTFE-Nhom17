@@ -16,7 +16,6 @@ import SportCategory from "./Components/SportCategory/SportCategory";
 import TechnologyCategory from "./Components/TechnologyCategory/TechnologyCategory";
 import Carousel from "./Components/carosel/Carousel";
 import ListNewsTop from "./Components/dulich/ListNewsTop";
-import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
 import ThoisuPage from "./Containers/ThoisuPage";

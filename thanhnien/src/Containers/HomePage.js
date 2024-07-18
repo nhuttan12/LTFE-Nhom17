@@ -9,7 +9,6 @@ import Footer from "../Components/Common/Footer";
 import '../Components/baibao/cssBaiBao.css';
 import '../Containers/Page.css'
 import ListTinNhanh360 from "../Components/tinnhanh360/ListTinNhanh360";
-import homeData from "../Json/home";
 import ItemThiTruong from "../Components/tinthitruong/ItemThiTruong";
 import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";

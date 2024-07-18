@@ -27,13 +27,13 @@ const ThreeBigNews = ({dataComponent}) => {
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="icon"/>
                 <div>
                     <button onClick={() => handleButtonClick('TP.HCM')}>
-                        TP.HCM
+                        <a href="https://thanhnien.vn/tphcm.html">TP.HCM</a>
                     </button>
                     <button onClick={() => handleButtonClick('Trung Quốc')}>
-                        Trung Quốc
+                        <a href="https://thanhnien.vn/trung-quoc.html">Trung Quốc</a>
                     </button>
                     <button onClick={() => handleButtonClick('TP. Hà Nội')}>
-                        TP. Hà Nội
+                        <a href="https://thanhnien.vn/tpha-noi.html">TP. Hà Nội</a>
                     </button>
                 </div>
             </div>

@@ -64,6 +64,7 @@
             }
           }
           .title {
+            margin-bottom: 20px;
             padding-top: 0.8rem;
             a {
               font-size: 1.4rem;
@@ -130,7 +131,6 @@
   display: flex;
   .sub-news {
     width: 100%;
-    margin-left: 0px;
     height: 90%!important;
     .sub-news-container {
       border: 1px solid #ebebeb;
@@ -229,4 +229,7 @@
       color: #59cdf9;
     }
   }
+}
+.sub-news.sub{
+  margin-left: 0px;
 }

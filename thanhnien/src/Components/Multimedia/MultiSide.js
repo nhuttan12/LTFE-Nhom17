@@ -39,7 +39,7 @@ const MultiSide = ({dataComponent}) => {
                         </div>
                     </div>
                     <div className="section-home sub">
-                      <div className="sub-news">
+                      <div className="sub-news sub">
                         <div className="sub-news-container">
                             <div className="sub-news-tab">
                                 <Box sx={{width: "100%", typography: "body1"}}>

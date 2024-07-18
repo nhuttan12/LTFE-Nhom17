@@ -62,6 +62,7 @@
   object-fit: cover;
 }
 .multimedia .multimedia-container .multimedia-content .main-multimedia .main-post .title {
+  margin-bottom: 20px;
   padding-top: 0.8rem;
 }
 .multimedia .multimedia-container .multimedia-content .main-multimedia .main-post .title a {
@@ -109,7 +110,6 @@
 }
 .section-home .sub-news {
   width: 100%;
-  margin-left: 0px;
   height: 90% !important;
 }
 .section-home .sub-news .sub-news-container {
@@ -188,6 +188,10 @@
 }
 .flex-thumbs .tit-thumbs a:hover {
   color: #59cdf9;
+}
+
+.sub-news.sub {
+  margin-left: 0px;
 }
 
 /*# sourceMappingURL=Multimedia.css.map */

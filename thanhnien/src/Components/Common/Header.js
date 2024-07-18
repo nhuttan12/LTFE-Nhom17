@@ -302,15 +302,6 @@ function Header() {
                                             Tiêu dùng
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link
-                                            to="/thoi-trang-tre"
-                                            title="Thời trang trẻ"
-                                            className={`nav-link ${location.pathname === '/thoi-trang-tre' ? 'active' : ''}`}
-                                        >
-                                            Thời trang trẻ
-                                        </Link>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

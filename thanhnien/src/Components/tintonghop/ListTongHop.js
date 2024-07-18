@@ -2,8 +2,7 @@
 import NewsArticle from './ItemTongHop';
 import './csstonghop.css';
 import React, {useEffect, useState} from 'react';
-import homeData from '../../Json/home.json';
-import thethaoData from '../../Json/thethao.json';
+
 import parse from "html-react-parser";
 
 const ArticleList = ({dataNews}) => {
