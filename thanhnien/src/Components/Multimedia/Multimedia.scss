@@ -57,7 +57,6 @@
           .img {
             a {
               img {
-                height: 400px;
                 width: 100%;
                 object-fit: cover;
               }
@@ -198,6 +197,9 @@
 }
 .main-multimedia.sub{
   width: 65%!important;
+  img{
+    height: 400px;
+  }
 }
 .section-home.sub{
   width: 35%;
@@ -223,7 +225,7 @@
     a{
       color: white;
       font-family: Merriweather;
-      font-size: 15px;
+      font-size: 14px;
     }
     a:hover{
       color: #59cdf9;

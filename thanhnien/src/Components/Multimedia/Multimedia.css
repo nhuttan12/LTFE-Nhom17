@@ -57,7 +57,6 @@
   width: 45%;
 }
 .multimedia .multimedia-container .multimedia-content .main-multimedia .main-post .img a img {
-  height: 400px;
   width: 100%;
   object-fit: cover;
 }
@@ -157,6 +156,9 @@
 .main-multimedia.sub {
   width: 65% !important;
 }
+.main-multimedia.sub img {
+  height: 400px;
+}
 
 .section-home.sub {
   width: 35%;
@@ -184,7 +186,7 @@
 .flex-thumbs .tit-thumbs a {
   color: white;
   font-family: Merriweather;
-  font-size: 15px;
+  font-size: 14px;
 }
 .flex-thumbs .tit-thumbs a:hover {
   color: #59cdf9;

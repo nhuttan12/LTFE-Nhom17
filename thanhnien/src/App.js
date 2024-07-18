@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Common/Header';
 import Footer from './Components/Common/Footer';
+import ThethaoPage from "./Containers/ThethaoPage";
 
 // Use React.lazy to lazy load the components
 const HomePage = React.lazy(() => import('./Containers/HomePage'));
@@ -36,6 +37,7 @@ function App() {
                         <Route path="/du-lich" element={<DulichPage />} />
                         <Route path="/van-hoa" element={<VanhoaPage />} />
                         <Route path="/giai-tri" element={<GiaitriPage />} />
+                        <Route path="/the-thao" element={<ThethaoPage />} />
                         <Route path="/xe" element={<XePage />} />
                         <Route path="/tieu-dung" element={<TieudungPage />} />
                     </Routes>

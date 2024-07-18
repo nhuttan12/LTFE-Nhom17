@@ -4,12 +4,7 @@ import axios from "axios";
 import parse from "html-react-parser";
 import DataFetch from "../fetchRSS/DataFetch";
 
-function SportCategory() {
-
-  const theThaoSignal = {signal: "datafetch", datapage:"the-thao"};
-  const serverLink = "http://localhost:4000/";
-  const data_sport = DataFetch(serverLink,theThaoSignal).data;
-
+function SportCategory({data_sport}) {
   const extractAnchorTag = (htmlString) => {
     const anchorTagRegex = /<a[^>]*>(.*?)<\/a>/;
     const match = htmlString.match(anchorTagRegex);
@@ -60,7 +55,7 @@ function SportCategory() {
             </div>
           </div>
           <div className="sport-middle">
-            {data_sport.slice(2,5).map((item) => (
+            {data_sport.slice(2,6).map((item) => (
               <div className="post">
                 <div className="image">
                   {parse(extractAnchorTag(item.item.content))}

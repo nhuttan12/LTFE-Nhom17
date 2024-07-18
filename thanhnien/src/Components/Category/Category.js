@@ -74,7 +74,7 @@ const Category = ({ main_news }) => {
           </div>
           <div className="category-right">
             {/* tạm thời comment lại để sửa css, nếu sửa xong file chính thì  */}
-            {/* <ListGioiTreVaDoiSong/> */}
+            {/* <ComponentRight/> */}
           </div>
         </div>
       </div>
