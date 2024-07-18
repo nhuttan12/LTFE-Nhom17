@@ -8,7 +8,7 @@ import DanhSachBaiBao from "./Components/baibao/DanhSachBaiBao";
 import Footer from "./Components/Common/Footer";
 import MainNews from "./Components/MainNews/MainNews";
 import Header from "./Components/Common/Header";
-import ListGioiTreVaDoiSong from "./Components/tingioitrevadoisong/ListGioiTreVaDoiSong";
+import ComponentRight from "./Components/tingioitrevadoisong/ComponentRight";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
 import Category from "./Components/Category/Category";
@@ -39,7 +39,7 @@ root.render(
     {/*<ListTongHop/>*/}
 
       {/*//chua css*/}
-    {/* <ListGioiTreVaDoiSong/>*/}
+    {/* <ComponentRight/>*/}
     {/* <ListTinNhanh360/>*/}
     {/* <List24h/>*/}
 
@@ -49,7 +49,7 @@ root.render(
     {/* <App/>*/}
     {/* <Footer/> */}
     {/* <DanhSachBaiBao/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <ComponentRight/> */}
     {/* <List24h/>*/}
     {/* <App/>*/}
     {/* <Category/> */}
@@ -67,7 +67,7 @@ root.render(
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
+    {/* <ComponentRight/> */}
     {/* <List24h/> */}
      <App/>
     {/*  <ThoisuPage/>*/}
