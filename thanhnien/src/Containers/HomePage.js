@@ -8,7 +8,6 @@ import BaiBaoSingle from "../Components/baibao/BaiBaoSingle";
 import Footer from "../Components/Common/Footer";
 import '../Components/baibao/cssBaiBao.css';
 import '../Containers/Page.css'
-import List24h from "../Components/tin24h/List24h";
 import ListTinNhanh360 from "../Components/tinnhanh360/ListTinNhanh360";
 import homeData from "../Json/home";
 import ItemThiTruong from "../Components/tinthitruong/ItemThiTruong";

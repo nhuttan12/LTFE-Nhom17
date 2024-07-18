@@ -11,6 +11,11 @@ import GioitrePage from "./Containers/GioitrePage";
 import ThegioiPage from "./Containers/ThegioiPage";
 import VanhoaPage from "./Containers/VanhoaPage";
 import XePage from "./Containers/XePage";
+import DulichPage from "./Containers/DulichPage";
+import TieudungPage from "./Containers/TieudungPage";
+import SuckhoePage from "./Containers/SuckhoePage";
+import MultiSide from "./Components/Multimedia/MultiSide";
+import GiaoducPage from "./Containers/GiaoducPage";
 
 function App() {
     return (
@@ -24,10 +29,11 @@ function App() {
                     <Route path="/kinh-te" element={<KinhtePage />} />
                     <Route path="/the-gioi" element={<ThegioiPage />} />
                     {/*<Route path="/doi-song" element={<DoisongPage />} />*/}
-                    {/*<Route path="/suc-khoe" element={<SuckhoePage />} />*/}
+                    <Route path="/suc-khoe" element={<SuckhoePage />} />
                     <Route path="/gioi-tre" element={<GioitrePage />} />
-                    {/*<Route path="/giao-duc" element={<GiaoducPage />} />*/}
-                    {/*<Route path="/du-lich" element={<DulichPage />} />*/}
+                    <Route path="/giao-duc" element={<GiaoducPage />} />
+                    {/*<Route path="/giao-duc" element={<MultiSide />} />*/}
+                    <Route path="/du-lich" element={<DulichPage />} />
                     <Route path="/van-hoa" element={<VanhoaPage />} />
                     {/*<Route path="/giai-tri" element={<GiaitriPage />} />*/}
                     {/*<Route path="/the-thao" element={<ThethaoPage />} />*/}
@@ -36,7 +42,8 @@ function App() {
                     {/*<Route path="/thoi-trang-tre" element={<ThoitrangPage />} />*/}
                     {/*<Route path="/ban-doc" element={<BandocPage />} />*/}
                     {/*<Route path="/rao-vat" element={<RaovatPage />} />*/}
-                    {/*<Route path="/video" element={<VideoPage />} />             */}
+                    {/*<Route path="/video" element={<VideoPage />} />*/}
+                    <Route path="/tieu-dung" element={<TieudungPage />} />
                 </Routes>
                 <Footer/>
             </div>

@@ -16,7 +16,7 @@ const ThoisuPage = () => {
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
-    const thoisu_Twenti = randomThoisu.slice(4,tonghopstart);
+    const thoisu_Twenti = randomThoisu.slice(5,tonghopstart);
     return (
         <div className="homeContainer">
             <CategoryNavigation/>

@@ -9,7 +9,6 @@ import Footer from "./Components/Common/Footer";
 import MainNews from "./Components/MainNews/MainNews";
 import Header from "./Components/Common/Header";
 import ListGioiTreVaDoiSong from "./Components/tingioitrevadoisong/ListGioiTreVaDoiSong";
-import List24h from "./Components/tin24h/List24h";
 import ListTinNhanh360 from "./Components/tinnhanh360/ListTinNhanh360";
 import Multimedia from "./Components/Multimedia/Multimedia";
 import Category from "./Components/Category/Category";
@@ -21,6 +20,7 @@ import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
 import ThoisuPage from "./Containers/ThoisuPage";
+import MultiSide from "./Components/Multimedia/MultiSide";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
