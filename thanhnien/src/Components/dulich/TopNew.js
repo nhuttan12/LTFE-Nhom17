@@ -8,17 +8,17 @@ const TopNew = ({firstArticle}) => {
             {firstArticle && (
                 <div className="firest">
                     <div className="news-left">
-                        <a href={firstArticle.link} title={parse(firstArticle.title)}><p
+                        <a href={firstArticle.item.link} title={parse(firstArticle.item.title)}><p
                             className="top-new-title">
-                            {parse(firstArticle.title)}</p></a>
-                        <a href={firstArticle.link} title={parse(firstArticle.title)}><p
+                            {parse(firstArticle.item.title)}</p></a>
+                        <a href={firstArticle.item.link} title={parse(firstArticle.item.title)}><p
                             className="top-new-description">
-                            {parse((firstArticle.contentSnippet))}</p></a>
+                            {parse((firstArticle.item.contentSnippet))}</p></a>
                     </div>
                     <div className="news-right">
-                        <a href={firstArticle.link} title={parse(firstArticle.title)}>
-                            <img src={firstArticle.content.match(/<img src="([^"]*)"/)[1]}
-                                 alt={parse(firstArticle.title)}></img>
+                        <a href={firstArticle.item.link} title={parse(firstArticle.item.title)}>
+                            <img src={firstArticle.item.content.match(/<img src="([^"]*)"/)[1]}
+                                 alt={parse(firstArticle.item.title)}></img>
                         </a>
                     </div>
                 </div>)}

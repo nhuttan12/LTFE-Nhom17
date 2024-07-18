@@ -295,6 +295,15 @@ function Header() {
                                     </li>
                                     <li>
                                         <Link
+                                            to="/tieu-dung"
+                                            title="Tiêu dùng"
+                                            className={`nav-link ${location.pathname === '/tieu-dung' ? 'active' : ''}`}
+                                        >
+                                            Tiêu dùng
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
                                             to="/thoi-trang-tre"
                                             title="Thời trang trẻ"
                                             className={`nav-link ${location.pathname === '/thoi-trang-tre' ? 'active' : ''}`}

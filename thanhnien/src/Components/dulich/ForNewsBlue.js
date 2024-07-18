@@ -40,14 +40,14 @@ const ThreeBigNews = ({dataComponent}) => {
             <div className="blue-list">
                 {dataComponent.map((article, index) => (
                     <div className="blue-item" key={index}>
-                        <a href={article.link} title={parse(article.title)}>
+                        <a href={article.item.link} title={parse(article.item.title)}>
                             <img
-                                src={article.content.match(/<img src="([^"]*)"/)[1]}
-                                alt={parse(article.title)}
+                                src={article.item.content.match(/<img src="([^"]*)"/)[1]}
+                                alt={parse(article.item.title)}
                                 className="blue-image"
                             />
-                            <a href={article.link} title={parse(article.title)}>
-                                <h4 className="blue-title">{parse(article.title)}</h4>
+                            <a href={article.item.link} title={parse(article.item.title)}>
+                                <h4 className="blue-title">{parse(article.item.title)}</h4>
                             </a>
                         </a>
                     </div>
