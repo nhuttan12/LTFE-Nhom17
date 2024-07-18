@@ -26,6 +26,7 @@ const DoisongPage = () => {
             <div className="home-flex">
                 <div className="home-left">
                     {/*<MultiSide latest_news={data_doisong}/>*/}
+
                     <ListTongHop dataNews={doisong_Twenti}/>
                     {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
                     <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
