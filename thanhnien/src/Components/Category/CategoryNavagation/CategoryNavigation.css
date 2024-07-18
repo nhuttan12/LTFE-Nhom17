@@ -17,9 +17,8 @@
   font-size: 2rem;
 }
 .category-nav-bar .category-nav-container .category-nav-flex {
-  padding-top: 0.6rem;
+  padding-top: 15px;
   height: 2.5rem;
-  border-bottom: 1.5px solid #ebebeb;
 }
 .category-nav-bar .category-nav-container .category-nav-flex ul {
   padding-left: 0px;
