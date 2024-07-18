@@ -79,12 +79,12 @@ const Carousel = ({dataNews, title }) => {
                         <div
                             className="carousel-item"
                             key={index}
-                            onClick={() => handleItemClick(item.item.url)}
+                            onClick={() => handleItemClick(item.item.link)}
                         >
-                            <a href={item.item.url} title={parse(item.item.title)}><img
+                            <a href={item.item.link} title={parse(item.item.title)}><img
                                 src={item.item.content.match(/<img src="([^"]*)"/)[1]}
                                 alt={parse(item.item.title)}/></a>
-                            <a href={item.item.url} title={parse(item.item.title)}>
+                            <a href={item.item.link} title={parse(item.item.title)}>
                                 <h3>{parse(item.item.title)}</h3></a>
                         </div>
                     ))}

@@ -20,59 +20,33 @@ import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
+import ThoisuPage from "./Containers/ThoisuPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <ListThiTruong /> */}
-    {/* <ListTongHop/> */}
     {/* <Header /> */}
-    {/* <MainNews /> */}
-    {/* <ListTinNhanh360 /> */}
-    {/* <List24h/> */}
+    {/* <ListTongHop/> */}
     {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
-    {/* <Footer/> */}
-    {/*<Header/>*/}
-    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
-    {/*<ListTongHop/>*/}
+
+    {/*//chua css*/}
     {/* <ListGioiTreVaDoiSong/>*/}
     {/* <ListTinNhanh360/>*/}
     {/* <List24h/>*/}
+
     {/*<ListThiTruong/>*/}
-    {/*<MainNews />*/}
-    {/* <Multimedia />*/}
-    {/* <App/>*/}
-    {/* <Footer/> */}
     {/* <DanhSachBaiBao/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/* <List24h/>*/}
-     {/* <App/> */}
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
-    {/* <ListNewsTop/> */}
-{/*//     <SportCategory />*/}
-    {/* <TechnologyCategory /> */}
-    {/*<ListNewsTop dataNews={homeData} />*/}
-    {/*  <HomePage/>*/}
-    {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
-    {/* <ListNewsTop dataNewsTop={homeData} /> */}
-    {/* <Footer/> */}
-    <MainNews />
-    {/* <ListTinNhanh360 /> */}
-    {/* <List24h/> */}
-    {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <ListGioiTreVaDoiSong/> */}
-    {/* <List24h/> */}
-    {/* <App/> */}
-    {/* <Category/> */}
-    {/* <Carousel title="Xung đột Ukaraina" />*/}
-    {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}
     {/* <TechnologyCategory /> */}
-    {/* <ListNewsTop dataNewsTop={homeData} /> */}
+    {/* <HomePage/> */}
+    <MainNews />
+    {/* <App/> */}
+    {/* <ThoisuPage/>*/}
+    {/* <Carousel title="Xung đột Ukaraina" />*/}
+    {/* <ListNewsTop/> */}
     {/* <Footer/> */}
   </React.StrictMode>
 );

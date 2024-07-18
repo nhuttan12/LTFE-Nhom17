@@ -4,9 +4,6 @@
   box-sizing: border-box;
 }
 
-.font {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 body {
   background: white;
@@ -120,8 +117,7 @@ a {
 
               .middle-news-item {
                 border-right: 1.5px solid #ebebeb;
-                padding-right: 15px;
-
+                padding: 10px;
                 div {
                   a {
                     text-align: left;
@@ -132,8 +128,7 @@ a {
                   a {
                     font-weight: bold;
                     color: black;
-                    font-family: 'Times New Roman', Times, serif;
-                    font-size: 1.25rem;
+                    font-size: 1rem;
                   }
                 }
 
@@ -148,17 +143,20 @@ a {
                   max-height: 110px;
                   overflow: hidden;
                   text-overflow: ellipsis;
-                  white-space: nowrap;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 5; /* Số dòng tối đa hiển thị */
+                  -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
+                  font-family: Arial;
+                  font-style: normal;
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 22px;
 
                   a {
                     max-height: 110px;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                  }
-
-                  a,
-                  a :hover {
-                    color: black;
+                    color: #454545;
                   }
                 }
               }

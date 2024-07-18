@@ -74,6 +74,7 @@ const MainNews = () => {
     const match = htmlString.match(anchorTagRegex);
     return match ? match[0] : "";
   };
+
   // Data tin mới nhất (Xử lí bằng cách random dữ liệu)
   const latest_news = [...data_tin].sort(() => 0.5 - Math.random());
 

@@ -12,7 +12,6 @@ function MiniNews(props) {
     <div className="post">
       {props.data.map((item, index) => (
         <div key={index} className="post-container">
-          {(index === 0 || index === 4) && <div className="slide"></div>}
           <div className="post-box">
             {parse(extractAnchorTag(item.item.content))}
             <h5>

@@ -14,17 +14,6 @@ const DanhSachBaiBao = ({dataNews, title}) => {
     const firstArticle = dataNews[0];
     const nextArticles = dataNews[1];
     const nextTwoArticles = dataNews.slice(2);
-    const extractContentAfterLinks = (htmlString) => {
-        const contentHtml = htmlString;
-        const regex = /<\/a>(.*)/; // Tìm kiếm mọi thứ sau thẻ </a>
-        const match = contentHtml.match(regex);
-
-        if (match) {
-            const textContent = match[1].trim(); // Lấy phần tử thứ 2 (nội dung) và loại bỏ khoảng trắng thừa
-            return textContent;
-        }
-        return ' ';
-    };
     return (
         <div className="ds-bai-bao">
             <div className="ds-tieu-de">
@@ -48,22 +37,7 @@ const DanhSachBaiBao = ({dataNews, title}) => {
             </div>
             <div className="ds-noi-dung">
                 {firstArticle && (
-                    <Item1
-                        title={parse(firstArticle.item.title)}
-                        image={firstArticle.item.content.match(/<img src="([^"]*)"/)[1]}
-                        detail={<a href={nextArticles.item.url} title={parse(nextArticles.item.title)}
-                                   className="mota1">
-                            <FontAwesomeIcon
-                                icon={faCircle}
-                                size="2xs"
-                                style={{marginRight: '10px'}}
-                            />
-                            {parse(nextArticles.item.title)}
-                        </a>}
-                        // category={parse(firstArticle.item.description)}
-                        url={firstArticle.item.url}
-                        description={parse(extractContentAfterLinks(firstArticle.item.content))}
-                    />
+                    <Item1 firstArticle={firstArticle} nextArticles={nextArticles}/>
                 )}
                 <BaiBaoSingle dataComponent={nextTwoArticles}/>
             </div>

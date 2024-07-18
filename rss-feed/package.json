@@ -17,6 +17,7 @@
     "jsdom": "^24.1.0",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.4",
+    "paper-jsdom": "^0.12.17",
     "rss-parser": "^3.13.0"
   }
 }

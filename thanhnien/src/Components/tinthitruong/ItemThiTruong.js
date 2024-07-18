@@ -56,7 +56,7 @@ const ItemThiTruong = ({dataComponent ,cate}) => {
                     </a>
                     <div className="news-item-content">
                         {cate === "yes" && ( // Kiểm tra điều kiện trực tiếp
-                            <a href={article.item.urlCatelogy} title={(article.item.title)}>
+                            <a href={article.item.linkCatelogy} title={(article.item.title)}>
                                 <p className="news-item-category">{getCategoryFromTitle(article.item.title)}</p>
                             </a>
                         )}
