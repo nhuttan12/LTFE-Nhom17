@@ -3,7 +3,6 @@
   src: url("https://static.thanhnien.com.vn/fonts/Merriweather-Bold.woff2");
 }
 .tinnhanh360 {
-  width: 1150px;
   margin: auto;
   padding-top: 2rem;
 }
@@ -11,17 +10,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  padding-bottom: 20px;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360-title span {
-  font-size: 1.5rem;
-  padding-left: 0.5rem;
-  color: #333;
   font-family: "Playfair Display";
-  font-weight: 300;
+  font-size: 40px;
+  font-weight: 400;
+  font-style: italic;
+  padding: 10px;
+  margin-bottom: -10px;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List {
   padding-top: 1rem;
@@ -31,15 +31,43 @@
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item {
   background: #c6ebf9;
-  padding: 1.5rem;
+  padding: 16px;
+  width: 223px;
+  height: 267px;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-img {
+  width: 190px;
+  height: 120px;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-img a {
   width: 100%;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-img a img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-url {
-  padding-top: 1rem;
-}/*# sourceMappingURL=tinhanh360.css.map */
+  text-align: center;
+}
+.tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-url p {
+  color: #00a5e0;
+  padding: 10px;
+}
+
+.tinnhanh360-item.spec {
+  height: 400px !important;
+}
+.tinnhanh360-item.spec img {
+  height: 255px !important;
+  object-fit: cover;
+}
+.tinnhanh360-item.spec .tinnhanh360-url {
+  margin-top: 140px;
+}
+
+.tinnhanh360-item.spec.mar {
+  margin-top: -133px;
+}
+
+/*# sourceMappingURL=tinhanh360.css.map */
