@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Common/Header';
 import Footer from './Components/Common/Footer';
 import ThethaoPage from "./Containers/ThethaoPage";
+import CongnghePage from "./Containers/CongnghePage";
+import VideoPage from "./Containers/VideoPage";
 
 // Use React.lazy to lazy load the components
 const HomePage = React.lazy(() => import('./Containers/HomePage'));
@@ -38,7 +40,9 @@ function App() {
                         <Route path="/van-hoa" element={<VanhoaPage />} />
                         <Route path="/giai-tri" element={<GiaitriPage />} />
                         <Route path="/the-thao" element={<ThethaoPage />} />
+                        <Route path="/cong-nghe" element={<CongnghePage />} />
                         <Route path="/xe" element={<XePage />} />
+                        <Route path="/video" element={<VideoPage />} />
                         <Route path="/tieu-dung" element={<TieudungPage />} />
                     </Routes>
                 </Suspense>

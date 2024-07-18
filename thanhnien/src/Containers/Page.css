@@ -3,6 +3,17 @@
     margin: 0 auto;
     max-width: 1150px;
 }
+.full{
+    background: url(https://static.thanhnien.com.vn/thanhnien.vn/image/list-cn-bg.png) no-repeat;
+    background-size: cover;
+    padding-bottom: 30px;
+    a{
+        color: white;
+    }
+    a:hover{
+        color: #00a5e0;
+    }
+}
 .home-flex{
     margin: 0 auto;
     max-width: 1150px;
@@ -13,6 +24,12 @@
     .home-right{
         width: 325px;
         margin-left: 60px;
+    }
+    .home-right.sub{
+        margin-top: 1000px;
+    }
+    .home-right.subit{
+        margin-top: 500px;
     }
 }
 .btn-xemthem{
