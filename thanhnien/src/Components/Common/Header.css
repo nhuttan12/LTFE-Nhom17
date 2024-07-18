@@ -131,7 +131,7 @@ body {
 .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex {
   margin: auto;
   width: 1150px;
-  border-bottom: 2px solid #0098d1;
+  border-bottom: 2px solid #00a5e0;
   padding-right: 50px;
 }
 .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav {
@@ -148,5 +148,10 @@ body {
   font-size: 0.95rem;
 }
 .header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav ul li a:hover {
-  color: #0098d1;
-}/*# sourceMappingURL=Header.css.map */
+  color: #00a5e0;
+}
+.header .header-sticky .header-middle .header-container .header-nav .header-nav-flex .menu-nav .nav-link.active {
+  color: #00a5e0;
+}
+
+/*# sourceMappingURL=Header.css.map */

@@ -37,7 +37,6 @@ const MainNews = () => {
     const match = htmlString.match(anchorTagRegex);
     return match ? match[0] : "";
   };
-  console.log(data_tin);
 
   const latest_news = [...data_tin].sort(() => 0.5 - Math.random());
 

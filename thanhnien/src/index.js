@@ -20,6 +20,7 @@ import ListNewsTop from "./Components/dulich/ListNewsTop";
 import homeData from "./Json/home";
 import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
+import ThoisuPage from "./Containers/ThoisuPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -37,9 +38,12 @@ root.render(
     {/*<Header/>*/}
     {/*<ListThiTruong dataThiTruong={homeData}/>*/}
     {/*<ListTongHop/>*/}
+
+      {/*//chua css*/}
     {/* <ListGioiTreVaDoiSong/>*/}
     {/* <ListTinNhanh360/>*/}
     {/* <List24h/>*/}
+
     {/*<ListThiTruong/>*/}
     {/*<MainNews />*/}
     {/* <Multimedia />*/}
@@ -48,7 +52,7 @@ root.render(
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/>*/}
-     <App/>
+    {/* <App/>*/}
     {/* <Category/> */}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
@@ -59,15 +63,16 @@ root.render(
     {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
-    <MainNews />
+    {/*<MainNews />*/}
     {/* <ListTinNhanh360 /> */}
     {/* <List24h/> */}
     {/* <Multimedia /> */}
     {/* <DanhSachBaiBao/> */}
     {/* <ListGioiTreVaDoiSong/> */}
     {/* <List24h/> */}
-    {/* <App/> */}
-    {/* <Category/> */}
+     <App/>
+    {/*  <ThoisuPage/>*/}
+    {/* <Category/>*/}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
     {/* <ListNewsTop/> */}
     {/* <SportCategory /> */}

@@ -127,7 +127,7 @@ body {
           .header-nav-flex {
             margin: auto;
             width: 1150px;
-            border-bottom: 2px solid #0098d1;
+            border-bottom: 2px solid #00a5e0;
             padding-right: 50px;
             .menu-nav {
               display: flex;
@@ -144,9 +144,12 @@ body {
                     font-size: 0.95rem;
                   }
                   a:hover {
-                    color: #0098d1;
+                    color: #00a5e0;
                   }
                 }
+              }
+              .nav-link.active {
+                color: #00a5e0;
               }
             }
           }

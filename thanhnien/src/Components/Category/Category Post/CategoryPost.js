@@ -10,7 +10,7 @@ function CategoryPost(props) {
             <div className="post-flex">
               <div className="left-side">
                 <div className="image">
-                  <a href={item.url}>
+                  <a href={item.link}>
                     <img src={item.image} alt={item.title} />
                   </a>
                 </div>
@@ -20,7 +20,7 @@ function CategoryPost(props) {
                   <h5>{item.category}</h5>
                 </div>
                 <div className="title">
-                  <a href={item.url}>{item.title}</a>
+                  <a href={item.link}>{item.title}</a>
                 </div>
                 <div className="description">
                   <ul>

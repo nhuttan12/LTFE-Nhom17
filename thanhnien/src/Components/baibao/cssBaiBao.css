@@ -7,10 +7,9 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    padding:0 0 20px 16px;
-    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    margin-right: 20px;
 }
-
 .bai-bao-hinh-anh {
     width: 95%;
     height: 205px;
@@ -31,7 +30,6 @@
 .bai-bao-tieu-de {
     font-size: 17px;
     margin: 10px 0;
-    min-height: 70px;
     font-family: Merriweather;
 }
 .tieude1 {
@@ -115,6 +113,11 @@
     position: relative;
     margin-top: 10px;
 }
+.Bao{
+    padding-right: 20px;
+    border-right: #ebebeb solid 1px;
+    width: 100%;
+}
 a{
     text-decoration: none;
     color: black;
@@ -127,6 +130,7 @@ a:hover{
     display: block;
 }
 .image1{
+    object-fit: cover;
     width: 405px;
     height: 250px;
 }
