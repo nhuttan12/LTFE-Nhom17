@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.news-details {
+    padding-top: 4rem;
+
+    .component {
+        width: 1150px;
+        margin: auto;
+
+        .component-flex {
+            .content {
+                width: 640px;
+            }
+
+            .category {
+                font-size: 1rem;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .title {
+                font-size: 2.4rem;
+            }
+
+            .content {
+                .top-content {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-top: .8rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid #ebebeb;
+
+                    .author {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 5px;
+
+                        .img {
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .author-name{
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-weight: bold;
+                            font-size: 1rem;
+                        }
+                    }
+
+                    .date {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                }
+
+                .middle-content {
+                    padding-top: 1.5rem;
+
+                    .detail-content {
+                        p:nth-child(2) {
+                            font-size: 1.2rem;
+                            font-weight: bold;
+                            font-family: 'Times New Roman', Times, serif;
+                            text-align: justify;
+                        }
+
+                        p:not(:nth-child(2)){
+                            padding-top: 1.3rem;
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 1.1rem;
+                            text-align: justify;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

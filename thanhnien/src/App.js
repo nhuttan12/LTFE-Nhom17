@@ -23,6 +23,12 @@ const GiaitriPage = React.lazy(() => import('./Containers/GiaitriPage'));
 const DoisongPage = React.lazy(() => import('./Containers/DoisongPage'));
 
 function App() {
+<<<<<<< HEAD
+    const handleClick = (event) => {
+        event.preventDefault(); // Ngăn chặn hành động mặc định
+        // Thực hiện hành động khác nếu cần
+      };
+=======
 
     const navigate = useNavigate();
 
@@ -71,6 +77,7 @@ function App() {
 
 
 
+>>>>>>> origin/main
     return (
             <div>
                 <Header />

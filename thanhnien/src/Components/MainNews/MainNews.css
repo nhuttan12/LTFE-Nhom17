@@ -58,7 +58,8 @@ a {
 .section-home .main-news .main-news-container .main-news-flex .top-news .top-news-img a img {
   width: 448px;
   height: 280px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .section-home .main-news .main-news-container .main-news-flex .top-news .top-news-name {
   width: calc(100% - 448px);
@@ -261,6 +262,4 @@ a {
 .section-home .sub-news .sub-news-box-blog .box-blog-container .box-blog-flex .blog-container .blog-flex .blog-author .author-flex .author-name {
   font-size: 0.8rem;
   font-weight: bold;
-}
-
-/*# sourceMappingURL=MainNews.css.map */
+}/*# sourceMappingURL=MainNews.css.map */
