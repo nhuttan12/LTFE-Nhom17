@@ -7,11 +7,28 @@ import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
+
+const serverLink = "http://localhost:4000/";
+
 const ThegioiPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const thegioiSignal = {signal: "datafetch", datapage:"the-gioi"};
-    const data_thegioi = DataFetch(serverLink,thegioiSignal).data;
+
+    const [data_thegioi, setData_thegioi] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(70); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const thegioiSignal = {signal: "datafetch", datapage:"the-gioi"};
+                const thegioidata = await DataFetch(serverLink,thegioiSignal);
+                setData_thegioi(thegioidata);
+            } catch (err) {
+                console.log(err);
+            }
+            };
+        fetchData();
+    },[])
+
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

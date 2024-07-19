@@ -1,14 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import ListNewsTop from "../Components/dulich/ListNewsTop";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
+
+const serverLink = "http://localhost:4000/";
+
 const SuckhoePage = () => {
-    const serverLink = "http://localhost:4000/";
-    const suckhoeSignal = {signal: "datafetch", datapage:"suc-khoe"};
-    const data_suckhoe = DataFetch(serverLink,suckhoeSignal).data;
+    
+    const [data_suckhoe, setData_suckhoe] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(40); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+              const suckhoeSignal = {signal: "datafetch", datapage:"suc-khoe"};
+              const suckhoedata = await DataFetch(serverLink,suckhoeSignal);
+              setData_suckhoe(suckhoedata);
+            } catch (err) {
+            console.log(err);
+            }
+        };
+        fetchData();    
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
