@@ -16,7 +16,6 @@ import Carousel from "../Components/carosel/Carousel";
 import ListNineTitle from "../Components/carosel/ListNineTitle";
 import KhungSuggest from "../Components/baibao/KhungSuggest";
 import DataFetch from "../Components/fetchRSS/DataFetch";
-import shuffle from "./shuffle";
 import Item1 from "../Components/baibao/Item1";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 import MultiSide from "../Components/Multimedia/MultiSide";
@@ -97,25 +96,21 @@ const HomePage = () => {
     },[])
 
     //
-
-    const randomThoisu = shuffle(data_thoisu);
-    const randomHome = [...data_tin].sort(() => 0.5 - Math.random());
-
     //
     const [tonghopstart, setTonghopstart] = useState(40); // Khởi tạo state
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
     // Get the articles from the shuffled list
-    const home_Nine = randomHome.slice(0, 9);
-    const tin24h = randomHome.slice(9, 17);
-    const tinthitruong = randomHome.slice(17, 25);
-    const tin360 = randomHome.slice(25, 31);
-    const thoisu_Four = randomThoisu.slice(0, 4);
-    const thoisu_Six = randomThoisu.slice(4, 10);
-    const thoisu_Eight = randomThoisu.slice(10, 18);
-    const thoisu_Nine = randomThoisu.slice(18, 26);
-    const thoisu_Twenti = randomThoisu.slice(26,tonghopstart);
+    const home_Nine = data_tin.slice(0, 9);
+    const tin24h = data_tin.slice(9, 17);
+    const tinthitruong = data_tin.slice(17, 25);
+    const tin360 = data_tin.slice(25, 31);
+    const thoisu_Four = data_thoisu.slice(0, 4);
+    const thoisu_Six = data_thoisu.slice(4, 10);
+    const thoisu_Eight = data_thoisu.slice(10, 18);
+    const thoisu_Nine = data_thoisu.slice(18, 26);
+    const thoisu_Twenti = data_thoisu.slice(26,tonghopstart);
     // const BlueFour = random.slice(8, 12);
     return (
         <div className="homeContainer">

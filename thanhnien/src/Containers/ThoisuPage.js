@@ -6,7 +6,6 @@ import '../Containers/Page.css'
 import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import DataFetch from "../Components/fetchRSS/DataFetch";
-import shuffle from "./shuffle";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
 const serverLink = "http://localhost:4000/";
@@ -14,7 +13,6 @@ const serverLink = "http://localhost:4000/";
 const ThoisuPage = () => {
     
     const [data_thoisu, setData_thoisu] = useState([]);
-    const randomThoisu = shuffle(data_thoisu);
     const [tonghopstart, setTonghopstart] = useState(80); // Khởi tạo state
 
     useEffect(()=>{
@@ -35,7 +33,7 @@ const ThoisuPage = () => {
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
-    const thoisu_Twenti = randomThoisu.slice(50,tonghopstart);
+    const thoisu_Twenti = data_thoisu.slice(50,tonghopstart);
     const defaultItems = [
         "Chính trị",
         "Pháp luật",
