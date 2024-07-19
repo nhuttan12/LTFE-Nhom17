@@ -20,64 +20,16 @@ import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
 import ThoisuPage from "./Containers/ThoisuPage";
 import MultiSide from "./Components/Multimedia/MultiSide";
+import NewsDetail from "./Containers/NewsDetail";
+import TestApp from "./Containers/test component";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <ListThiTruong /> */}
-    {/* <ListTongHop/> */}
-    {/* <Header /> */}
-    {/* <MainNews /> */}
-    {/* <ListTinNhanh360 /> */}
-    {/* <List24h/> */}
-    {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao dataNews={homeData}/>*/}
-    {/* <Footer/> */}
-    {/*<Header/>*/}
-    {/*<ListThiTruong dataThiTruong={homeData}/>*/}
-    {/*<ListTongHop/>*/}
-
-      {/*//chua css*/}
-    {/* <ComponentRight/>*/}
-    {/* <ListTinNhanh360/>*/}
-    {/* <List24h/>*/}
-
-    {/*<ListThiTruong/>*/}
-    {/*<MainNews />*/}
-    {/* <Multimedia />*/}
-    {/* <App/>*/}
-    {/* <Footer/> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <ComponentRight/> */}
-    {/* <List24h/>*/}
-    {/* <App/>*/}
-    {/* <Category/> */}
-    {/* <Carousel title="Xung đột Ukaraina" />*/}
-    {/* <ListNewsTop/> */}
-{/*//     <SportCategory />*/}
-    {/* <TechnologyCategory /> */}
-    {/*<ListNewsTop dataNews={homeData} />*/}
-    {/*  <HomePage/>*/}
-    {/*   <DanhSachBaiBao dataNews={homeData}/>*/}
-    {/* <ListNewsTop dataNewsTop={homeData} /> */}
-    {/* <Footer/> */}
-    {/*<MainNews />*/}
-    {/* <ListTinNhanh360 /> */}
-    {/* <List24h/> */}
-    {/* <Multimedia /> */}
-    {/* <DanhSachBaiBao/> */}
-    {/* <ComponentRight/> */}
-    {/* <List24h/> */}
-     <App/>
-    {/*  <ThoisuPage/>*/}
-    {/* <Category/>*/}
-    {/* <Carousel title="Xung đột Ukaraina" />*/}
-    {/* <ListNewsTop/> */}
-    {/* <SportCategory /> */}
-    {/* <TechnologyCategory /> */}
-    {/* <ListNewsTop dataNewsTop={homeData} /> */}
-    {/* <Footer/> */}
+     {/* <App/> */}
+     <NewsDetail/>
+     {/* <TestApp/> */}
   </React.StrictMode>
 );
 

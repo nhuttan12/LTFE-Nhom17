@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import shuffle from "./shuffle";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
@@ -6,11 +6,26 @@ import Category from "../Components/Category/Category";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const GioitrePage = () => {
-    const serverLink = "http://localhost:4000/";
-    const gioitreSignal = {signal: "datafetch", datapage:"gioi-tre"};
-    const data_gioitre = DataFetch(serverLink,gioitreSignal).data;
+
+    const [data_gioitre, setData_gioitre] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(75); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const gioitreSignal = {signal: "datafetch", datapage:"gioi-tre"};
+            const gioitredata = await DataFetch(serverLink,gioitreSignal);
+            setData_gioitre(gioitredata);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData(); 
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

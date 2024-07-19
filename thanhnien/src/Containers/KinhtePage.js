@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import shuffle from "./shuffle";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
@@ -6,11 +6,26 @@ import Category from "../Components/Category/Category";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const KinhtePage = () => {
-    const serverLink = "http://localhost:4000/";
-    const kinhteSignal = {signal: "datafetch", datapage:"kinh-te"};
-    const data_kinhte = DataFetch(serverLink,kinhteSignal).data;
+
+    const [data_kinhte, setData_kinhte] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(80); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const kinhteSignal = {signal: "datafetch", datapage:"kinh-te"};
+            const kinhtedata = await DataFetch(serverLink,kinhteSignal);
+            setData_kinhte(kinhtedata);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData();
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
