@@ -22,6 +22,10 @@ const GiaitriPage = React.lazy(() => import('./Containers/GiaitriPage'));
 const DoisongPage = React.lazy(() => import('./Containers/DoisongPage'));
 
 function App() {
+    const handleClick = (event) => {
+        event.preventDefault(); // Ngăn chặn hành động mặc định
+        // Thực hiện hành động khác nếu cần
+      };
     return (
         <Router>
             <div>

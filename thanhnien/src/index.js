@@ -20,16 +20,14 @@ import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
 import ThoisuPage from "./Containers/ThoisuPage";
 import MultiSide from "./Components/Multimedia/MultiSide";
-import NewsDetail from "./Containers/NewsDetail";
-import TestApp from "./Containers/test component";
+import NewsDetail from "./Components/NewsDetails/NewsDetail";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-     {/* <App/> */}
-     <NewsDetail/>
-     {/* <TestApp/> */}
+     <App/>
+     {/* <NewsDetail/> */}
   </React.StrictMode>
 );
 
