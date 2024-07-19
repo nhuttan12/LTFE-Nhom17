@@ -1,32 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import parse from "html-react-parser";
-import ReactDOM from "react-dom";
-import Header from "../Components/Common/Header";
-import Footer from "../Components/Common/Footer";
 import ReactPlayer from "react-player";
+import { useLocation } from 'react-router-dom';
+import GetDetailArticle from "../Components/fetchRSS/GetDetailArticle";
 
 const serverLink = "http://localhost:4000/";
 
 function NewsDetail() {
-  const [test_data, setTest_data] = useState(null);
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const link = params.get('link');
+
+  const [detailArticleData, setDetailArticleData] = useState(null);
   const [videoProps, setVideoProps] = useState(null);
-  const videoDivRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ngaymoidadenSignal = {
-          signal: "detailarticle",
-          articlepage:
-            "https://thanhnien.vn/dam-vinh-hung-bi-cam-dien-9-thang-185240716132440871.htm",
-        };
-        const testData = await DataFetch(serverLink, ngaymoidadenSignal);
-        setTest_data(testData);
+        const articleData = await GetDetailArticle(serverLink, link);
+        setDetailArticleData(articleData);
 
         // Extract video properties from test_data.content
         const parser = new DOMParser();
-        const doc = parser.parseFromString(testData.content, "text/html");
+        const doc = parser.parseFromString(articleData.content, "text/html");
         const videoDiv = doc.querySelector("div.VCSortableInPreviewMode");
 
         if (videoDiv) {
@@ -54,16 +51,13 @@ function NewsDetail() {
       }
     };
 
-    fetchData();
-  }, []);
-  console.log(test_data);
+    if (link) {
+      fetchData();
+    }
 
-  // Lấy src của bức ảnh trong content
-  const extractAnchorTag = (htmlString) => {
-    const anchorTagRegex = /<a[^>]*>(.*?)<\/a>/;
-    const match = htmlString.match(anchorTagRegex);
-    return match ? match[0] : "";
-  };
+  }, [link]);
+
+  console.log(detailArticleData);
 
   const addProtocol = (url) => {
     if (!url) return "";
@@ -79,24 +73,24 @@ function NewsDetail() {
         <div className="component-flex">
           <div className="category">
             <div className="category-name">
-              {test_data ? parse(test_data.category) : "Loading..."}
+              {detailArticleData ? parse(detailArticleData.category) : "Loading..."}
             </div>
           </div>
           <div className="title">
             <div className="title">
-              {test_data ? parse(test_data.title) : "Loading..."}
+              {detailArticleData ? parse(detailArticleData.title) : "Loading..."}
             </div>
           </div>
           <div className="author">
             <div className="author-name">
-              {test_data ? parse(test_data.author) : "Loading..."}
+              {detailArticleData ? parse(detailArticleData.author) : "Loading..."}
             </div>
           </div>
           <div className="content">
             <div className="content-box">
-              {test_data ? parse(test_data.content) : "Loading..."}
-              <br></br>
-              {test_data ? (
+              {detailArticleData ? parse(detailArticleData.content) : "Loading..."}
+              <br />
+              {videoProps ? (
                 <ReactPlayer
                   url={addProtocol(videoProps.dataVid)}
                   playing={true}
