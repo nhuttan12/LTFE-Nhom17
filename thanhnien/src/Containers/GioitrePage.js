@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
-import shuffle from "./shuffle";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
