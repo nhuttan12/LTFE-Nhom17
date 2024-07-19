@@ -1,7 +1,28 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./common.css";
 import {Link} from "react-router-dom";
+import {FaArrowUp} from "react-icons/fa";
 const Footer = () => {
+    const [showScrollToTop, setShowScrollToTop] = useState(false);
+
+    const checkScrollTop = () => {
+        if (!showScrollToTop && window.pageYOffset > 400) {
+            setShowScrollToTop(true);
+        } else if (showScrollToTop && window.pageYOffset <= 400) {
+            setShowScrollToTop(false);
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', checkScrollTop);
+        return () => {
+            window.removeEventListener('scroll', checkScrollTop);
+        };
+    }, [showScrollToTop]);
     return(
         <div className="containerFoot">
             <footer className="footer">
@@ -138,6 +159,12 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+            {showScrollToTop && (
+                <button onClick={scrollToTop} className="scrollToTopBtn">
+                    <FaArrowUp className="arrowIcon" />
+                    <span className="scrollText">TOP</span>
+                </button>
+            )}
         </div>
     );
 };
