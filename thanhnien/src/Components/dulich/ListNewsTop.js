@@ -6,37 +6,10 @@ import './topNews.css';
 import ForNewsBlue from "./ForNewsBlue";
 
 const ListNewsTop = ({dataNews}) => {
-    const [data, setData] = useState(null);
-    const [randomArticles, setRandomArticles] = useState([]);
-    useEffect(() => {
-        setData(dataNews);
-    }, []);
-
-    const getRandomElements = (arr, numElements) => {
-        let shuffled = arr.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, numElements);
-    };
-
-    useEffect(() => {
-        if (data) {
-            const storedShuffleTime = localStorage.getItem('lastShuffleTime');
-            const currentTime = Date.now();
-
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
-                const newRandomArticles = getRandomElements(data.items, 20);
-                setRandomArticles(newRandomArticles);
-                localStorage.setItem('lastShuffleTime', currentTime);
-                localStorage.setItem('shuffledArticles', JSON.stringify(newRandomArticles));
-            } else {
-                const shuffledArticles = JSON.parse(localStorage.getItem('shuffledArticles'));
-                setRandomArticles(shuffledArticles);
-            }
-        }
-    }, [data]);
-    const firstArticle = randomArticles[0];
-    const nextFourArticles = randomArticles.slice(1, 5);
-    const nextThreeArticles = randomArticles.slice(5, 8);
-    const BlueFourArticles = randomArticles.slice(8, 12);
+    const firstArticle = dataNews[0];
+    const nextFourArticles = dataNews.slice(1, 5);
+    const nextThreeArticles = dataNews.slice(5, 8);
+    const BlueFourArticles = dataNews.slice(8, 12);
     return (
         <div className="Carousel">
             <TopNew firstArticle={firstArticle}/>

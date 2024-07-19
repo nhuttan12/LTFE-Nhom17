@@ -4,19 +4,30 @@ import CategoryNavigation from "../Components/Category/CategoryNavagation/Catego
 import Category from "../Components/Category/Category";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import shuffle from "./shuffle";
+import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
 const VanhoaPage = () => {
     const serverLink = "http://localhost:4000/";
     const vanhoaSignal = {signal: "datafetch", datapage:"van-hoa"};
     const data_vanhoa = DataFetch(serverLink,vanhoaSignal).data;
-    const [tonghopstart, setTonghopstart] = useState(24); // Khởi tạo state
+    const [tonghopstart, setTonghopstart] = useState(70); // Khởi tạo state
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
-    const vanhoa_Twenti = data_vanhoa.slice(5,tonghopstart);
+    const defaultItems = [
+        "Sống đẹp",
+        "Câu chuyện văn hóa",
+        "Khảo cứu",
+        "Xem - Nghe",
+        "Sách hay",
+        "Món ngon Hà Nội",
+        "Nghĩa tình miền Tây",
+        "Hào khí miền Đông"
+    ];
+    const vanhoa_Twenti = data_vanhoa.slice(44,tonghopstart);
     return (
         <div className="homeContainer">
-            <CategoryNavigation/>
+            <CategoryNavigation data={defaultItems} title="Văn hóa"/>
             <div className="home-flex">
                 <div className="home-left">
                     <Category main_news={data_vanhoa.slice(0, 5)}/>
@@ -24,8 +35,15 @@ const VanhoaPage = () => {
                     {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
                     <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
                 </div>
-                <div className="home-right">
-
+                <div className="home-right sub">
+                    <ComponentRight dataComponent={data_vanhoa.slice(5,10)} title="Sống đẹp"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(10,15)} title="Câu chuyện văn hóa"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(15,20)} title="Khảo cứu"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(20,24)} title="Xem - Nghe"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(24,29)} title="Sách hay"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(29,34)} title="Món ngon Hà Nội"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(34,39)} title="Nghĩa tình miền Tây"/>
+                    <ComponentRight dataComponent={data_vanhoa.slice(39,44)} title="Hào khí miền Đông"/>
                 </div>
             </div>
         </div>

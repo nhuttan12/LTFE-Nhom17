@@ -8,9 +8,7 @@ import BaiBaoSingle from "../Components/baibao/BaiBaoSingle";
 import Footer from "../Components/Common/Footer";
 import '../Components/baibao/cssBaiBao.css';
 import '../Containers/Page.css'
-import List24h from "../Components/tin24h/List24h";
 import ListTinNhanh360 from "../Components/tinnhanh360/ListTinNhanh360";
-import homeData from "../Json/home";
 import ItemThiTruong from "../Components/tinthitruong/ItemThiTruong";
 import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";
@@ -20,6 +18,8 @@ import KhungSuggest from "../Components/baibao/KhungSuggest";
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import shuffle from "./shuffle";
 import Item1 from "../Components/baibao/Item1";
+import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
+import MultiSide from "../Components/Multimedia/MultiSide";
 
 const HomePage = () => {
     const homeSignal = {signal: "datafetch", datapage:"home"};
@@ -32,18 +32,32 @@ const HomePage = () => {
     const randomThoisu = shuffle(data_thoisu);
 
     const thegioiSignal = {signal: "datafetch", datapage:"the-gioi"};
-    const data_thegioi = DataFetch(serverLink,thegioiSignal).data;
-
     const giaoDucSignal = { signal: "datafetch", datapage: "giao-duc" };
     const vanHoaSignal = { signal: "datafetch", datapage: "van-hoa" };
     const giaiTriSignal = { signal: "datafetch", datapage: "giai-tri" };
     const banDocSignal = { signal: "datafetch", datapage: "ban-doc" };
+    const gioiTreSignal = { signal: "datafetch", datapage: "gioi-tre" };
+    const doiSongSignal = { signal: "datafetch", datapage: "doi-song" };
+    const kinhTeSignal = { signal: "datafetch", datapage: "kinh-te" };
+    const congNgheSignal = { signal: "datafetch", datapage: "cong-nghe" };
+    const sucKhoeSignal = { signal: "datafetch", datapage: "suc-khoe" };
+    const duLichSignal = { signal: "datafetch", datapage: "du-lich" };
+    const xeSignal = { signal: "datafetch", datapage: "xe" };
+
+    const data_thegioi = DataFetch(serverLink,thegioiSignal).data;
     const data_giao_duc = DataFetch(serverLink, giaoDucSignal).data;
     const data_van_hoa = DataFetch(serverLink, vanHoaSignal).data;
     const data_giai_tri = DataFetch(serverLink, giaiTriSignal).data;
     const data_ban_doc = DataFetch(serverLink, banDocSignal).data;
+    const data_gioi_tre = DataFetch(serverLink, gioiTreSignal).data;
+    const data_doi_song = DataFetch(serverLink, doiSongSignal).data;
+    const data_kinh_te = DataFetch(serverLink, kinhTeSignal).data;
+    const data_cong_nghe = DataFetch(serverLink, congNgheSignal).data;
+    const data_suc_khoe = DataFetch(serverLink, sucKhoeSignal).data;
+    const data_du_lich = DataFetch(serverLink, duLichSignal).data;
+    const data_xe = DataFetch(serverLink, xeSignal).data;
 
-    const [tonghopstart, setTonghopstart] = useState(31); // Khởi tạo state
+    const [tonghopstart, setTonghopstart] = useState(40); // Khởi tạo state
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
@@ -51,7 +65,7 @@ const HomePage = () => {
     const home_Nine = randomHome.slice(0, 9);
     const tin24h = randomHome.slice(9, 17);
     const tinthitruong = randomHome.slice(17, 25);
-    
+    const tin360 = randomHome.slice(25, 31);
     const thoisu_Four = randomThoisu.slice(0, 4);
     const thoisu_Six = randomThoisu.slice(4, 10);
     const thoisu_Eight = randomThoisu.slice(10, 18);
@@ -70,7 +84,7 @@ const HomePage = () => {
                     <h2>Tin 24h</h2>
                     <ItemThiTruong dataComponent={tin24h} cate="no"/>
                     {/*!*tinnhanh360*!/*/}
-                    <ListTinNhanh360/>
+                    <ListTinNhanh360 dataComponent={tin360}/>
                     {/*tinthitruong*/}
                     <h2>Tin thị trường</h2>
                     <ItemThiTruong dataComponent={tinthitruong} cate="yes"/>
@@ -78,10 +92,12 @@ const HomePage = () => {
                 </div>
                 <div className="home-right">
                     {/*5 gioitre*/}
+                    <ComponentRight dataComponent={data_gioi_tre.slice(0,5)} title="Giới trẻ"/>
+                    <ComponentRight dataComponent={data_doi_song.slice(0,5)} title="Đời sống"/>
                     {/*5 doisong*/}
                 </div>
             </div>
-                {/*<Multimedia/>*/}
+              <Multimedia dataComponent={data_giao_duc.slice(0,20)}/>
             <div className="home-flex">
                 <div className="home-left">
             {/*        /!*4 tintonghop*!/*/}
@@ -94,13 +110,18 @@ const HomePage = () => {
                     <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
                 </div>
                 <div className="home-right">
-            {/*        /!*5 kinhte same gioitre*!/*/}
-            {/*        /!*5 kinhtexanh*!/*/}
-            {/*        /!*5 suckhoe*!/*/}
-            {/*        /!*5 congnghe*!/*/}
-            {/*        /!*5 dulich*!/*/}
-            {/*        /!*5 xe*!/*/}
-            {/*        /!*lamdep same kinhtexanh*!/*/}
+                    <ComponentRight dataComponent={data_kinh_te.slice(0,5)} title="Kinh tế"/>
+                    {/*        /!*5 kinhte same gioitre*!/*/}
+                    <ComponentRight dataComponent={data_kinh_te.slice(5,8)} title="Kinh tế xanh"/>
+                    {/*        /!*5 kinhtexanh*!/*/}
+                    <ComponentRight dataComponent={data_suc_khoe.slice(0,5)} title="Sức khỏe"/>
+                    {/*        /!*5 suckhoe*!/*/}
+                    <ComponentRight dataComponent={data_cong_nghe.slice(0,5)} title="Công nghệ"/>
+                    {/*        /!*5 congnghe*!/*/}
+                    <ComponentRight dataComponent={data_du_lich.slice(0,5)} title="Du lịch"/>
+                    {/*        /!*5 dulich*!/*/}
+                    <ComponentRight dataComponent={data_xe.slice(0,5)} title="Xe"/>
+                    {/*        /!*5 xe*!/*/}
                 </div>
             </div>
             <div className="homeContent">

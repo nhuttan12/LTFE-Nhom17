@@ -27,27 +27,27 @@ const ThreeBigNews = ({dataComponent}) => {
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="icon"/>
                 <div>
                     <button onClick={() => handleButtonClick('TP.HCM')}>
-                        TP.HCM
+                        <a href="https://thanhnien.vn/tphcm.html">TP.HCM</a>
                     </button>
                     <button onClick={() => handleButtonClick('Trung Quốc')}>
-                        Trung Quốc
+                        <a href="https://thanhnien.vn/trung-quoc.html">Trung Quốc</a>
                     </button>
                     <button onClick={() => handleButtonClick('TP. Hà Nội')}>
-                        TP. Hà Nội
+                        <a href="https://thanhnien.vn/tpha-noi.html">TP. Hà Nội</a>
                     </button>
                 </div>
             </div>
             <div className="blue-list">
                 {dataComponent.map((article, index) => (
                     <div className="blue-item" key={index}>
-                        <a href={article.link} title={parse(article.title)}>
+                        <a href={article.item.link} title={parse(article.item.title)}>
                             <img
-                                src={article.content.match(/<img src="([^"]*)"/)[1]}
-                                alt={parse(article.title)}
+                                src={article.item.content.match(/<img src="([^"]*)"/)[1]}
+                                alt={parse(article.item.title)}
                                 className="blue-image"
                             />
-                            <a href={article.link} title={parse(article.title)}>
-                                <h4 className="blue-title">{parse(article.title)}</h4>
+                            <a href={article.item.link} title={parse(article.item.title)}>
+                                <h4 className="blue-title">{parse(article.item.title)}</h4>
                             </a>
                         </a>
                     </div>

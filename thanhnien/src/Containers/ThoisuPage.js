@@ -7,19 +7,31 @@ import '../Components/dulich/topNews.css';
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import shuffle from "./shuffle";
+import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 const ThoisuPage = () => {
     const serverLink = "http://localhost:4000/";
     const thoisuSignal = {signal: "datafetch", datapage:"thoi-su"};
     const data_thoisu = DataFetch(serverLink,thoisuSignal).data;
     const randomThoisu = shuffle(data_thoisu);
-    const [tonghopstart, setTonghopstart] = useState(24); // Khởi tạo state
+    const [tonghopstart, setTonghopstart] = useState(80); // Khởi tạo state
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
-    const thoisu_Twenti = randomThoisu.slice(4,tonghopstart);
+    const thoisu_Twenti = randomThoisu.slice(50,tonghopstart);
+    const defaultItems = [
+        "Chính trị",
+        "Pháp luật",
+        "Dân sinh",
+        "Lao động - việc làm",
+        "Quyền được biết",
+        "Phóng sự / điều tra",
+        "Quốc phòng",
+        "Chống tin giả",
+        "Thời luận",
+    ];
     return (
         <div className="homeContainer">
-            <CategoryNavigation/>
+            <CategoryNavigation title="Thời sự" data={defaultItems} />
             <div className="home-flex">
                 <div className="home-left">
                 <Category main_news={data_thoisu.slice(0, 5)}/>
@@ -27,8 +39,16 @@ const ThoisuPage = () => {
                 {/*        /!* add button xemthem with script more data for tintonghop*!/*/}
                 <button onClick={moreClick} className="btn-xemthem">Xem thêm</button>
                 </div>
-                <div className="home-right">
-
+                <div className="home-right sub">
+                    <ComponentRight dataComponent={data_thoisu.slice(5,10)} title="Chính trị"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(10,15)} title="Pháp luật"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(15,20)} title="Dân sinh"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(20,25)} title="Lao động - việc làm"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(25,30)} title="Quyền được biết"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(30,35)} title="Phóng sự / điều tra"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(35,40)} title="Quốc phòng"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(40,45)} title="Chống tin giả"/>
+                    <ComponentRight dataComponent={data_thoisu.slice(45,50)} title="Thời luận"/>
                 </div>
             </div>
         </div>

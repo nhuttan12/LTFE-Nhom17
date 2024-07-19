@@ -103,6 +103,10 @@
         font-size: 17px;
         color: #666;
         font-family: "Times New Roman";
+        a{
+            color: #666;
+            text-decoration: none;
+        }
     }
 }
 .blue-list{
