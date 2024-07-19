@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, {Suspense, useLayoutEffect} from 'react';
+import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
 import Header from './Components/Common/Header';
 import Footer from './Components/Common/Footer';
 import ThethaoPage from "./Containers/ThethaoPage";
@@ -22,8 +22,51 @@ const GiaitriPage = React.lazy(() => import('./Containers/GiaitriPage'));
 const DoisongPage = React.lazy(() => import('./Containers/DoisongPage'));
 
 function App() {
+    const navigate = useNavigate();
+
+    useLayoutEffect(() => {
+        const handleLinkClick = (event) => {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+            const link = event.currentTarget.closest('a');
+            if (link) {
+                const href = link.href;
+                console.log('Link href:', href);
+                handleLinkHref(href);
+            } else {
+                console.log('LMAO'); // Log nếu không lấy được href
+            }
+        };
+
+        // Gán sự kiện cho các thẻ <img> nằm trong thẻ <a>
+        const assignEventListeners = () => {
+            const images = document.querySelectorAll('a img');
+            images.forEach(img => {
+                if(img.closest('a')) {
+                    img.addEventListener('click', handleLinkClick);
+                }
+            });
+        };
+
+        assignEventListeners();
+
+        // Dọn dẹp sự kiện khi component unmount
+        return () => {
+            const images = document.querySelectorAll('a img');
+            images.forEach(img => {
+                img.removeEventListener('click', handleLinkClick);
+                const link = img.closest('a');
+                if (link) {
+                    link.removeEventListener('click', handleLinkClick);
+                }
+            });
+        };
+    }, [navigate]);
+
+    const handleLinkHref = (href) => {
+        // Chuyển hướng đến DetailArticle với link làm tham số
+        navigate(`/detail-article?link=${encodeURIComponent(href)}`);
+    };
     return (
-        <Router>
             <div>
                 <Header />
                 <Suspense fallback={<div>Loading...</div>}>
@@ -48,7 +91,6 @@ function App() {
                 </Suspense>
                 <Footer />
             </div>
-        </Router>
     );
 }
 

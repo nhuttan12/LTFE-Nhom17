@@ -22,13 +22,17 @@ import ThoisuPage from "./Containers/ThoisuPage";
 import MultiSide from "./Components/Multimedia/MultiSide";
 import NewsDetail from "./Containers/NewsDetail";
 import TestApp from "./Containers/test component";
+import {BrowserRouter} from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-      <App/>
-     {/*<NewsDetail/>*/}
+      <BrowserRouter>
+          <App/>
+      </BrowserRouter>
+
+      {/*<NewsDetail/>*/}
      {/* <TestApp/> */}
   </React.StrictMode>
 );
