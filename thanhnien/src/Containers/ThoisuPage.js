@@ -8,12 +8,30 @@ import ListTongHop from "../Components/tintonghop/ListTongHop";
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import shuffle from "./shuffle";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
+
+const serverLink = "http://localhost:4000/";
+
 const ThoisuPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const thoisuSignal = {signal: "datafetch", datapage:"thoi-su"};
-    const data_thoisu = DataFetch(serverLink,thoisuSignal).data;
+    
+    const [data_thoisu, setData_thoisu] = useState([]);
     const randomThoisu = shuffle(data_thoisu);
     const [tonghopstart, setTonghopstart] = useState(80); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const thoisuSignal = {signal: "datafetch", datapage:"thoi-su"};
+                const thoisudata = await DataFetch(serverLink,thoisuSignal);
+                setData_thoisu(thoisudata);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData(); 
+    },[])
+
+
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

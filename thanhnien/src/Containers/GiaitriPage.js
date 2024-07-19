@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
@@ -6,11 +6,26 @@ import MultiSide from "../Components/Multimedia/MultiSide";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const GiaitriPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const giaitriSignal = {signal: "datafetch", datapage:"giai-tri"};
-    const data_giaitri = DataFetch(serverLink,giaitriSignal).data;
+
+    const [data_giaitri, setData_giaitri] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(66); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const giaitriSignal = {signal: "datafetch", datapage:"giai-tri"};
+            const giaitridata = await DataFetch(serverLink,giaitriSignal);
+            setData_giaitri(giaitridata);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData();     
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

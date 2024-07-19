@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
@@ -7,11 +7,27 @@ import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 import SportCategory from "../Components/SportCategory/SportCategory";
 
+const serverLink = "http://localhost:4000/";
+
 const ThethaoPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const thethaoSignal = {signal: "datafetch", datapage:"the-thao"};
-    const data_thethao = DataFetch(serverLink,thethaoSignal).data;
+
+    const [data_thethao, setData_thethao] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(70); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const thethaoSignal = {signal: "datafetch", datapage:"the-thao"};
+                const thethaodata = await DataFetch(serverLink,thethaoSignal);
+                setData_thethao(thethaodata);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();    
+    },[])
+
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

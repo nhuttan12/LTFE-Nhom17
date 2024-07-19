@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
@@ -6,11 +6,28 @@ import ListTongHop from "../Components/tintonghop/ListTongHop";
 import shuffle from "./shuffle";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const VanhoaPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const vanhoaSignal = {signal: "datafetch", datapage:"van-hoa"};
-    const data_vanhoa = DataFetch(serverLink,vanhoaSignal).data;
+    
+    const [data_vanhoa, setData_vanhoa] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(70); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const vanhoaSignal = {signal: "datafetch", datapage:"van-hoa"};
+                const vanhoadata = await DataFetch(serverLink,vanhoaSignal);
+                setData_vanhoa(vanhoadata);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();    
+    },[])
+
+
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
