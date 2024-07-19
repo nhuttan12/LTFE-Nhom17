@@ -20,6 +20,7 @@ import HomePage from "./Containers/HomePage";
 import ListNineTitle from "./Components/carosel/ListNineTitle";
 import ThoisuPage from "./Containers/ThoisuPage";
 import MultiSide from "./Components/Multimedia/MultiSide";
+import NewsDetail from "./Containers/NewsDetail";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -69,7 +70,7 @@ root.render(
     {/* <DanhSachBaiBao/> */}
     {/* <ComponentRight/> */}
     {/* <List24h/> */}
-     <App/>
+     {/* <App/> */}
     {/*  <ThoisuPage/>*/}
     {/* <Category/>*/}
     {/* <Carousel title="Xung đột Ukaraina" />*/}
@@ -78,6 +79,7 @@ root.render(
     {/* <TechnologyCategory /> */}
     {/* <ListNewsTop dataNewsTop={homeData} /> */}
     {/* <Footer/> */}
+    <NewsDetail/>
   </React.StrictMode>
 );
 
