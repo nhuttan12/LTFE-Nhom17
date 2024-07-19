@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Header from "../Components/Common/Header";
 import MainNews from "../Components/MainNews/MainNews";
 import Multimedia from "../Components/Multimedia/Multimedia";
 import DanhSachBaiBao from "../Components/baibao/DanhSachBaiBao";
-import axios from "axios";
 import BaiBaoSingle from "../Components/baibao/BaiBaoSingle";
-import Footer from "../Components/Common/Footer";
 import '../Components/baibao/cssBaiBao.css';
 import '../Containers/Page.css'
 import ListTinNhanh360 from "../Components/tinnhanh360/ListTinNhanh360";
@@ -18,12 +15,10 @@ import KhungSuggest from "../Components/baibao/KhungSuggest";
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import Item1 from "../Components/baibao/Item1";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
-import MultiSide from "../Components/Multimedia/MultiSide";
 
 const serverLink = "http://localhost:4000/";
 
 const HomePage = () => {
-    
 
     // Các biến chứa data khi fetch về
     const [data_tin, setData_tin] = useState([]); // trang chủ

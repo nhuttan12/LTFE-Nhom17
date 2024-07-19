@@ -24,8 +24,6 @@ const MainNews = () => {
   
   // Các biến chứa dữ liệu khi fetch
   const [data_tin, setData_tin] = useState([]);
-  const [data_ngaymoi,setData_ngaymoi] = useState([]);
-  const [data_phongvien,setData_phongvien] = useState([]);
   const [ngaymoiFirstData, setNgaymoiFirstData] = useState(null);
   const [phongvienFirstData, setPhongvienFirstData] = useState(null);
   
@@ -44,19 +42,17 @@ const MainNews = () => {
         const phongvienData = await DataFetch(serverLink,blogphongvienSignal);
         // Gán data
         setData_tin(homeData);
-        setData_ngaymoi(ngaymoiData);
-        setData_phongvien(phongvienData);
 
         if (ngaymoiData.length > 0) {
           const detailRes1 = await GetDetailArticle(serverLink,ngaymoiData[0].item.guid);
           setNgaymoiFirstData(detailRes1);
-          console.log('Đây nè', detailRes1);
+          console.log(detailRes1);
         }
 
         if (phongvienData.length > 0) {
           const detailRes2 = await GetDetailArticle(serverLink,phongvienData[0].item.guid);
           setPhongvienFirstData(detailRes2);
-          console.log('Lmao',detailRes2);
+          console.log(detailRes2);
         }
       } catch (err) {
         console.log(err);
@@ -76,7 +72,7 @@ const MainNews = () => {
   };
 
   // Data tin mới nhất (Xử lí bằng cách random dữ liệu)
-  const latest_news = [...data_tin].sort(() => 0.5 - Math.random());
+  const latest_news = data_tin.slice(0,10);
 
   return (
     <div className="section-home">
