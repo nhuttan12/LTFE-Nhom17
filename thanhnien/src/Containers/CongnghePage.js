@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import SportCategory from "../Components/SportCategory/SportCategory";
@@ -6,11 +6,26 @@ import MultiSide from "../Components/Multimedia/MultiSide";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const CongnghePage = () => {
-    const serverLink = "http://localhost:4000/";
-    const congngheSignal = {signal: "datafetch", datapage:"cong-nghe"};
-    const data_congnghe = DataFetch(serverLink,congngheSignal).data;
+    
+    const [data_congnghe, setData_cong_nghe] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(65); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const congngheSignal = {signal: "datafetch", datapage:"cong-nghe"};
+            const congngheData = await DataFetch(serverLink,congngheSignal);
+            setData_cong_nghe(congngheData);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData();
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

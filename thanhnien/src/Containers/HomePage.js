@@ -21,42 +21,87 @@ import Item1 from "../Components/baibao/Item1";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 import MultiSide from "../Components/Multimedia/MultiSide";
 
+const serverLink = "http://localhost:4000/";
+
 const HomePage = () => {
-    const homeSignal = {signal: "datafetch", datapage:"home"};
-    const serverLink = "http://localhost:4000/";
-    const data_tin = DataFetch(serverLink,homeSignal).data;
+    
+
+    // Các biến chứa data khi fetch về
+    const [data_tin, setData_tin] = useState([]); // trang chủ
+    const [data_thoisu, setData_thoisu] = useState([]); // thời sự
+    const [data_thegioi, setData_thegioi] = useState([]); // thế giới
+    const [data_giao_duc, setData_giao_duc] = useState([]); // giáo dục
+    const [data_van_hoa, setData_van_hoa] = useState([]); // văn hóa
+    const [data_giai_tri, setData_giai_tri] = useState([]); // giải trí
+    const [data_ban_doc, setData_ban_doc] = useState([]); // bạn đọc
+    const [data_gioi_tre, setData_gioi_tre] = useState([]); // giới trẻ
+    const [data_doi_song, setData_doi_song] = useState([]); // đời sống
+    const [data_kinh_te, setData_kinh_te] = useState([]); // kinh tế
+    const [data_cong_nghe, setData_cong_nghe] = useState([]); // công nghệ
+    const [data_suc_khoe, setData_suc_khoe] = useState([]); // sức khỏe
+    const [data_du_lich, setData_du_lich] = useState([]); // du lịch
+    const [data_xe, setData_xe] = useState([]); // xe
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const homeSignal = {signal: "datafetch", datapage:"home"};
+                const thoisuSignal = {signal: "datafetch", datapage:"thoi-su"};
+                const thegioiSignal = {signal: "datafetch", datapage:"the-gioi"};
+                const giaoDucSignal = { signal: "datafetch", datapage: "giao-duc" };
+                const vanHoaSignal = { signal: "datafetch", datapage: "van-hoa" };
+                const giaiTriSignal = { signal: "datafetch", datapage: "giai-tri" };
+                const banDocSignal = { signal: "datafetch", datapage: "ban-doc" };
+                const gioiTreSignal = { signal: "datafetch", datapage: "gioi-tre" };
+                const doiSongSignal = { signal: "datafetch", datapage: "doi-song" };
+                const kinhTeSignal = { signal: "datafetch", datapage: "kinh-te" };
+                const congNgheSignal = { signal: "datafetch", datapage: "cong-nghe" };
+                const sucKhoeSignal = { signal: "datafetch", datapage: "suc-khoe" };
+                const duLichSignal = { signal: "datafetch", datapage: "du-lich" };
+                const xeSignal = { signal: "datafetch", datapage: "xe" };
+
+                const dataTin = await DataFetch(serverLink,homeSignal);
+                const dataThoisu = await DataFetch(serverLink,thoisuSignal) ;
+                const dataThegioi = await DataFetch(serverLink,thegioiSignal);
+                const dataGiaoduc = await DataFetch(serverLink, giaoDucSignal);
+                const dataVanhoa = await DataFetch(serverLink, vanHoaSignal);
+                const dataGiaitri = await DataFetch(serverLink, giaiTriSignal);
+                const dataBandoc = await DataFetch(serverLink, banDocSignal);
+                const dataGioitre = await DataFetch(serverLink, gioiTreSignal);
+                const dataDoisong = await DataFetch(serverLink, doiSongSignal);
+                const dataKinhte = await DataFetch(serverLink, kinhTeSignal);
+                const dataCongnghe = await DataFetch(serverLink, congNgheSignal);
+                const dataSuckhoe = await DataFetch(serverLink, sucKhoeSignal);
+                const dataDulich = await DataFetch(serverLink, duLichSignal);
+                const dataXe = await DataFetch(serverLink, xeSignal);
+
+                setData_tin(dataTin);
+                setData_thoisu(dataThoisu);
+                setData_thegioi(dataThegioi);
+                setData_giao_duc(dataGiaoduc);
+                setData_van_hoa(dataVanhoa);
+                setData_giai_tri(dataGiaitri);
+                setData_ban_doc(dataBandoc);
+                setData_gioi_tre(dataGioitre);
+                setData_doi_song(dataDoisong);
+                setData_kinh_te(dataKinhte);
+                setData_cong_nghe(dataCongnghe);
+                setData_suc_khoe(dataSuckhoe);
+                setData_du_lich(dataDulich);
+                setData_xe(dataXe);
+            }catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    },[])
+
+    //
+
+    const randomThoisu = shuffle(data_thoisu);
     const randomHome = [...data_tin].sort(() => 0.5 - Math.random());
 
-    const thoisuSignal = {signal: "datafetch", datapage:"thoi-su"};
-    const data_thoisu = DataFetch(serverLink,thoisuSignal).data;
-    const randomThoisu = shuffle(data_thoisu);
-
-    const thegioiSignal = {signal: "datafetch", datapage:"the-gioi"};
-    const giaoDucSignal = { signal: "datafetch", datapage: "giao-duc" };
-    const vanHoaSignal = { signal: "datafetch", datapage: "van-hoa" };
-    const giaiTriSignal = { signal: "datafetch", datapage: "giai-tri" };
-    const banDocSignal = { signal: "datafetch", datapage: "ban-doc" };
-    const gioiTreSignal = { signal: "datafetch", datapage: "gioi-tre" };
-    const doiSongSignal = { signal: "datafetch", datapage: "doi-song" };
-    const kinhTeSignal = { signal: "datafetch", datapage: "kinh-te" };
-    const congNgheSignal = { signal: "datafetch", datapage: "cong-nghe" };
-    const sucKhoeSignal = { signal: "datafetch", datapage: "suc-khoe" };
-    const duLichSignal = { signal: "datafetch", datapage: "du-lich" };
-    const xeSignal = { signal: "datafetch", datapage: "xe" };
-
-    const data_thegioi = DataFetch(serverLink,thegioiSignal).data;
-    const data_giao_duc = DataFetch(serverLink, giaoDucSignal).data;
-    const data_van_hoa = DataFetch(serverLink, vanHoaSignal).data;
-    const data_giai_tri = DataFetch(serverLink, giaiTriSignal).data;
-    const data_ban_doc = DataFetch(serverLink, banDocSignal).data;
-    const data_gioi_tre = DataFetch(serverLink, gioiTreSignal).data;
-    const data_doi_song = DataFetch(serverLink, doiSongSignal).data;
-    const data_kinh_te = DataFetch(serverLink, kinhTeSignal).data;
-    const data_cong_nghe = DataFetch(serverLink, congNgheSignal).data;
-    const data_suc_khoe = DataFetch(serverLink, sucKhoeSignal).data;
-    const data_du_lich = DataFetch(serverLink, duLichSignal).data;
-    const data_xe = DataFetch(serverLink, xeSignal).data;
-
+    //
     const [tonghopstart, setTonghopstart] = useState(40); // Khởi tạo state
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);

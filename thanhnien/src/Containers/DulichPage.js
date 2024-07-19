@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
@@ -6,11 +6,26 @@ import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ListNewsTop from "../Components/dulich/ListNewsTop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const DulichPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const dulichSignal = {signal: "datafetch", datapage:"du-lich"};
-    const data_dulich = DataFetch(serverLink,dulichSignal).data;
+
+    const [data_dulich, setData_dulich] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(68); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const dulichSignal = {signal: "datafetch", datapage:"du-lich"};
+            const dulichData = await DataFetch(serverLink,dulichSignal);
+            setData_dulich(dulichData);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData();     
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

@@ -1,15 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const XePage = () => {
-    const serverLink = "http://localhost:4000/";
-    const xeSignal = {signal: "datafetch", datapage:"xe"};
-    const data_xe = DataFetch(serverLink,xeSignal).data;
+    
+    const [data_xe, setData_xe] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(74); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const xeSignal = {signal: "datafetch", datapage:"xe"};
+                const xedata = await DataFetch(serverLink,xeSignal);
+                setData_xe(xedata);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();   
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

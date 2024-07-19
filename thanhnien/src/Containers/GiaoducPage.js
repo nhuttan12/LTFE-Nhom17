@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import Category from "../Components/Category/Category";
@@ -6,11 +6,26 @@ import ListTongHop from "../Components/tintonghop/ListTongHop";
 import MultiSide from "../Components/Multimedia/MultiSide";
 import ComponentRight from "../Components/tingioitrevadoisong/ComponentRight";
 
+const serverLink = "http://localhost:4000/";
+
 const GiaoducPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const giaoducSignal = {signal: "datafetch", datapage:"giao-duc"};
-    const data_giaoduc = DataFetch(serverLink,giaoducSignal).data;
+
+    const [data_giaoduc, setData_giaoduc] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(90); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+          try{
+            const giaoducSignal = {signal: "datafetch", datapage:"giao-duc"};
+            const giaoducdata = await DataFetch(serverLink,giaoducSignal);
+            setData_giaoduc(giaoducdata);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchData();  
+      },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

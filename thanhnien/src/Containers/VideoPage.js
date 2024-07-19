@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import ListNewsTop from "../Components/dulich/ListNewsTop";
@@ -9,11 +9,26 @@ import DanhSachBaiBao from "../Components/baibao/DanhSachBaiBao";
 import TopNew from "../Components/dulich/TopNew";
 import ItemThiTruong from "../Components/tinthitruong/ItemThiTruong";
 
+const serverLink = "http://localhost:4000/";
+
 const VideoPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const videoSignal = {signal: "datafetch", datapage:"du-lich"};
-    const data_video = DataFetch(serverLink,videoSignal).data;
+    
+    const [data_video, setData_video] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(68); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const videoSignal = {signal: "datafetch", datapage:"du-lich"};
+                const videodata = await DataFetch(serverLink,videoSignal);
+                setData_video(videodata);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();   
+    },[])
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };

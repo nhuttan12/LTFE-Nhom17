@@ -1,14 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DataFetch from "../Components/fetchRSS/DataFetch";
 import CategoryNavigation from "../Components/Category/CategoryNavagation/CategoryNavigation";
 import ListNewsTop from "../Components/dulich/ListNewsTop";
 import ListTongHop from "../Components/tintonghop/ListTongHop";
 
+const serverLink = "http://localhost:4000/";
+
 const TieudungPage = () => {
-    const serverLink = "http://localhost:4000/";
-    const tieudungSignal = {signal: "datafetch", datapage:"tieu-dung-thong-minh"};
-    const data_tieudung = DataFetch(serverLink,tieudungSignal).data;
+
+    const [data_tieudung, setData_tieudung] = useState([]);
     const [tonghopstart, setTonghopstart] = useState(24); // Khởi tạo state
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try{
+                const tieudungSignal = {signal: "datafetch", datapage:"tieu-dung-thong-minh"};
+                const tieudungdata = await DataFetch(serverLink,tieudungSignal);
+                setData_tieudung(tieudungdata);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();    
+    },[])
+
+
+
     const moreClick = () => {
         setTonghopstart(prevTonghopstart => prevTonghopstart + 10);
     };
