@@ -33,7 +33,9 @@ const ListTinNhanh360 = () => {
         </div>
         <div className="tinnhanh360List">
           {data_tinnhanh360.slice(0,6).map((tinnhanh, index) => (
-            <ItemTinNhanh360 key={index} stuff={tinnhanh.item} />
+            <ItemTinNhanh360 key={index} stuff={tinnhanh.item}
+                             spec={index % 2 !== 0 ? "yes" : undefined}
+                             mar={index === 3 || index === 5 ? "yes" : undefined}/>
           ))}
         </div>
       </div>

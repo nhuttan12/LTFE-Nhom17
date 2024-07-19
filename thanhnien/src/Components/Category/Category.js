@@ -29,22 +29,22 @@ const Category = ({ main_news }) => {
                   <div className="category-right">
                     <div className="top-post">
                       <div className="image">
-                        <a href={main_news[0].item.link}><img
+                        <a href={main_news[1].item.link}><img
                             src={main_news[1].item.content.match(/<img src="([^"]*)"/)[1]}
                             alt={parse(main_news[1].item.title)}/></a>
                       </div>
                       <div className="title">
-                        <a href={main_news[0].item.link}><h5>{parse(main_news[1].item.title)}</h5></a>
+                        <a href={main_news[1].item.link}><h5>{parse(main_news[1].item.title)}</h5></a>
                       </div>
                     </div>
                     <div className="middle-post">
                       <div className="image">
-                        <a href={main_news[0].item.link}><img
+                        <a href={main_news[2].item.link}><img
                             src={main_news[2].item.content.match(/<img src="([^"]*)"/)[1]}
                             alt={parse(main_news[2].item.title)}/></a>
                       </div>
                       <div className="title">
-                        <a href={main_news[0].item.link}><h5>{parse(main_news[2].item.title)}</h5></a>
+                        <a href={main_news[2].item.link}><h5>{parse(main_news[2].item.title)}</h5></a>
                       </div>
                     </div>
                   </div>
@@ -53,20 +53,20 @@ const Category = ({ main_news }) => {
               <div className="category-middle">
                 <div className="left-post">
                   <div className="image">
-                    <a href={main_news[0].item.link}><img src={main_news[3].item.content.match(/<img src="([^"]*)"/)[1]}
+                    <a href={main_news[3].item.link}><img src={main_news[3].item.content.match(/<img src="([^"]*)"/)[1]}
                                                           alt={parse(main_news[3].item.title)}/></a>
                   </div>
                   <div className="title">
-                    <a href={main_news[0].item.link}><h5>{parse(main_news[3].item.title)}</h5></a>
+                    <a href={main_news[3].item.link}><h5>{parse(main_news[3].item.title)}</h5></a>
                   </div>
                 </div>
                 <div className="right-post">
                   <div className="image">
-                    <a href={main_news[0].item.link}><img src={main_news[4].item.content.match(/<img src="([^"]*)"/)[1]}
+                    <a href={main_news[4].item.link}><img src={main_news[4].item.content.match(/<img src="([^"]*)"/)[1]}
                                                           alt={parse(main_news[4].item.title)}/></a>
                   </div>
                   <div className="title">
-                    <a href={main_news[0].item.link}><h5>{parse(main_news[4].item.title)}</h5></a>
+                    <a href={main_news[4].item.link}><h5>{parse(main_news[4].item.title)}</h5></a>
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ const Category = ({ main_news }) => {
           </div>
           <div className="category-right">
             {/* tạm thời comment lại để sửa css, nếu sửa xong file chính thì  */}
-            {/* <ListGioiTreVaDoiSong/> */}
+            {/* <ComponentRight/> */}
           </div>
         </div>
       </div>

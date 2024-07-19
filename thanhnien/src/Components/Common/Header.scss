@@ -128,7 +128,9 @@ body {
             margin: auto;
             width: 1150px;
             border-bottom: 2px solid #00a5e0;
-            padding-right: 50px;
+            font-family: Arial,sans-serif;
+            font-weight: 600;
+            padding-bottom: 10px;
             .menu-nav {
               display: flex;
               justify-content: space-between;
@@ -138,8 +140,8 @@ body {
               ul {
                 li {
                   a {
+                    color: #012f3f!important;
                     text-decoration: none;
-                    color: black;
                     font-weight: 600;
                     font-size: 0.95rem;
                   }
@@ -147,6 +149,9 @@ body {
                     color: #00a5e0;
                   }
                 }
+              }
+              a{
+                color: #012f3f;
               }
               .nav-link.active {
                 color: #00a5e0;

@@ -14,7 +14,7 @@ const useShuffle = (data_tin) => {
             const storedShuffleTime = localStorage.getItem('lastShuffleTime');
             const currentTime = Date.now();
 
-            if (!storedShuffleTime || currentTime - storedShuffleTime >= 30000) { // 30 seconds
+            if (!storedShuffleTime || currentTime - storedShuffleTime >= 60000) { // 30 seconds
                 const newRandomArticles = getRandomElements(data_tin, data_tin.length);
                 console.log('New random articles:', newRandomArticles);
                 setRandomArticles(newRandomArticles);

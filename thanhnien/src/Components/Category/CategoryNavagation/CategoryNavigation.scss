@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .category-nav-bar{
-    padding-top: 3rem;
+    padding-top: 15px;
     width: 1150px;
     margin: auto;
     .category-nav-container{
@@ -16,9 +16,8 @@
             }
         }
         .category-nav-flex{
-            padding-top: .6rem;
+            padding-top: 15px;
             height: 2.5rem;
-            border-bottom: 1.5px solid #ebebeb;
             ul{
                 padding-left: 0px;
                 list-style: none;

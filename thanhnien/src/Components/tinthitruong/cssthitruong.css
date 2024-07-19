@@ -5,7 +5,6 @@
 /* ItemThiTruong.css */
 .news-item {
     width: 23%;
-    margin: 1%;
     padding: 5px;
     font-family: Merriweather;
 }
@@ -56,7 +55,7 @@
 .news-grid {
     display: flex;
     flex-wrap: wrap; /* Cho phép các item xuống dòng mới khi cần */
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .news-grid > * { /* Áp dụng cho tất cả các phần tử con trực tiếp của .news-grid */
