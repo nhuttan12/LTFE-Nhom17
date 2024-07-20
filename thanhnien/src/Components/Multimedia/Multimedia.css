@@ -58,7 +58,8 @@
 }
 .multimedia .multimedia-container .multimedia-content .main-multimedia .main-post .img a img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .multimedia .multimedia-container .multimedia-content .main-multimedia .main-post .title {
   margin-bottom: 20px;
@@ -85,7 +86,8 @@
   width: 55%;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  column-gap: 2rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
 }
 .multimedia .multimedia-container .multimedia-content .sub-multimedia .sub-post .img a img {
   width: 100%;
@@ -194,6 +196,4 @@
 
 .sub-news.sub {
   margin-left: 0px;
-}
-
-/*# sourceMappingURL=Multimedia.css.map */
+}/*# sourceMappingURL=Multimedia.css.map */

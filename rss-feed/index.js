@@ -35,6 +35,7 @@ app.post('/', async (req,res) =>{
             // console.log(articles);
         } catch (error) {
             res.status(500).send("Error parsing feed");
+            console.log(error)
         }
     }else if(check==="detailarticle") {
         try {
@@ -43,8 +44,7 @@ app.post('/', async (req,res) =>{
             res.send(detailArticle);
         } catch (error) {
             res.status(500).send("Error data article false");
-        }
-        
+        }    
     }
 })
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import CategoryNavigation from "./CategoryNavagation/CategoryNavigation";
 import './Category.css';
 import parse from "html-react-parser";
 

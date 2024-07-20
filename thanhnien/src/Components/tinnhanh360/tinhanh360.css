@@ -45,7 +45,8 @@
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-img a img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .tinnhanh360 .tinnhanh360-container .tinnhanh360List .tinnhanh360-item .tinnhanh360-url {
   text-align: center;
@@ -60,7 +61,8 @@
 }
 .tinnhanh360-item.spec img {
   height: 255px !important;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .tinnhanh360-item.spec .tinnhanh360-url {
   margin-top: 140px;
@@ -68,6 +70,4 @@
 
 .tinnhanh360-item.spec.mar {
   margin-top: -133px;
-}
-
-/*# sourceMappingURL=tinhanh360.css.map */
+}/*# sourceMappingURL=tinhanh360.css.map */

@@ -1,10 +1,13 @@
+
 import React, {Suspense, useLayoutEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
+
 import Header from './Components/Common/Header';
 import Footer from './Components/Common/Footer';
 import ThethaoPage from "./Containers/ThethaoPage";
 import CongnghePage from "./Containers/CongnghePage";
 import VideoPage from "./Containers/VideoPage";
+import NewsDetail from './Components/NewsDetails/NewsDetail';
 
 // Use React.lazy to lazy load the components
 const HomePage = React.lazy(() => import('./Containers/HomePage'));
@@ -87,6 +90,7 @@ function App() {
                         <Route path="/xe" element={<XePage />} />
                         <Route path="/video" element={<VideoPage />} />
                         <Route path="/tieu-dung" element={<TieudungPage />} />
+                        <Route path="/detail-article" element={<NewsDetail/>} />
                     </Routes>
                 </Suspense>
                 <Footer />
