@@ -68,7 +68,7 @@ function App() {
         // Chuyển hướng đến DetailArticle với link làm tham số
         navigate(`/detail-article?link=${encodeURIComponent(href)}`);
     };
-
+  
     return (
             <div>
                 <Header />

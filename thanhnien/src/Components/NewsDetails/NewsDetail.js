@@ -5,7 +5,6 @@ import ReactPlayer from "react-player";
 import { useLocation } from 'react-router-dom';
 import GetDetailArticle from "../fetchRSS/GetDetailArticle";
 import "./NewsDetail.css";
-
 const serverLink = "http://localhost:4000/";
 
 function NewsDetail() {
@@ -13,9 +12,8 @@ function NewsDetail() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const link = params.get('link');
-
-
   const [detailArticleData, setDetailArticleData] = useState(null);
+
   const [videoProps, setVideoProps] = useState(null);
   const [imageProps, setImageProps] = useState(null);
 
@@ -24,7 +22,6 @@ function NewsDetail() {
       try {
         const articleData = await GetDetailArticle(serverLink, link);
         setDetailArticleData(articleData);
-
         // Extract video properties from test_data.content
         const parser = new DOMParser();
         const doc = parser.parseFromString(articleData, "text/html");
