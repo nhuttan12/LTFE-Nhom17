@@ -2,31 +2,29 @@ import parse from "html-react-parser";
 import React, { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import ReactPlayer from "react-player";
-import DataFetch from "../fetchRSS/DataFetch";
+import { useLocation } from 'react-router-dom';
+import GetDetailArticle from "../fetchRSS/GetDetailArticle";
 import "./NewsDetail.css";
-
 const serverLink = "http://localhost:4000/";
 
 function NewsDetail() {
-  const [test_data, setTest_data] = useState(null);
+
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const link = params.get('link');
+  const [detailArticleData, setDetailArticleData] = useState(null);
+
   const [videoProps, setVideoProps] = useState(null);
   const [imageProps, setImageProps] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ngaymoidadenSignal = {
-          signal: "detailarticle",
-          articlepage:
-            "https://thanhnien.vn/dam-vinh-hung-bi-cam-dien-9-thang-185240716132440871.htm",
-            // "https://thanhnien.vn/tphcm-se-thu-ve-khoang-120000-ti-dong-tu-ban-quy-dat-metro-va-vanh-dai-3-185240719153204625.htm",
-        };
-        const testData = await DataFetch(serverLink, ngaymoidadenSignal);
-        setTest_data(testData);
-
+        const articleData = await GetDetailArticle(serverLink, link);
+        setDetailArticleData(articleData);
         // Extract video properties from test_data.content
         const parser = new DOMParser();
-        const doc = parser.parseFromString(testData.content, "text/html");
+        const doc = parser.parseFromString(articleData, "text/html");
         const videoDiv = doc.querySelector("div.VCSortableInPreviewMode");
 
         if (videoDiv) {
@@ -47,16 +45,6 @@ function NewsDetail() {
               dataOriginalId: videoDiv.getAttribute("data-originalid"),
               videoId: videoDiv.getAttribute("videoid"),
             });
-          // }
-            // const photoDiv = doc.querySelector("div.VCSortableInPreviewMode");
-            // setImageProps({
-            //   type: videoDiv.getAttribute("type"),
-            //   src: photoDiv.getAttribute("src"),
-            //   width: photoDiv.getAttribute("w"),
-            //   height: photoDiv.getAttribute("h"),
-            //   alt: photoDiv.getAttribute("alt"),
-            //   title: photoDiv.getAttribute("title"),
-            // });
         }
       } catch (err) {
         console.log(err);
@@ -65,7 +53,6 @@ function NewsDetail() {
 
     fetchData();
   }, []);
-  console.log(test_data);
 
   // Lấy src của bức ảnh trong content
   const extractAnchorTag = (htmlString) => {
@@ -88,12 +75,12 @@ function NewsDetail() {
         <div className="component-flex">
           <div className="category">
             <div className="category-name">
-              {test_data ? parse(test_data.category) : "Loading..."}
+              {detailArticleData ? parse(detailArticleData.category) : "Loading..."}
             </div>
           </div>
           <div className="title">
             <div className="title">
-              {test_data ? parse(test_data.title) : "Loading..."}
+              {detailArticleData ? parse(detailArticleData.title) : "Loading..."}
             </div>
           </div>
           <div className="content">
@@ -103,16 +90,16 @@ function NewsDetail() {
                   <FaUserCircle size={35} />
                 </div>
                 <div className="author-name">
-                  {test_data ? parse(test_data.author) : "Loading..."}
+                  {detailArticleData ? parse(detailArticleData.author) : "Loading..."}
                 </div>
               </div>
               <div className="date">
-                {test_data ? parse(test_data.date) : "Loading..."}
+                {detailArticleData ? parse(detailArticleData.date) : "Loading..."}
               </div>
             </div>
             <div className="middle-content">
-              {test_data ? parse(test_data.content) : "Loading..."}
-              {test_data && videoProps && videoProps.type === "VideoStream" && (
+              {detailArticleData ? parse(detailArticleData.content) : "Loading..."}
+              {detailArticleData && videoProps && videoProps.type === "VideoStream" && (
                 <ReactPlayer
                   url={addProtocol(videoProps.dataVid)}
                   playing={true}
