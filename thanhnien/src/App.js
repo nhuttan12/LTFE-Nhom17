@@ -5,7 +5,7 @@ import Footer from './Components/Common/Footer';
 import ThethaoPage from "./Containers/ThethaoPage";
 import CongnghePage from "./Containers/CongnghePage";
 import VideoPage from "./Containers/VideoPage";
-import NewsDetail from './Containers/NewsDetail';
+import NewsDetail from './Components/NewsDetails/NewsDetail';
 
 // Use React.lazy to lazy load the components
 const HomePage = React.lazy(() => import('./Containers/HomePage'));
@@ -68,8 +68,6 @@ function App() {
         // Chuyển hướng đến DetailArticle với link làm tham số
         navigate(`/detail-article?link=${encodeURIComponent(href)}`);
     };
-
-
 
     return (
             <div>
